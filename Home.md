@@ -4,6 +4,7 @@ Concepts
 * [[Isolating File Operations using the TestDrive|TestDrive]]
 * [[Comparing Objects with Should|Should]]
 * [[Mocking Commands with Pester|Mocking with Pester]]
+* [[Showing Test Results in TeamCity]]
 
 Command Reference
 ------------------
