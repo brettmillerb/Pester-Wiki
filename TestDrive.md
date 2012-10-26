@@ -1,6 +1,6 @@
 TestDrive is a PSDrive for file activity limited to the scope of a singe Describe or Context block.
 
-A test may need to work with file operations and validate certain tyes of file activities. It is usually desirable not to perform file activity tests that will produce side effects outside of an individual test. Pester creates a PSDrive inside the user's temporary drive that is accesible via a names PSDrive TestDrive:. Pester will remove this drive afterthe test completes. You may use this drive to isolate the file operations of your test to a temporary store.
+A test may need to work with file operations and validate certain types of file activities. It is usually desirable not to perform file activity tests that will produce side effects outside of an individual test. Pester creates a PSDrive inside the user's temporary drive that is accessible via a names PSDrive TestDrive:. Pester will remove this drive after the test completes. You may use this drive to isolate the file operations of your test to a temporary store.
 
 EXAMPLE
 --------
