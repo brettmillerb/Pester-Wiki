@@ -12,6 +12,14 @@ Compares one object with another for equality and throws if the two objects are 
     C:\PS>$actual.Should.Be("actual value") #Nothing happens
     C:\PS>$actual.Should.Be("not actual value") #A Pester Failure is thrown
 
+###Not_Be
+Compares one object with another for equality and throws if the two objects are the same.
+
+    C:\PS>$actual="actual value"
+    C:\PS>$actual.Should.Not_Be("an expected value") #Nothing happens
+    C:\PS>$actual.Should.Not_Be("actual value") #A Pester Failure is thrown
+
+
 ###Have_Count_Of
 Intended for comparing IEnumerables for the number of elements. However, if both objects being compared do not implement IEnumerable then the comparison will pass since both objects will be treated as though they 		have a count of 1. As of Powershell version 3, a $null object compared to a non null object will fail. They will pass in version 2.0.
 
