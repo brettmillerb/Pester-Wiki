@@ -59,7 +59,7 @@ USING SHOULD IN A TEST
 	        $sum.should.be(3)
 	    }
             
-          It "ensures that that 2 + 2 does not equal 5" {
+        It "ensures that that 2 + 2 does not equal 5" {
 	        $sum = Add-Numbers 2 2
 	        $sum.should.not_be(5)
 	    }
