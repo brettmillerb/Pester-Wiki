@@ -10,13 +10,13 @@ EXAMPLE
 	}
 
 	Describe "Add-Footer" {
-		$testPath=TestDrive:\test.txt
+		$testPath="TestDrive:\test.txt"
 		Set-Item $testPath -value "my test text."
-		Add-Footer TestDrive:\test.txt "-Footer"
+		Add-Footer $testPath "-Footer"
 		$result = Get-Content $testPath
 
 	    It "adds a footer" {
-	        $result.Should.Be("my test text.-Footer")
+	        (-join $result).Should.Be("my test text.-Footer")
 	    }
 	}
 
