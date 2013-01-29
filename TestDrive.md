@@ -11,7 +11,7 @@ EXAMPLE
 
 	Describe "Add-Footer" {
 		$testPath="TestDrive:\test.txt"
-		Set-Item $testPath -value "my test text."
+		Set-Content $testPath -value "my test text."
 		Add-Footer $testPath "-Footer"
 		$result = Get-Content $testPath
 
