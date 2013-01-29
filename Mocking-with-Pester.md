@@ -25,6 +25,10 @@ Checks if a Mocked command has been called a certain number of times and throws 
 EXAMPLE
 --------
 
+	function Build ($version) {
+               write-host "a build was run for version: $version"
+	}
+
 	function BuildIfChanged {
 		$thisVersion=Get-Version
 		$nextVersion=Get-NextVersion
@@ -51,7 +55,7 @@ EXAMPLE
 	            $result.Should.Be(1.2)
 	        }
         }
-    	Context "Wnen there are no Changes" {
+    	Context "When there are no Changes" {
     		Mock Get-Version -MockWith {return 1.1}
     		Mock Get-NextVersion -MockWith {return 1.1}
     		Mock Build -MockWith {}
