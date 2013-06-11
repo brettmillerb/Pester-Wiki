@@ -21,3 +21,11 @@ EXAMPLE
 	}
 
 When this test completes, the contents of the TestDrive PSDrive will be removed.
+
+Compare with literal path
+---------
+Use `Convert-Path` cmdlet to compare regular paths with TestDrive paths.
+
+    $actualPathAsLiteral = "C:\Users\username\AppData\Local\Temp\pester\somefile.txt"
+    $expectedPathAsTestDrive = "TestDrive:\somefile.txt"
+    (Convert-Path -LiteralPath $actualPathAsLiteral) | Should Be $expectedPathAsTestDrive
