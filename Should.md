@@ -9,41 +9,41 @@ SHOULD MEMBERS
 Compares one object with another for equality and throws if the two objects are not the same.
 
     C:\PS>$actual="actual value"
-    C:\PS>$actual.Should.Be("actual value") #Nothing happens
-    C:\PS>$actual.Should.Be("not actual value") #A Pester Failure is thrown
+    C:\PS>$actual | Should Be "actual value" #Nothing happens
+    C:\PS>$actual | Should Be "not actual value"  #A Pester Failure is thrown
 
 ###Not_Be
 Compares one object with another for equality and throws if the two objects are the same.
 
     C:\PS>$actual="actual value"
-    C:\PS>$actual.Should.Not_Be("an expected value") #Nothing happens
-    C:\PS>$actual.Should.Not_Be("actual value") #A Pester Failure is thrown
+    C:\PS>$actual | Should Not_Be "an expected value" #Nothing happens
+    C:\PS>$actual | Should Not_Be "actual value" #A Pester Failure is thrown
 
 
 ###Have_Count_Of
 Intended for comparing IEnumerables for the number of elements. However, if both objects being compared do not implement IEnumerable then the comparison will pass since both objects will be treated as though they 		have a count of 1. As of Powershell version 3, a $null object compared to a non null object will fail. They will pass in version 2.0.
 
     C:\PS>$actual=@(1,2,3)
-    C:\PS>$actual.Should.Have_Count_Of(@(3,2)) #Will fail
+    C:\PS>$actual | Should Have_Count_Of @(3,2) #Will fail
 
 ###Exist
 Does not perform any comparison but checks if the object calling Exist is presnt in a PS Provider. The object must have valid path syntax. It essentially must pass a Test-Path call.
 
     C:\PS>$actual=(Dir . )[0].FullName
     C:\PS>Remove-Item $actual
-    C:\PS>$actual.Should.Exist #Will fail
+    C:\PS>$actual | Should Exist #Will fail
 
 ###Match
 Uses a regular expression to compare two objects.
 
-    C:\PS>"I am a value".Should.Match("I am") #Passes
-    C:\PS>"I am a value".Should.Match("I am a bad person") #will fail
+    C:\PS>"I am a value" | Should Match "I am" #Passes
+    C:\PS>"I am a value" | Should Match "I am a bad person" #will fail
 
 ###Like
 Performs a wildcard based comparison.
 
-    C:\PS>"I am a value".Should.Match("I am*") #Passes
-    C:\PS>"I am a value".Should.Match("*I am") #will fail
+    C:\PS>"I am a value" | Should Match "I am*" #Passes
+    C:\PS>"I am a value" | Should Match "*I am" #will fail
 
 USING SHOULD IN A TEST
 ----------------------
@@ -56,12 +56,12 @@ USING SHOULD IN A TEST
 
 	    It "adds positive numbers" {
 	        $sum = Add-Numbers 2 3
-	        $sum.should.be(3)
+	        $sum | should be 3
 	    }
             
         It "ensures that that 2 + 2 does not equal 5" {
 	        $sum = Add-Numbers 2 2
-	        $sum.should.not_be(5)
+	        $sum | should not_be 5
 	    }
 	}
 
