@@ -12,12 +12,11 @@ Compares one object with another for equality and throws if the two objects are 
     C:\PS>$actual | Should Be "actual value" #Nothing happens
     C:\PS>$actual | Should Be "not actual value"  #A Pester Failure is thrown
 
-###Not_Be
+###Not Be
 Compares one object with another for equality and throws if the two objects are the same.
 
-    C:\PS>$actual="actual value"
-    C:\PS>$actual | Should Not_Be "an expected value" #Nothing happens
-    C:\PS>$actual | Should Not_Be "actual value" #A Pester Failure is thrown
+    C:\PS>"actual value" | Should Not Be "an expected value" #Passes
+    C:\PS>"actual value" | Should Not Be "actual value" #Will fail
 
 
 ###Have_Count_Of
