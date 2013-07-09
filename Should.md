@@ -45,6 +45,14 @@ Performs a wildcard based comparison.
     C:\PS>"I am a value" | Should Match "I am*" #Passes
     C:\PS>"I am a value" | Should Match "*I am" #will fail
 
+###Throw
+Checks if an exception was [not] thrown. The object must be a ScriptBlock.
+
+    C:\PS>{ foo } | Should Throw #Passes
+    C:\PS>{ $foo = 1 } | Should Throw #Will fail
+    C:\PS>{ foo } | Should Not Throw #Will fail
+    C:\PS>{ $foo = 1 } | Should Not Throw #Passes
+
 USING SHOULD IN A TEST
 ----------------------
 
