@@ -27,7 +27,7 @@ Intended for comparing IEnumerables for the number of elements. However, if both
     C:\PS>$actual | Should Have_Count_Of @(3,2) #Will fail
 
 ###Exist
-Does not perform any comparison but checks if the object calling Exist is presnt in a PS Provider. The object must have valid path syntax. It essentially must pass a Test-Path call.
+Does not perform any comparison but checks if the object calling Exist is present in a PS Provider. The object must have valid path syntax. It essentially must pass a Test-Path call.
 
     C:\PS>$actual=(Dir . )[0].FullName
     C:\PS>Remove-Item $actual
