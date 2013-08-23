@@ -52,6 +52,11 @@ Checks if an exception was [not] thrown. The object must be a ScriptBlock.
     C:\PS>{ foo } | Should Not Throw #Will fail
     C:\PS>{ $foo = 1 } | Should Not Throw #Passes
 
+### BeNullOrEmpty
+Checks values for null or empty. Compare with C# string.IsNullOrEmpty method.
+
+    C:\PS>"" | Should Not BeNullOrEmpty
+
 USING SHOULD IN A TEST
 ----------------------
 
