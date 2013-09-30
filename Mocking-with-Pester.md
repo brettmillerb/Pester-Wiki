@@ -76,3 +76,5 @@ commands will not be invoked and the real commands will run. The SUT must
 be in the same Script scope as the test. So it must be either dot sourced, 
 in the same file, or in a script file.
 
+**Update:** As a workaround to the limitations described above you can have a look a [[this|Unit Testing within Modules]].
+
