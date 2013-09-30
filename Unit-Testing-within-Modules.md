@@ -62,3 +62,6 @@ Invoke-Expression $code
 
 **Downsides?**
 Yes, there’s one at least and that is you can have trouble debugging since you’re no longer using the “real” module but just the contents of it so to say. I haven’t found a way to debug code that has been put into a script using Invoke-Expression at least.
+
+##Resources
+* http://johanleino.wordpress.com/2013/09/25/pester-how-to-unit-test-your-powershell-modules/
