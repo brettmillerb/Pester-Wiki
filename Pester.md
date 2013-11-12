@@ -42,9 +42,9 @@ a new implemntation function and a test function.
 
 Now you have a skeleton of a clean function with a failing test. Pester 
 considers all files containing *.Tests.* to be a test file (see 
-nvoke-Pester) and by default it will look for these files and run all 
-Describe blocks inside the file (See Describe). The Describe block can 
-contain several behavior validations expressed in It blocks (see It). 
+[Invoke-Pester](https://github.com/pester/Pester/wiki/Invoke-Pester)) and by default it will look for these files and run all 
+Describe blocks inside the file (See [Describe](https://github.com/pester/Pester/wiki/Describe)). The Describe block can 
+contain several behavior validations expressed in It blocks (see [It](https://github.com/pester/Pester/wiki/It)). 
 Each It block should test one thing and throw an exception if the test 
 fails. Pester will consider any It block that throws an exception to be a 
 failed test. Pester provides a set of extensions that can perform various 
@@ -54,7 +54,7 @@ value (see about_Should).
 RUNNING A PESTER TEST
 -----------------------
 Once you have some logic that you are ready to test, use the Invoke-Pester 
-command to run the tests. You can zero in on just one test (Describe block) 
+command to run the tests (See [Invoke-Pester](https://github.com/pester/Pester/wiki/Invoke-Pester). You can zero in on just one test (Describe block) 
 or an entire tree of directories.
 
 	function BuildIfChanged {
