@@ -11,7 +11,8 @@ been called. If you include the Exactly switch, the number of times
 that the command has been called must mach exactly with the number of 
 times specified on this command.
 
-PARAMETERS
+## PARAMETERS
+
 ###CommandName
 The name of the command to check for mock calls.
 
