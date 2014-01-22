@@ -1,8 +1,8 @@
 Checks if a Mocked command has been called a certain number of times 
 and throws an exception if it has not.
 
-DESCRIPTION
-------------
+## DESCRIPTION
+
 This command checks the call history of the specified Command since 
 the Mock was declared. If it had been called less than the number of 
 times specified (1 is the default), then an exception is thrown. You 
@@ -13,19 +13,19 @@ times specified on this command.
 
 ## PARAMETERS
 
-###CommandName
+### CommandName
 The name of the command to check for mock calls.
 
-###Times
+### Times
 The number of times that the mock must be called to avoid an exception 
 from throwing.
 
-#### .PARAMETER Exactly
+#### Exactly
 If this switch is present, the number specified in Times must match 
 exactly the number of times the mock has been called. Otherwise it 
 must match "at least" the number of times specified.
 
-###ParameterFilter
+### ParameterFilter
 An optional filter to qualify which calls should be counted. Only those 
 calls to the mock whose parameters cause this filter to return true 
 will be counted.
