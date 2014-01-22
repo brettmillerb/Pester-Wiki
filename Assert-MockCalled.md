@@ -20,7 +20,7 @@ The name of the command to check for mock calls.
 The number of times that the mock must be called to avoid an exception 
 from throwing.
 
-.PARAMETER Exactly
+#### .PARAMETER Exactly
 If this switch is present, the number specified in Times must match 
 exactly the number of times the mock has been called. Otherwise it 
 must match "at least" the number of times specified.
