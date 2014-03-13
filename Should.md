@@ -77,7 +77,7 @@ USING SHOULD IN A TEST
             
         It "ensures that that 2 + 2 does not equal 5" {
 	        $sum = Add-Numbers 2 2
-	        $sum | should not_be 5
+	        $sum | should not be 5
 	    }
 	}
 
