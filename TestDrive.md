@@ -16,7 +16,7 @@ EXAMPLE
 		$result = Get-Content $testPath
 
 	    It "adds a footer" {
-	        (-join $result).Should.Be("my test text.-Footer")
+	        (-join $result) | Should Be "my test text.-Footer"
 	    }
 	}
 
