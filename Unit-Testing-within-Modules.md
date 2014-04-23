@@ -19,7 +19,7 @@ Export-ModuleMember BuildIfChanged
 The "problem" here is that the only function that's exposed in the public space so to say is the *BuildIfChanged* function. BUT, we need to be able to mock the other functions to be able to write tests like this:
 ````powershell
 Describe "BuildIfChanged" {
-    Context "Wnen there are Changes" {
+    Context "When there are Changes" {
         Mock Get-Version {return 1.1}
         Mock Get-NextVersion {return 1.2}
         Mock Build {} -Verifiable -ParameterFilter {$version -eq 1.2}
