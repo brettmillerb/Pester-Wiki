@@ -70,11 +70,12 @@ EXAMPLE
 
 LIMITATIONS
 ------------
-The SUT (code being tested) that calls the actual commands that you have 
+**Update (6/8/2014):** Pester now supports mocking internal module functions using ```-ModuleName``` parameter for the ```Mock``` function. Detailed documentation will be provided soon. 
+
+~~The SUT (code being tested) that calls the actual commands that you have 
 mocked must not be executing from inside a module. Otherwise, the mocked 
 commands will not be invoked and the real commands will run. The SUT must 
 be in the same Script scope as the test. So it must be either dot sourced, 
-in the same file, or in a script file.
+in the same file, or in a script file.~~
 
-**Update:** As a workaround to the limitations described above you can have a look a [[this|Unit Testing within Modules]].
-
+~~**Update:** As a workaround to the limitations described above you can have a look a [[this|Unit Testing within Modules]].~~
