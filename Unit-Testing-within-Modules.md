@@ -1,3 +1,5 @@
+**Update (8/6/2014):** Pester now supports mocking internal module functions using ```-ModuleName``` parameter to the ```Mock``` function. The following article will be updated soon.
+
 ## Introduction
 If you have code like this inside a a PS module (.psm1 file):
 ````powershell
