@@ -1,4 +1,4 @@
-**Update (8/6/2014):** Pester now supports mocking internal module functions using ```-ModuleName``` parameter to the ```Mock``` function. The following article will be updated soon.
+**Update (8/6/2014):** Pester now supports mocking internal module functions using ```-ModuleName``` parameter to the ```Mock``` function. Mocking public module functions [seems buggy](https://github.com/pester/Pester/pull/140). The following article will be updated soon.
 
 ## Introduction
 If you have code like this inside a a PS module (.psm1 file):
