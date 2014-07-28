@@ -37,7 +37,7 @@ Describe "BuildIfChanged" {
         # Just for giggles, we'll also mock Write-Host here, to demonstrate that you can
         # mock calls to commands other than functions defined within the same module.
         Mock -ModuleName MyModule Write-Host {} -Verifiable -ParameterFilter {
-            $Object -eq 'a build was run for version: 1.2']
+            $Object -eq 'a build was run for version: 1.2'
         }
 
         $result = BuildIfChanged
