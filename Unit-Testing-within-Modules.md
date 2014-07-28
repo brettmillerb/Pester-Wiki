@@ -1,69 +1,91 @@
-**Update (8/6/2014):** Pester now supports mocking internal module functions using ```-ModuleName``` parameter to the ```Mock``` function. Mocking public module functions [seems buggy](https://github.com/pester/Pester/pull/140). The following article will be updated soon.
+Let's say you have code like this inside a script module (.psm1 file):
 
-## Introduction
-If you have code like this inside a a PS module (.psm1 file):
-````powershell
+```powershell
 function BuildIfChanged {
-    $thisVersion=Get-Version
-    $nextVersion=Get-NextVersion
-    if($thisVersion -ne $nextVersion) {Build $nextVersion}
+    $thisVersion = Get-Version
+    $nextVersion = Get-NextVersion
+    if ($thisVersion -ne $nextVersion) { Build $nextVersion }
     return $nextVersion
 }
 
 function Build ($version) {
-           write-host "a build was run for version: $version"
+    Write-Host "a build was run for version: $version"
 }
-#...other functions not included
 
-Export-ModuleMember BuildIfChanged
-````
+# Actual definitions of Get-Version and Get-NextVersion are not shown here,
+# since we'll just be mocking them anyway.  However, the commands do need to
+# exist in order to be mocked, so we'll stick dummy functions here
 
-The "problem" here is that the only function that's exposed in the public space so to say is the *BuildIfChanged* function. BUT, we need to be able to mock the other functions to be able to write tests like this:
-````powershell
+function Get-Version { return 0 }
+function Get-NextVersion { return 0 }
+
+Export-ModuleMember -Function BuildIfChanged
+```
+
+You wish to write a unit test for this module which mocks the calls to `Get-Version` and `Get-NextVersion` from the module's `BuildIfChanged` command.  In older versions of Pester, this was not possible.  As of version 3.0, there are two ways you can perform unit tests of PowerShell script modules.  The first is to inject mocks into a module:
+
+For these example, we'll assume that the PSM1 file is named "MyModule.psm1", and that it is installed on your PSModulePath.
+
+```powershell
+Import-Module MyModule
+
 Describe "BuildIfChanged" {
     Context "When there are Changes" {
-        Mock Get-Version {return 1.1}
-        Mock Get-NextVersion {return 1.2}
-        Mock Build {} -Verifiable -ParameterFilter {$version -eq 1.2}
+        Mock -ModuleName MyModule Get-Version { return 1.1 }
+        Mock -ModuleName MyModule Get-NextVersion { return 1.2 }
+
+        # Just for giggles, we'll also mock Write-Host here, to demonstrate that you can
+        # mock calls to commands other than functions defined within the same module.
+        Mock -ModuleName MyModule Write-Host {} -Verifiable -ParameterFilter { $Object -eq 'a build was run for version: 1.2' }
 
         $result = BuildIfChanged
 
-        It "Builds the next version" {
+        It "Builds the next version and calls Write-Host" {
             Assert-VerifiableMocks
         }
+
         It "returns the next version number" {
-            $result.Should.Be(1.2)
+            $result | Should Be 1.2
         }
     }
+
     Context "When there are no Changes" {
-        Mock Get-Version -MockWith {return 1.1}
-        Mock Get-NextVersion -MockWith {return 1.1}
-        Mock Build -MockWith {}
+        Mock -ModuleName MyModule Get-Version { return 1.1 }
+        Mock -ModuleName MyModule Get-NextVersion { return 1.1 }
+        Mock -ModuleName MyModule Build { }
 
         $result = BuildIfChanged
 
         It "Should not build the next version" {
-            Assert-MockCalled Build -Times 0 -ParameterFilter{$version -eq 1.1}
+            Assert-MockCalled Build -ModuleName MyModule -Times 0 -ParameterFilter { $version -eq 1.1 }
         }
     }
 }
-````
+```
 
-Oh, and btw we don't want to/can extract those 'helper' functions into their own files (which could be a solution).
+Notice that in this example test script, all calls to `Mock` and `Assert-MockCalled` have had the `-ModuleName MyModule` parameter added.  This tells Pester to inject the mock into the module's scope, which causes any calls to those commands from inside the module to execute the mock instead.
 
+When you write your test script this way, you can mock commands that are called by the module's internal functions.  However, your test script is still limited to accessing the public, exported members of the module.  If you wanted to write a unit test that calls Build directly, for example, it wouldn't work using the above technique.  That's where the second approach to script module testing comes into play.  With Pester 3.0's `InModuleScope` command, you can cause entire sections of your test script to execute inside the targeted script module.  This gives you access to non-exported members of the module.  For example:
 
-## Solution/Workaround
-A simple workaround is to "fake" dot sourcing...which doesn't work for .psm1 files OOB with PowerShell. 
-At the top of the test file we’ll put this snippet of code:
+```posh
+Import-Module MyModule
 
-````powershell
-$module = (Split-Path -Leaf $PSCommandPath).Replace(".Tests.ps1", ".psm1")
-$code = Get-Content $module | Out-String
-Invoke-Expression $code
-````
+Describe "Unit testing the module's internal Build function:" {
+    InModuleScope MyModule {
+        $testVersion = 5.0
+        Mock Write-Host { }
 
-**Downsides?**
-Yes, there’s one at least and that is you can have trouble debugging since you’re no longer using the “real” module but just the contents of it so to say. I haven’t found a way to debug code that has been put into a script using Invoke-Expression at least.
+        Build $testVersion
 
-##Resources
-* http://johanleino.wordpress.com/2013/09/25/pester-how-to-unit-test-your-powershell-modules/
+        It 'Outputs the correct message' {
+            Assert-MockCalled Write-Host -ParameterFilter { $Object -eq "a build was run for version: $testVersion" }
+        }
+    }
+}
+```
+
+Notice that when using `InModuleScope`, you no longer need to specify a `-ModuleName` parameter when calling `Mock` or `Assert-MockCalled` for commands within that module.  You are also able to directly call the `Build` function, which the module does not export.
+
+---
+
+(28-July-2014 Note:  As of this writing, the Beta branch does require you to specify a `ModuleName` value when calling `Assert-MockCalled` within an `InModuleScope` block, but a pull request has been opened to fix this, and the behavior should match this article before version 3.0 is released from beta.)
