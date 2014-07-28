@@ -36,7 +36,9 @@ Describe "BuildIfChanged" {
 
         # Just for giggles, we'll also mock Write-Host here, to demonstrate that you can
         # mock calls to commands other than functions defined within the same module.
-        Mock -ModuleName MyModule Write-Host {} -Verifiable -ParameterFilter { $Object -eq 'a build was run for version: 1.2' }
+        Mock -ModuleName MyModule Write-Host {} -Verifiable -ParameterFilter {
+            $Object -eq 'a build was run for version: 1.2']
+        }
 
         $result = BuildIfChanged
 
@@ -57,7 +59,9 @@ Describe "BuildIfChanged" {
         $result = BuildIfChanged
 
         It "Should not build the next version" {
-            Assert-MockCalled Build -ModuleName MyModule -Times 0 -ParameterFilter { $version -eq 1.1 }
+            Assert-MockCalled Build -ModuleName MyModule -Times 0 -ParameterFilter {
+                $version -eq 1.1
+            }
         }
     }
 }
@@ -78,7 +82,9 @@ Describe "Unit testing the module's internal Build function:" {
         Build $testVersion
 
         It 'Outputs the correct message' {
-            Assert-MockCalled Write-Host -ParameterFilter { $Object -eq "a build was run for version: $testVersion" }
+            Assert-MockCalled Write-Host -ParameterFilter {
+                $Object -eq "a build was run for version: $testVersion"
+            }
         }
     }
 }
