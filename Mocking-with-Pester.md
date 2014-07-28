@@ -25,57 +25,50 @@ Checks if a Mocked command has been called a certain number of times and throws 
 EXAMPLE
 --------
 
-	function Build ($version) {
-               write-host "a build was run for version: $version"
-	}
+```posh
+function Build ($version) {
+    Write-Host "a build was run for version: $version"
+}
 
-	function BuildIfChanged {
-		$thisVersion=Get-Version
-		$nextVersion=Get-NextVersion
-		if($thisVersion -ne $nextVersion) {Build $nextVersion}
-		return $nextVersion
-	}
+function BuildIfChanged {
+	$thisVersion = Get-Version
+	$nextVersion = Get-NextVersion
+	if ($thisVersion -ne $nextVersion) { Build $nextVersion }
+	return $nextVersion
+}
 
-    $here = Split-Path -Parent $MyInvocation.MyCommand.Path
-    $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace(".Tests.", ".")
-    . "$here\$sut"
+$here = Split-Path -Parent $MyInvocation.MyCommand.Path
+$sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace(".Tests.", ".")
+. "$here\$sut"
 
-    Describe "BuildIfChanged" {
-    	Context "Wnen there are Changes" {
-    		Mock Get-Version {return 1.1}
-    		Mock Get-NextVersion {return 1.2}
-    		Mock Build {} -Verifiable -ParameterFilter {$version -eq 1.2}
+Describe "BuildIfChanged" {
+    Context "When there are Changes" {
+    	Mock Get-Version {return 1.1}
+    	Mock Get-NextVersion {return 1.2}
+    	Mock Build {} -Verifiable -ParameterFilter {$version -eq 1.2}
 
-    		$result = BuildIfChanged
+    	$result = BuildIfChanged
 
-	        It "Builds the next version" {
-	            Assert-VerifiableMocks
-	        }
-	        It "returns the next version number" {
-	            $result.Should.Be(1.2)
-	        }
-        }
-    	Context "When there are no Changes" {
-    		Mock Get-Version -MockWith {return 1.1}
-    		Mock Get-NextVersion -MockWith {return 1.1}
-    		Mock Build -MockWith {}
-
-    		$result = BuildIfChanged
-
-	        It "Should not build the next version" {
-	            Assert-MockCalled Build -Times 0 -ParameterFilter{$version -eq 1.1}
-	        }
-        }
+	    It "Builds the next version" {
+	        Assert-VerifiableMocks
+	    }
+	    It "returns the next version number" {
+	        $result | Should Be 1.2
+	    }
     }
+    Context "When there are no Changes" {
+    	Mock Get-Version { return 1.1 }
+    	Mock Get-NextVersion { return 1.1 }
+    	Mock Build {}
 
-LIMITATIONS
-------------
-**Update (6/8/2014):** Pester now supports mocking internal module functions using ```-ModuleName``` parameter for the ```Mock``` function. Detailed documentation will be provided soon. 
+    	$result = BuildIfChanged
 
-~~The SUT (code being tested) that calls the actual commands that you have 
-mocked must not be executing from inside a module. Otherwise, the mocked 
-commands will not be invoked and the real commands will run. The SUT must 
-be in the same Script scope as the test. So it must be either dot sourced, 
-in the same file, or in a script file.~~
+	    It "Should not build the next version" {
+	        Assert-MockCalled Build -Times 0 -ParameterFilter {$version -eq 1.1}
+	    }
+    }
+}
+```
 
-~~**Update:** As a workaround to the limitations described above you can have a look a [[this|Unit Testing within Modules]].~~
+---
+If you need to mock calls to commands which are made from inside a Script Module, additional code is required.  For details, refer to [Unit Testing within Modules](https://github.com/pester/Pester/wiki/Unit-Testing-within-Modules)
