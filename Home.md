@@ -2,7 +2,7 @@ Concepts
 ----------
 * [[What is Pester?|Pester]]
 * [[Isolating File Operations using the TestDrive|TestDrive]]
-* [[Comparing Objects with Should|Should]]
+* [[Performing Assertions with Should|Should]]
 * [[Mocking Commands with Pester|Mocking with Pester]]
 * [[Showing Test Results in TeamCity]]
 * [[Unit Testing within Modules]]
