@@ -91,7 +91,3 @@ Describe "Unit testing the module's internal Build function:" {
 ```
 
 Notice that when using `InModuleScope`, you no longer need to specify a `-ModuleName` parameter when calling `Mock` or `Assert-MockCalled` for commands within that module.  You are also able to directly call the `Build` function, which the module does not export.
-
----
-
-(28-July-2014 Note:  As of this writing, the Beta branch does require you to specify a `ModuleName` value when calling `Assert-MockCalled` within an `InModuleScope` block, but a pull request has been opened to fix this, and the behavior should match this article before version 3.0 is released from beta.)
