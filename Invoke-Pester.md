@@ -1,4 +1,5 @@
-Invokes Pester to run all tests (files containing .Tests.) recursively under the relative_path
+Executes all Pester tests found in *.Tests.ps1 files, and provides various
+options for producing test output or generating metrics during execution.
 
 DESCRIPTION
 ------------
