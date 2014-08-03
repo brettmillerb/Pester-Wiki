@@ -13,6 +13,8 @@ Command Reference
 * [[Context]]
 * [[It]]
 * [[Should]]
+* [[BeforeEach|BeforeEach and AfterEach]]
+* [[AfterEach|BeforeEach and AfterEach]]
 * [[In]]
 * [[New-Fixture]]
 * [[Invoke-Pester]]
