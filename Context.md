@@ -1,4 +1,5 @@
-Provides syntactic sugar for logically grouping It blocks within a single Describe block.
+Provides logical grouping of `It` blocks within a single `Describe` block.  Any `Mock`s defined inside a `Context` are removed at the end of the `Context` scope, as are any files or folders added to the 'TestDrive:\' path during the `Context` block's execution.  Any `BeforeEach` or `AfterEach` blocks defined inside a `Context`
+also only apply to tests within that `Context`.
 
 PARAMETERS
 -----------
@@ -10,21 +11,16 @@ Script that is executed. This may include setup specific to the context and one 
 
 EXAMPLE
 ---------
-````
-function Add-Numbers($a, $b) {
-    return $a + $b
-}
-
-Describe "Add-Numbers" {
-
-    Context "when root does not exist" {
+```posh
+Describe "Description Name" {
+    Context "Context Name #1" {
          It "..." { ... }
     }
 
-    Context "when root does exist" {
+    Context "Context Name #2" {
         It "..." { ... }
         It "..." { ... }
         It "..." { ... }
     }
 }
-````
+```
