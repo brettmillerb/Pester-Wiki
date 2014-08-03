@@ -12,6 +12,7 @@ Command Reference
 * [[Describe]]
 * [[Context]]
 * [[It]]
+* [[Should]]
 * [[In]]
 * [[New-Fixture]]
 * [[Invoke-Pester]]
