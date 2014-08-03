@@ -3,7 +3,7 @@ Invokes Pester to run all tests (files containing .Tests.) recursively under the
 DESCRIPTION
 ------------
 Upon calling Invoke-Pester. All files that have a name containing 
-".Tests." will have there tests defined in their Describe blocks 
+".Tests." will have the tests defined in their Describe blocks 
 executed. Invoke-Pester begins at the location of relative_path and 
 runs recursively through each sub directory looking for 
 \*.Tests.\* files for tests to run. If a TestName is provided, 
@@ -20,17 +20,38 @@ parameter.
 
 PARAMETER 
 ----------
-###relative_path
+###Path
 The path where Invoke-Pester begins to search for test files. The default is the current directory.
 
-###testName
-Informs Invoke-Pester to only run Describe blocks that match this name.
+###TestName
+Informs Invoke-Pester to only run Describe blocks that match this name.  This value may contain wildcards.
+
+###Tag
+Another way of filtering the Describe blocks that should be executed, this time based on the values that are passed to the Tag parameter of the Describe statement.  This value may not contain wildcards.
 
 ###EnableExit
 Will cause Invoke-Pester to exit with a exit code equal to the number of failed tests once all tests have been run. Use this to "fail" a build when any tests fail.
 
 ###OutputXml
 The path where Invoke-Pester will save a NUnit formatted test results log file. If this path is not provided, no log will be generated.
+
+###PassThru
+Causes Invoke-Pester to produce an output object which can be analyzed by its caller, instead of only sending output to the console.  This can be used as part of a Continuous Integration written in PowerShell, as opposed to relying on a program to read the NUnit xml files produced when the OutputXml parameter is used.
+
+The object produced by Invoke-Pester when the PassThru switch is used contains the following properties:
+
+- Path:  The path in which tests were found and run.
+- TagFilter:  The value that was passed to the -Tag parameter, if present.
+- TestNameFilter:  The value that was passed to the -TestName parameter, if present.
+- TotalCount:  Number of tests executed. 
+- PassedCount:  Number of passed tests
+- FailedCount:  Number of failed tests.
+- Time:  Total time of test execution.
+- TestResult:  An array of individual test results, which are themselves objects containing the name of the Describe, Context and It, a Passed flag indicating whether the test passed or failed, a Time value for this test, a FailureMessage (if the test failed), and a stack trace.
+- CodeCoverage:  If the -CodeCoverage parameter was also passed to Invoke-Pester, the output object will contain a CodeCoverage property as well.
+
+###CodeCoverage
+Causes Pester to produce a report of code coverage metrics while the tests are executing.  For more details, refer to the [[Code Coverage]] section of this wiki.
 
 Example 1
 ---------
@@ -43,7 +64,7 @@ Example 2
 
     Invoke-Pester ./tests/Utils*
 
-This will run all tests in files under ./Tests that begin with Utils and alsocontains .Tests.
+This will run all tests in files under ./Tests that begin with Utils and also contains .Tests.
 
 Example 3
 -----------
@@ -58,3 +79,10 @@ Example 4
     Invoke-Pester -EnableExit -OutputXml "./artifacts/TestResults.xml"
 
 This runs all tests from the current directory downwards and writes the results according to the NUnit schema to artifatcs/TestResults.xml just below the current directory. The test run will return an exit code equal to the number of test failures.
+
+Example 5
+------------
+
+    $result = Invoke-Pester -PassThru
+
+This saves an object containing the results of the tests to the $result variable.  This can be analyzed as part of a Continuous Integration solution developed in PowerShell.
