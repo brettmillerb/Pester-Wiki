@@ -19,3 +19,4 @@ Command Reference
 * [[Mock]]
 * [[Assert-VerifiableMocks]]
 * [[Assert-MockCalled]]
+* [[InModuleScope]]
