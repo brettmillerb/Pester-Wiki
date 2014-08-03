@@ -5,27 +5,33 @@ A test may need to work with file operations and validate certain types of file 
 EXAMPLE
 --------
 
-	function Add-Footer($path, $footer) {
-	    Add-Content $path -Value $footer
-	}
+```posh
+function Add-Footer($path, $footer) {
+	Add-Content $path -Value $footer
+}
 
-	Describe "Add-Footer" {
-		$testPath="TestDrive:\test.txt"
-		Set-Content $testPath -value "my test text."
-		Add-Footer $testPath "-Footer"
-		$result = Get-Content $testPath
+Describe "Add-Footer" {
+	$testPath = "TestDrive:\test.txt"
+	Set-Content $testPath -value "my test text."
+	Add-Footer $testPath "-Footer"
+	$result = Get-Content $testPath
 
-	    It "adds a footer" {
-	        (-join $result) | Should Be "my test text.-Footer"
-	    }
+	It "adds a footer" {
+	    (-join $result) | Should Be "my test text.-Footer"
 	}
+}
+```
 
 When this test completes, the contents of the TestDrive PSDrive will be removed.
 
 Compare with literal path
 ---------
-Use `Convert-Path` cmdlet to compare regular paths with TestDrive paths.
+Use the $TestDrive variable to compare regular paths with TestDrive paths.  The following
+two paths will refer to the same file on disk, but the first one will contain the full file
+system path to the root of the TestDrive PSDrive, rather than a PowerShell path starting with
+'TestDrive:\'.
 
-    $actualPathAsLiteral = "C:\Users\username\AppData\Local\Temp\pester\somefile.txt"
-    $expectedPathAsTestDrive = "TestDrive:\somefile.txt"
-    (Convert-Path -LiteralPath $actualPathAsLiteral) | Should Be $expectedPathAsTestDrive
+```posh
+$pathOne = Join-Path $TestDrive 'somefile.txt'
+$pathTwo = 'TestDrive:\somefile.txt'
+```
