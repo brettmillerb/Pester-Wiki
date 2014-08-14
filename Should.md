@@ -51,8 +51,8 @@ Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
 Uses a regular expression to compare two objects.  This comparison is not case sensitive.
 
 ```posh
-"I am a value" | Should MatchExactly "I Am" #Passes
-"I am a value" | Should MatchExactly "I am a bad person" #will fail
+"I am a value" | Should Match "I Am" #Passes
+"I am a value" | Should Match "I am a bad person" #will fail
 ```
 
 ###MatchExactly
