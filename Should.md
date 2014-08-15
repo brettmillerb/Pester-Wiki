@@ -1,4 +1,4 @@
-`Should` is a command that provides assertion convenience methods for comparing objects and throwing test failures when test expectations fail.  `Should` should be used inside `It` blocks of a Pester test script.
+`Should` is a command that provides assertion convenience methods for comparing objects and throwing test failures when test expectations fail. `Should` is used inside `It` blocks of a Pester test script.
 
 SHOULD OPERATORS
 --------------
@@ -7,8 +7,8 @@ Compares one object with another for equality and throws if the two objects are 
 
 ```posh
 $actual="Actual value"
-$actual | Should Be "actual value" #Nothing happens
-$actual | Should Be "not actual value"  #A Pester Failure is thrown
+$actual | Should Be "actual value" # Test will pass
+$actual | Should Be "not actual value"  # Test will fail
 ```
 
 ###BeExactly
@@ -16,8 +16,8 @@ Compares one object with another for equality and throws if the two objects are 
 
 ```posh
 $actual="Actual value"
-$actual | Should BeExactly "Actual value" #Nothing happens
-$actual | Should BeExactly "actual value" #A Pester Failure is thrown
+$actual | Should BeExactly "Actual value" # Test will pass
+$actual | Should BeExactly "actual value" # Test will fail
 ```
 
 ###Exist
@@ -26,20 +26,38 @@ Does not perform any comparison but checks if the object calling Exist is presen
 ```posh
 $actual=(Dir . )[0].FullName
 Remove-Item $actual
-$actual | Should Exist #Will fail
+$actual | Should Exist # Test will fail
 ```
 
 ###Contain
-Checks to see if a file contains the specified text.  This search is not case sensitive.
+Checks to see if a file contains the specified text.  This search is not case sensitive and uses regular expressions. 
 
 ```posh
 Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
 'TestDrive:\file.txt' | Should Contain 'I Am' # Test will pass
+'TestDrive:\file.txt' | Should Contain '^I.*file$' # Test will pass
+
 'TestDrive:\file.txt' | Should Contain 'I Am Not' # Test will fail
 ```
 
+**Tip:** Use ```[regex]::Escape("pattern")``` to match the exact text.
+
+```posh
+Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
+'TestDrive:\file.txt' | Should Contain 'I.am.a.file' # Test will pass
+'TestDrive:\file.txt' | Should Contain [regex]::Escape('I.am.a.file') # Test will fail
+```
+
+**Warning:** Make sure the input is either a quoted string or and Item object. Otherwise PowerShell will try to invoke the 
+path, likely throwing an error ```Cannot run a document in the middle of a pipeline```.
+
+```posh
+c:\file.txt |  Should Contain something # Will throw an error
+'c:\file.txt' |  Should Contain something # Will evaluate correctly
+```
+
 ###ContainExactly
-Checks to see if a file contains the specified text.  This search is case sensitive.
+Checks to see if a file contains the specified text.  This search is case sensitive and uses regular expressions to match the text.
 
 ```posh
 Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
@@ -51,36 +69,46 @@ Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
 Uses a regular expression to compare two objects.  This comparison is not case sensitive.
 
 ```posh
-"I am a value" | Should Match "I Am" #Passes
-"I am a value" | Should Match "I am a bad person" #will fail
+"I am a value" | Should Match "I Am" # Test will pass
+"I am a value" | Should Match "I am a bad person" # Test will fail
+```
+**Tip:** Use ```[regex]::Escape("pattern")``` to match the exact text.
+```posh
+"Greg" | Should Match ".reg" # Test will pass
+"Greg" | Should Match [regex]::Escape(".reg") # Test will fail
 ```
 
 ###MatchExactly
 Uses a regular expression to compare two objects.  This comparison is case sensitive.
 
 ```posh
-"I am a value" | Should MatchExactly "I am" #Passes
-"I am a value" | Should MatchExactly "I Am" #will fail
+"I am a value" | Should MatchExactly "I am" # Test will pass
+"I am a value" | Should MatchExactly "I Am" # Test will fail
 ```
 
 ###Throw
-Checks if an exception was thrown. The object must be a ScriptBlock.
+Checks if an exception was thrown in the input ScriptBlock. 
 
 ```posh
-{ foo } | Should Throw #Passes
-{ $foo = 1 } | Should Throw #Will fail
-{ foo } | Should Not Throw #Will fail
-{ $foo = 1 } | Should Not Throw #Passes
+{ foo } | Should Throw # Test will pass
+{ $foo = 1 } | Should Throw # Test will fail
+{ foo } | Should Not Throw # Test will fail
+{ $foo = 1 } | Should Not Throw # Test will pass
+```
+
+**Warning:** The input object must be a ScriptBlock, otherwise it is processed outside of the assertion.
+```posh
+Get-Process -Name "process" -ErrorAction Stop  | Should Throw # Should pass but fails the test
 ```
 
 ###BeNullOrEmpty
-Checks values for null or empty (strings). Compare with C# string.IsNullOrEmpty method.
+Checks values for null or empty (strings). The static [String]::IsNullOrEmpty() method is used to do the comparison.
 
 ```posh
-$null | Should BeNullOrEmpty #success
-$null | Should Not BeNullOrEmpty #fails
-@()   | Should BeNullOrEmpty #success
-""    | Should BeNullOrEmpty #success
+$null | Should BeNullOrEmpty # Test will pass
+$null | Should Not BeNullOrEmpty # Test will fail
+@()   | Should BeNullOrEmpty # Test will pass
+""    | Should BeNullOrEmpty # Test will pass
 ```
 
 USING SHOULD IN A TEST
