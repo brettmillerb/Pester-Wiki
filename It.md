@@ -1,4 +1,4 @@
-Validates the results of a test inside of a `Describe` block.
+Validates the results of a test inside of a `Describe` or `Context` block.
 
 DESCRIPTION
 ------------
