@@ -4,8 +4,8 @@ Concepts
 * [[Isolating File Operations using the TestDrive|TestDrive]]
 * [[Performing Assertions with Should|Should]]
 * [[Mocking Commands with Pester|Mocking with Pester]]
-* [[Showing Test Results in TeamCity]]
 * [[Unit Testing within Modules]]
+* [[Showing Test Results in TeamCity]]
 * [[Generating Code Coverage metrics with Pester|Code Coverage]]
 
 Command Reference
