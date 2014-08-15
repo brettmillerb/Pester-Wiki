@@ -40,6 +40,8 @@ system path to the root of the TestDrive PSDrive, rather than a PowerShell path 
 'TestDrive:\'.
 
 ```posh
+#eg. C:\Users\nohwnd\AppData\Local\Temp\264f1c74-464f-4387-b908-79e5eecba982\somefile.txt
 $pathOne = Join-Path $TestDrive 'somefile.txt'
+
 $pathTwo = 'TestDrive:\somefile.txt'
 ```
