@@ -1,17 +1,19 @@
-Executes all Pester tests found in *.Tests.ps1 files, and provides various
+Executes all Pester tests found in `*.Tests.ps1` files, and provides various
 options for producing test output or generating metrics during execution.
 
 DESCRIPTION
 ------------
 Upon calling Invoke-Pester. All files that have a name containing 
-".Tests." will have the tests defined in their Describe blocks 
+`.Tests.` will have the tests defined in their Describe blocks 
 executed. Invoke-Pester begins at the location of relative_path and 
 runs recursively through each sub directory looking for 
 \*.Tests.\* files for tests to run. If a TestName is provided, 
 Invoke-Pester will only run tests that have a describe block with a 
 matching name. By default, Invoke-Pester will end the test run with a 
 simple report of the number of tests passed and failed output to the 
-console. One may want pester to "fail a build" in the event that any 
+console. 
+
+One may want pester to "fail a build" in the event that any 
 tests fail. To accomodate this, Invoke-Pester will return an exit 
 code equal to the number of failed tests if the EnableExit switch is 
 set. Invoke-Pester will also write a NUnit style log of test results 
