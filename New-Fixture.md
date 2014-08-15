@@ -1,34 +1,45 @@
-Generates scaffolding for two files: One that defines a function and another one that contains its tests.
+Generates a production code and a tests files and links them together. 
 
 DESCRIPTION
 ------------
-This command generates two files located in a directory 
-specified in the path parameter. If this directory does 
-not exist, it will be created. A file containing a function 
-signature named after the name parameter(ie name.ps1) and 
-a test file containing a scaffolded describe and it blocks.
+
+This command generates files located in a directory 
+specified in the path parameter. If the directory does not exist it is created. 
+Optionally the files can be created in the current directory by specifying the `-Name` parameter.
+
+Two files are created on successful function call. One for the production code (`Get-Something.ps1`) and one for the tests (`Get-Something.Tests.ps1`). A default template is placed inside the `.Tests.ps1` file which links the production code `.ps1` file to the `.Tests.ps1` file.
 
 EXAMPLE
 ----------
+```posh
+New-Fixture -Path 'C:\Temp' -Name Get-Something
+```
+Creates two files and outputs their Item object to the standard output.
+````posh
+# Contents of "C:\temp\Get-Something.ps1":
+function Get-Something {
 
-    New-Fixture deploy Clean
+}
 
-Creates two files:
-````
-./deploy/Clean.ps1
-function clean {
-
-    }
-
-./deploy/clean.Tests.ps1
+#Contents of "C:\temp\Get-Something.Tests.ps1"
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
-    $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace(".Tests.", ".")
-    . "$here\$sut"
+$sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace(".Tests.", ".")
+. "$here\$sut"
 
-    Describe "clean" {
-
-        It "does something useful" {
-            $true.should.be($false)
-        }
+Describe "Get-Something" {
+    It "does something useful" {
+        $true | Should Be $false
     }
+}
 ````
+
+Creating the fixture inside the current directory is possible but the `-Name` parameter must be specified by name for backwards compatibility. 
+```posh
+New-Fixture -Name Add-Something
+``` 
+
+**Tip:** Use the `Invoke-Item` cmdlet to open the fixture files in your default PowerShell editor after creation.
+
+```posh
+New-Fixture -Name Add-SomethingMore | ii
+```
