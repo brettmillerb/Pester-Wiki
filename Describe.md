@@ -1,12 +1,12 @@
-Defines the context bounds of a test. One may use this block to 
-encapsulate a scenario for testing - a set of conditions assumed
-to be present and that should lead to various expected results
-represented by the `It` blocks.
+Creates a logical group of tests.  All Mocks and TestDrive contents
+defined within a `Describe` block are scoped to that `Describe`; they
+will no longer be present when the `Describe` block exits.  A `Describe`
+block may contain any number of `Context` and `It` blocks.
 
 PARAMETERS
 -------------
 ###Name
-The name of the Test. This is often an expressive phrase describing the scenario being tested.
+The name of the test group. This is often an expressive phrase describing the scenario being tested.
 
 ###Fixture
 The actual test script. If you are following the AAA pattern (Arrange-Act-Assert), this 
