@@ -7,7 +7,7 @@ Block. If you are familiar with the AAA pattern
 (Arrange-Act-Assert), the body of the `It` block is the appropriate location 
 for an assert. The convention is to assert a single 
 expectation for each `It` block. The code inside of the `It` block 
-should throw an exception if the expectation of the test is not 
+should throw a terminating error if the expectation of the test is not 
 met and thus cause the test to fail. The name of the `It` block 
 should expressively state the expectation of the test.
 
@@ -53,6 +53,5 @@ Describe "Add-Numbers" {
         $sum = Add-Numbers two three
         $sum | Should Be "twothree"
     }
-
 }
 ```
