@@ -4,7 +4,7 @@ implementation.
 DESCRIPTION
 --------------
 This creates new behavior for any existing command within the scope of a
-Describe or Context block. The function allows you to specify a script block
+`Describe` or `Context` block. The function allows you to specify a script block
 that will become the command's new behavior.
 
 Optionally, you may create a Parameter Filter which will examine the
@@ -20,13 +20,13 @@ The mock of the first filter to pass will be used. The exception to this
 rule are Mocks with no filters. They will always be evaluated last since
 they will act as a "catch all" mock.
 
-Mocks can be marked Verifiable. If so, the Assert-VerifiableMocks can be
-used to check if all Verifiable mocks were actually called. If any
-verifiable mock is not called, Assert-VerifiableMocks will throw an
+Mocks can be marked Verifiable. If so, the `Assert-VerifiableMocks` command
+can be used to check if all Verifiable mocks were actually called. If any
+verifiable mock is not called, `Assert-VerifiableMocks` will throw an
 exception and indicate all mocks not called.
 
 If you wish to mock commands that are called from inside a script module,
-you can do so by using the -ModuleName parameter to the Mock command. This
+you can do so by using the `-ModuleName` parameter to the `Mock` command. This
 injects the mock into the specified module. If you do not specify a
 module name, the mock will be created in the same scope as the test script.
 You may mock the same command multiple times, in different scopes, as needed.
@@ -38,11 +38,14 @@ PARAMETERS
 The name of the command to be mocked.
 
 ###MockWith
-A ScriptBlock specifying the behavior that will be used to mock CommandName.
+A ScriptBlock specifying the behavior that will be used to mock CommandName. The default is an empty ScriptBlock.
+NOTE: Do not specify `param` or `dynamicparam` blocks in this script block.
+These will be injected automatically based on the signature of the command
+being mocked, and the `MockWith` script block can contain references to the
+mocked commands parameter variables.
 
 ###Verifiable
-When this is set, the mock will be checked when using Assert-VerifiableMocks 
-to ensure the mock was called.
+When this is set, the mock will be checked when `Assert-VerifiableMocks` is called.
 
 ###ParameterFilter
 An optional filter to limit mocking behavior only to usages of 
@@ -82,7 +85,7 @@ EXAMPLE 3
 Mock Set-Content {} -Verifiable -ParameterFilter { $Path -eq "some_path" -and $Value -eq "Expected Value" }
 ```
 
-When this mock is used, if the Mock is never invoked and Assert-VerifiableMocks is called, an exception will be thrown. The command behavior will do nothing since the ScriptBlock is empty.
+When this mock is used, if the Mock is never invoked and `Assert-VerifiableMocks` is called, an exception will be thrown. The command behavior will do nothing since the ScriptBlock is empty.
 
 EXAMPLE 4
 -----------
@@ -138,50 +141,10 @@ EXAMPLE 8
 Mock Get-ChildItem { return @{FullName = "A_File.TXT"} } -ModuleName MyTestModule 
 ```
 
-Using this Mock, all calls to Get-ChildItem from within the MyTestModule module
+Using this Mock, all calls to `Get-ChildItem` from within the MyTestModule module
 will return a hashtable with a FullName property returning "A_File.TXT"
 
 EXAMPLE 9
-----------
-
-```posh
-Describe "BuildIfChanged" {
-    Mock Get-Version { return 1.1 }
-
-    Context "When there are Changes" {
-        Mock Get-NextVersion { return 1.2 }
-        Mock Build {} -Verifiable -ParameterFilter { $version -eq 1.2 }
-
-        $result = BuildIfChanged
-
-        It "Builds the next version" {
-            Assert-VerifiableMocks
-        }
-
-        It "returns the next version number" {
-            $result | Should Be 1.2
-        }
-    }
-
-    Context "When there are no Changes" {
-        Mock Get-NextVersion -MockWith {return 1.1}
-        Mock Build -MockWith {}
-
-        $result = BuildIfChanged
-
-        It "Should not build the next version" {
-            Assert-MockCalled Build -Times 0 -ParameterFilter { $version -eq 1.1 }
-        }
-    }
-}```
-
-Notice how 'Mock Get-Version {return 1.1}' is declared within the
-Describe block. This allows all Context and It blocks inside the describe
-to use this Mock. If Get-Version were mocked in a Context block inside this
-Describe, the Context mock would override the describe scoped mock within
-that context (so long as the calls pass the Context mock's parameter filter.)
-
-EXAMPLE 10
 ----------
 
 ```posh
@@ -210,4 +173,4 @@ Describe "ModuleMockExample" {
 ```
 
 This example shows how calls to commands made from inside a module can be
-mocked by using the -ModuleName parameter.
+mocked by using the `-ModuleName` parameter.
