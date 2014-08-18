@@ -45,7 +45,7 @@ Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
 ```posh
 Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
 'TestDrive:\file.txt' | Should Contain 'I.am.a.file' # Test will pass
-'TestDrive:\file.txt' | Should Contain [regex]::Escape('I.am.a.file') # Test will fail
+'TestDrive:\file.txt' | Should Contain ([regex]::Escape('I.am.a.file')) # Test will fail
 ```
 
 **Warning:** Make sure the input is either a quoted string or and Item object. Otherwise PowerShell will try to invoke the 
@@ -75,7 +75,7 @@ Uses a regular expression to compare two objects.  This comparison is not case s
 **Tip:** Use ```[regex]::Escape("pattern")``` to match the exact text.
 ```posh
 "Greg" | Should Match ".reg" # Test will pass
-"Greg" | Should Match [regex]::Escape(".reg") # Test will fail
+"Greg" | Should Match ([regex]::Escape(".reg")) # Test will fail
 ```
 
 ###MatchExactly
