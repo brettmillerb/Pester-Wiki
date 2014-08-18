@@ -39,6 +39,7 @@ The name of the command to be mocked.
 
 ###MockWith
 A ScriptBlock specifying the behavior that will be used to mock CommandName. The default is an empty ScriptBlock.
+
 NOTE: Do not specify `param` or `dynamicparam` blocks in this script block.
 These will be injected automatically based on the signature of the command
 being mocked, and the `MockWith` script block can contain references to the
