@@ -53,6 +53,10 @@ Pester's testing language now has two new commands, `BeforeEach` and `AfterEach`
 
 The `-EnableLegacyExpectations` switch of `Invoke-Pester` has been removed, marking the end of support for the old `$result.Should.Be($expected)` syntax of performing assertions.  All test scripts must now use the newer pipeline syntax of `$result | Should Be $expected`.
 
+###Full support for running Pester tests with StrictMode enabled.
+
+Pester's own internal test suite now enables StrictMode, to make sure that the code all works under these conditions.  There should no longer be any bugs introduced related to this setting.
+
 ###Numerous other small improvements and fixes
 
 These shouldn't produce breaking changes, but a number of other little fixes were made during the v3.0 development process:
