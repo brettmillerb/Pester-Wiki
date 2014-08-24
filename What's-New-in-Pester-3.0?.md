@@ -66,4 +66,4 @@ These shouldn't produce breaking changes, but a number of other little fixes wer
 - The elapsed time reported for tests is now a more accurate reflection of total time taken, not just the time elapsed within the `It` blocks.
 - The code to generate NUnit XML files was completely rewritten, and should be more reliable now.  Previous version had problems with not escaping XML special characters in the names of Describe / Context / It blocks properly.
 - A module manifest was added, making it easier to load specific versions of Pester (and to publish it to things like PowerShellGet, eventually.)
-- The output of `Should Be` and `Should BeExactly` has been improved when both operands are strings.  It now shows you a visual indicator of where the first difference in the strings occurs.
+- The output of `Should Be` and `Should BeExactly` has been improved.  The actual and expected values are displayed on separate lines, and when both actual and expected values are strings, Pester now gives a visual indicator of where the first difference in the strings occurs.
