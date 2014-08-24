@@ -6,6 +6,7 @@ Concepts
 * [[Mocking Commands with Pester|Mocking with Pester]]
 * [[Unit Testing within Modules]]
 * [[Showing Test Results in TeamCity]]
+* [[Generating Code Coverage metrics|Code Coverage]]
 
 Command Reference
 ------------------
