@@ -74,7 +74,7 @@ EXAMPLE 2
 -----------
 
 ```posh
-Mock Get-ChildItem { return @{FullName = "A_File.TXT"} } -ParameterFilter { $Path.StartsWith($env:temp) }
+Mock Get-ChildItem { return @{FullName = "A_File.TXT"} } -ParameterFilter { $Path -and $Path.StartsWith($env:temp) }
 ```
 
 This Mock will only be applied to `Get-ChildItem` calls within the user's temp directory.
@@ -92,9 +92,9 @@ EXAMPLE 4
 -----------
 
 ```posh
-Mock Get-ChildItem { return @{FullName = "A_File.TXT"} } -ParameterFilter { $Path.StartsWith($env:temp\1) }
-Mock Get-ChildItem { return @{FullName = "B_File.TXT"} } -ParameterFilter { $Path.StartsWith($env:temp\2) }
-Mock Get-ChildItem { return @{FullName = "C_File.TXT"} } -ParameterFilter { $Path.StartsWith($env:temp\3) }
+Mock Get-ChildItem { return @{FullName = "A_File.TXT"} } -ParameterFilter { $Path -and $Path.StartsWith($env:temp\1) }
+Mock Get-ChildItem { return @{FullName = "B_File.TXT"} } -ParameterFilter { $Path -and $Path.StartsWith($env:temp\2) }
+Mock Get-ChildItem { return @{FullName = "C_File.TXT"} } -ParameterFilter { $Path -and $Path.StartsWith($env:temp\3) }
 ```
 
 Multiple mocks of the same command may be used. The parameter filter determines which is invoked. Here, if `Get-ChildItem` is called on the "2" directory of the temp folder, then B_File.txt will be returned.
@@ -104,7 +104,7 @@ EXAMPLE 5
 
 ```posh
 Mock Get-ChildItem { return @{FullName="B_File.TXT"} } -ParameterFilter { $Path -eq "$env:temp\me" }
-Mock Get-ChildItem { return @{FullName="A_File.TXT"} } -ParameterFilter { $Path.StartsWith($env:temp) }
+Mock Get-ChildItem { return @{FullName="A_File.TXT"} } -ParameterFilter { $Path -and $Path.StartsWith($env:temp) }
 
 Get-ChildItem $env:temp\me
 ```
