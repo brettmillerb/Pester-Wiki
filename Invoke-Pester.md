@@ -17,8 +17,8 @@ One may want pester to "fail a build" in the event that any
 tests fail. To accomodate this, Invoke-Pester will return an exit 
 code equal to the number of failed tests if the EnableExit switch is 
 set. Invoke-Pester will also write a NUnit style log of test results 
-if the OutputXml parameter is provided. In these cases, Invoke-Pester 
-will write the result log to the path provided in the OutputXml 
+if the `-OutputFormat NUnitXml` parameter is provided. In these cases, Invoke-Pester 
+will write the result log to the path provided in the `-OutputFile`
 parameter.
 
 PARAMETER 
@@ -35,11 +35,14 @@ Another way of filtering the Describe blocks that should be executed, this time 
 ###EnableExit
 Will cause Invoke-Pester to exit with a exit code equal to the number of failed tests once all tests have been run. Use this to "fail" a build when any tests fail.
 
-###OutputXml
-The path where Invoke-Pester will save a NUnit formatted test results log file. If this path is not provided, no log will be generated.
+###OutputFile
+The path where Invoke-Pester will save formatted test results log file. If this path is not provided, no log will be generated.
+
+###OutputFormat
+The format of output, i.e. `NUnitXml`
 
 ###PassThru
-Causes Invoke-Pester to produce an output object which can be analyzed by its caller, instead of only sending output to the console.  This can be used as part of a Continuous Integration written in PowerShell, as opposed to relying on a program to read the NUnit xml files produced when the OutputXml parameter is used.
+Causes Invoke-Pester to produce an output object which can be analyzed by its caller, instead of only sending output to the console.  This can be used as part of a Continuous Integration written in PowerShell, as opposed to relying on a program to read the NUnit xml files produced when the `-OutputFormat` parameter is used.
 
 The object produced by Invoke-Pester when the PassThru switch is used contains the following properties:
 
@@ -79,7 +82,7 @@ This will only run the Describe block named "Add Numbers"
 Example 4
 ------------
 
-    Invoke-Pester -EnableExit -OutputXml "./artifacts/TestResults.xml"
+    Invoke-Pester -EnableExit -OutputFile "./artifacts/TestResults.xml" -OutputFormat NUnitXml
 
 This runs all tests from the current directory downwards and writes the results according to the NUnit schema to artifatcs/TestResults.xml just below the current directory. The test run will return an exit code equal to the number of test failures.
 
