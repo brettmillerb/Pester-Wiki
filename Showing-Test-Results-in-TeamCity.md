@@ -6,9 +6,9 @@ Pester Settings
 If you are using the Pester .bat file to run your tests, test results are automatically output to Test.Xml in the root of the TeamCity agent working Directory.
 
 ###Using Invoke-Pester
-If you are not using the Pester .bat file and are instead calling Invoke-Pester directly from a build script, Make sure to specify a path using the `-OutputXml` parameter. The path is relative to the TeamCity agent working directory.
+If you are not using the Pester .bat file and are instead calling Invoke-Pester directly from a build script, Make sure to specify a path using the `-OutputFile` and type include the "-OutputFormat" parameters. The path is relative to the TeamCity agent working directory.
 
-    Invoke-Pester -OutputXml Test.xml
+    Invoke-Pester -OutputFile Test.xml -OutputFormat NUnitXml
 
 TeamCity Settings
 ------------------
