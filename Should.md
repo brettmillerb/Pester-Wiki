@@ -98,6 +98,11 @@ Checks if an exception was thrown in the input ScriptBlock. Takes an optional ar
 { throw "bar" } | Show Throw "This is a test" # Test will fail
 ```
 
+Note: The exception message match is a substring match, so the following assertion will pass:
+```posh
+{throw "foo bar baz"} | Should Throw "bar" # Test will pass
+```
+
 **Warning:** The input object must be a ScriptBlock, otherwise it is processed outside of the assertion.
 ```posh
 Get-Process -Name "process" -ErrorAction Stop  | Should Throw # Should pass but fails the test
