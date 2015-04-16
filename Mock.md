@@ -32,6 +32,8 @@ module name, the mock will be created in the same scope as the test script.
 You may mock the same command multiple times, in different scopes, as needed.
 Each module's mock maintains a separate call history and verified status.
 
+**Warning:** If the call to the function you're trying to mock is made via a qualified name (like `MyModule\MyFunction`), your mock will not be invoked. This is a limitation of PowerShell 2.0 (see https://github.com/pester/Pester/issues/308). As a workaround, either call your function with an unqualified name (`MyFunction`), or create a wrapper function and mock that wrapper function instead.
+
 PARAMETERS
 ----------
 ###CommandName
