@@ -87,13 +87,15 @@ Uses a regular expression to compare two objects.  This comparison is case sensi
 ```
 
 ###Throw
-Checks if an exception was thrown in the input ScriptBlock. 
+Checks if an exception was thrown in the input ScriptBlock. Takes an optional argument to indicate the expected exception message.
 
 ```posh
 { foo } | Should Throw # Test will pass
 { $foo = 1 } | Should Throw # Test will fail
 { foo } | Should Not Throw # Test will fail
 { $foo = 1 } | Should Not Throw # Test will pass
+{ throw "This is a test" } | Should Throw "This is a test" # Test will pass
+{ throw "bar" } | Show Throw "This is a test" # Test will fail
 ```
 
 **Warning:** The input object must be a ScriptBlock, otherwise it is processed outside of the assertion.
