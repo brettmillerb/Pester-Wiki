@@ -29,6 +29,9 @@ Remove-Item $actual
 $actual | Should Exist # Test will fail
 ```
 
+To test path containing `[ ]` wildcards, escape each bracket with two back-ticks as such ````"TestDrive:\``[test``].txt"```` or use `Test-Path -LiteralPath $something | Should Be $true`.
+
+
 ###Contain
 Checks to see if a file contains the specified text.  This search is not case sensitive and uses regular expressions. 
 
