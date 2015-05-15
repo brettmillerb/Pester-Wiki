@@ -17,7 +17,7 @@ to perform assertions in plain language.
 
 Possible results of a test are: 
 - Passed - All assertions in the test passed and no terminating exception was thrown from the code.
-- Failed - An assertion failed, a terminating exception was thrown in the code. The `-Strict` parameter of [[Invoke-Pester]] was used and the test Skipped or Pending.
+- Failed - An assertion failed, a terminating exception was thrown in the code. The `-Strict` parameter of [[Invoke-Pester]] was used and the test was Skipped or Pending.
 - Skipped - The test was explicitly marked with the `-Skipped` parameter and `-Strict` parameter of [[Invoke-Pester]] was not used.
 - Pending - The test was empty, or was explicitly marked with the `-Skipped` parameter, and the `-Strict` parameter of [[Invoke-Pester]] was not used. An empty test is a test that contains no code, it may contain whitespace, comments or the combination of both.
 
