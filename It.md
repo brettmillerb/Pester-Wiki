@@ -15,6 +15,12 @@ In addition to using your own logic to test expectations and
 throw exceptions, you may also use Pester's `Should` command
 to perform assertions in plain language.
 
+Possible results of a test are: 
+- Passed - All assertions in the test passed and no terminating exception was thrown from the code.
+- Failed - An assertion failed, a terminating exception was thrown in the code. The `-Strict` parameter of [[Invoke-Pester]] was used and the test Skipped or Pending.
+- Skipped - The test was explicitly marked with the `-Skipped` parameter and `-Strict` parameter of [[Invoke-Pester]] was not used.
+- Pending - The test was empty, or was explicitly marked with the `-Skipped` parameter, and the `-Strict` parameter of [[Invoke-Pester]] was not used. An empty test is a test that contains no code, it may contain whitespace, comments or the combination of both.
+
 PARAMETERS
 -----------
 ###Name
@@ -25,6 +31,14 @@ The script block that should throw an exception if the
 expectation of the test is not met.  If you are following the 
 AAA pattern (Arrange-Act-Assert), this typically holds the 
 Assert. 
+
+###Skip
+Use this parameter to explicitly mark test to be skipped. This is preferable to temporarily commenting out a test, because the test remains listed in the output. Use the [Strict](https://github.com/pester/Pester/wiki/Invoke-Pester#strict) parameter of [[Invoke-Pester]] to force all skipped tests to fail.
+
+###Pending
+Use this parameter to explicitly mark unfinished tests as pending. This might be useful to distinguish a test that is work-in-progress from tests that fail as a result of a changes being made to the code base. 
+
+A test that is empty, contains only comments, or the combination of both will become Pending by default. Use the [Strict](https://github.com/pester/Pester/wiki/Invoke-Pester#strict) parameter of [[Invoke-Pester]] to force all pending tests to fail.
 
 EXAMPLE
 ----------
