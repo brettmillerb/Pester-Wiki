@@ -63,6 +63,8 @@ is to be mocked.  This should be a module that _calls_ the mocked
 command; it doesn't necessarily have to be the same module which
 originally implemented the command.
 
+NOTE: If this parameter is used, any calls to [`Assert-MockCalled`](https://github.com/pester/Pester/wiki/Assert-MockCalled) must be made with a matching ModuleName parameter.
+
 EXAMPLE 1
 -----------
 
