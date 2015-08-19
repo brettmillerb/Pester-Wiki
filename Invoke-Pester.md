@@ -59,6 +59,9 @@ The object produced by Invoke-Pester when the PassThru switch is used contains t
 ###CodeCoverage
 Causes Pester to produce a report of code coverage metrics while the tests are executing.  For more details, refer to the [[Code Coverage]] section of this wiki.
 
+###Script
+A hashtable used to pass parameters into your tests among other options.
+
 ###Strict
 Reduces the possible outcome of a test to Passed or Failed only. Any Pending or Skipped test will translate to Failed (see [[It]]). This is useful for running tests as a part of continuos integration, where you need to make sure that all tests passed, and no tests were skipped or pending.
 
