@@ -1,6 +1,4 @@
-Creates a logical group of tests.  All Mocks and TestDrive contents
-defined within a `Describe` block are scoped to that `Describe`; they
-will no longer be present when the `Describe` block exits.  A `Describe`
+Creates a logical group of tests.  All Mocks and TestDrive contents defined within a `Describe` block are scoped to that `Describe`; they will no longer be present when the `Describe` block exits.  A `Describe`
 block may contain any number of `Context` and `It` blocks.
 
 PARAMETERS
@@ -15,9 +13,22 @@ typically nested each in its own `It` block.  Assertions are typically performed
 command within the `It` blocks.
 
 ###Tags
-Optional parameter containing an array of strings.  When calling `Invoke-Pester`, it is possible to specify a `-Tag` parameter which will only execute `Describe` blocks containing the same Tag.
+Optional parameter containing an array of strings.  When calling `Invoke-Pester`, it is possible to specify a `-Tag` parameter which will only execute `Describe` blocks containing the same Tag. In addition, if a `Describe` block has a tag, you can also use the `-ExcludeTag` when calling `Invoke-Pester` to exclude all `Describe` blocks with a certain tag.
 
-EXAMPLE
+Tags Example
+----------
+```posh
+Invoke-Pester -ExcludeTag 'Disabled'
+
+Describe -Tag 'Disabled' "Add-Numbers" {
+    It "adds positive numbers" {
+        $sum = Add-Numbers 2 3
+        $sum | Should Be 5
+    }
+}
+```
+
+General `Describe` Example
 ----------
 ```posh
 function Add-Numbers($a, $b) {
