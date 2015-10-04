@@ -36,7 +36,7 @@ To test path containing `[ ]` wildcards, escape each bracket with two back-ticks
 Checks to see if a file contains the specified text.  This search is not case sensitive and uses regular expressions. 
 
 ```posh
-Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
+Set-Content -Path TestDrive:\file.txt -Value 'I am a file'
 'TestDrive:\file.txt' | Should Contain 'I Am' # Test will pass
 'TestDrive:\file.txt' | Should Contain '^I.*file$' # Test will pass
 
@@ -64,8 +64,8 @@ Checks to see if a file contains the specified text.  This search is case sensit
 
 ```posh
 Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
-'TestDrive:\file.txt' | Should Contain 'I am' # Test will pass
-'TestDrive:\file.txt' | Should Contain 'I Am' # Test will fail
+'TestDrive:\file.txt' | Should ContainExactly 'I am' # Test will pass
+'TestDrive:\file.txt' | Should ContainExactly 'I Am' # Test will fail
 ```
 
 ###Match
