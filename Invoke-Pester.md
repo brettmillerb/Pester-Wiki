@@ -62,6 +62,14 @@ Causes Pester to produce a report of code coverage metrics while the tests are e
 ###Script
 A hashtable used to pass parameters into your tests among other options. For example, to pass a $ComputerName parameter using named parameters into your scripts you could do: `Invoke-Pester -Script @{'Parameters' = @{'ComputerName' = $ComputerName }}`. Then, in your test you could simply reference `$ComputerName`.
 
+In addition to passing `Parameters` or `Arguments` you also have to specify a `Path` key (for details on why to do this see [issue 271](https://github.com/pester/Pester/issues/271)). An more detailed example can be found in the online help of `help Invoke-Pester -examples` (*EXAMPLE 3*):
+
+``` powershell
+C:\PS>Invoke-Pester -Script @{ Path = './tests/Utils*'; Parameters = @{ NamedParameter = 'Passed By Name' }; Arguments = @('Passed by position') }
+```
+
+Executes a test, but will run them with the equivalent of the following command line:  & $testScriptPath -NamedParameter 'Passed By Name' 'Passed by position'
+
 ###Strict
 Reduces the possible outcome of a test to Passed or Failed only. Any Pending or Skipped test will translate to Failed (see [[It]]). This is useful for running tests as a part of continuos integration, where you need to make sure that all tests passed, and no tests were skipped or pending.
 
