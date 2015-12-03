@@ -98,7 +98,7 @@ Checks if an exception was thrown in the input ScriptBlock. Takes an optional ar
 { foo } | Should Not Throw # Test will fail
 { $foo = 1 } | Should Not Throw # Test will pass
 { throw "This is a test" } | Should Throw "This is a test" # Test will pass
-{ throw "bar" } | Show Throw "This is a test" # Test will fail
+{ throw "bar" } | Should Throw "This is a test" # Test will fail
 ```
 
 Note: The exception message match is a substring match, so the following assertion will pass:
