@@ -19,6 +19,7 @@ Command Reference
 * [[In]]
 * [[New-Fixture]]
 * [[Invoke-Pester]]
+* [[New-PesterOption]]
 * [[Mock]]
 * [[Assert-VerifiableMocks]]
 * [[Assert-MockCalled]]
