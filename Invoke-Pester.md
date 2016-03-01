@@ -73,6 +73,10 @@ Executes a test, but will run them with the equivalent of the following command 
 ###Strict
 Reduces the possible outcome of a test to Passed or Failed only. Any Pending or Skipped test will translate to Failed (see [[It]]). This is useful for running tests as a part of continuos integration, where you need to make sure that all tests passed, and no tests were skipped or pending.
 
+###PesterOption
+Sets advanced options for the test execution.  Enter a PesterOption object, such as one that you create by using the New-PesterOption cmdlet, or a hash table in which the keys are option names and the values are option values.
+
+For more information on the options available, see the help for New-PesterOption.
 
 Example 1
 ---------
