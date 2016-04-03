@@ -6,7 +6,7 @@ tests to be discovered by pester at test time and a simple set of
 functions that expose a Testing DSL for isolating, running, evaluating and 
 reporting the results of PowerShell commands.
 
-Pester tests can execute any command or script that is accesible to a 
+Pester tests can execute any command or script that is accessible to a 
 pester test file. This can include functions, Cmdlets, Modules and scripts. 
 Pester can be run in ad hoc style in a console or it can be integrated into 
 the Build scripts of a Continuous Integration system.
