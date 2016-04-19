@@ -43,5 +43,7 @@ test_script:
 ```
 
 **Note**: `if` check with `throw` is used to fail the build, if any tests are failing.
+**Note**: If tests write anything to the pipeline, then `$res` object will contain it as well.
+Be careful!
 
 **That's it! May all your tests be green!**
