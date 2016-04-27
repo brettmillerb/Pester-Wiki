@@ -24,6 +24,15 @@ Invoke-Pester -OutputFile Test.xml -OutputFormat NUnitXml
 1. The Report Type should be set to NUnit. You can select version 2.5.0.
 1. In the Monitoring Rules text box, enter the xml file path given to Pester's `-OutputXml` parameter. If you use the Pester.bat file, simply enter Test.xml.
 
+### Code Coverage
+Code coverage metrics are not included in the NUnit xml report so it is necessary to pass them to TeamCity separately using a PassThru variable and the [Build Interaction feature](https://confluence.jetbrains.com/display/TCD8/Build+Script+Interaction+with+TeamCity#BuildScriptInteractionwithTeamCity-ReportingBuildStatistics).
+```powershell
+$testResults = Invoke-Pester -OutputFile Test.xml -OutputFormat NUnitXml -CodeCoverage (Get-ChildItem -Path $PSScriptRoot\*.ps1 -Exclude *.Tests.* ).FullName -PassThru
+Write-Output "##teamcity[buildStatisticValue key='CodeCoverageAbsLTotal' value='$($testResults.CodeCoverage.NumberOfCommandsAnalyzed)']"
+Write-Output "##teamcity[buildStatisticValue key='CodeCoverageAbsLCovered' value='$($testResults.CodeCoverage.NumberOfCommandsExecuted)']"
+```
+
+
 [AppVeyor](appveyor.com)
 ------------
 
