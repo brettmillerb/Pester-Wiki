@@ -3,7 +3,7 @@ options for producing test output or generating metrics during execution.
 
 DESCRIPTION
 ------------
-Upon calling Invoke-Pester. All files that have a name containing 
+Upon calling Invoke-Pester, all files that have a name containing 
 `.Tests.` will have the tests defined in their Describe blocks 
 executed. Invoke-Pester begins at the location of relative_path and 
 runs recursively through each sub directory looking for 
