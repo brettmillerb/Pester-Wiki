@@ -1,5 +1,15 @@
 `Should` is a command that provides assertion convenience methods for comparing objects and throwing test failures when test expectations fail. `Should` is used inside `It` blocks of a Pester test script.
 
+NEGATIVE ASSERTIONS
+--------------
+
+When reviewing the operators listed below, keep in mind that all of them can be negated by putting the word "Not" between "Should" and the operator.  For example:
+
+```posh
+$true | Should Be $true
+$true | Should Not Be $false
+```
+
 SHOULD OPERATORS
 --------------
 ###Be
