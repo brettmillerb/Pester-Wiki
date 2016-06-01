@@ -30,6 +30,20 @@ $actual | Should BeExactly "Actual value" # Test will pass
 $actual | Should BeExactly "actual value" # Test will fail
 ```
 
+###BeGreaterThan
+Asserts that a number is greater than an expected value. Uses PowerShell's -gt operator to compare the two values.
+
+```posh
+$Error.Count | Should BeGreaterThan 0
+```
+
+###BeLessThan
+Asserts that a number is less than an expected value. Uses PowerShell's -gt operator to compare the two values.
+
+```posh
+$Error.Count | Should BeLessThan 1
+```
+
 ###Exist
 Does not perform any comparison but checks if the object calling Exist is present in a PS Provider. The object must have valid path syntax. It essentially must pass a Test-Path call.
 
