@@ -44,6 +44,35 @@ Asserts that a number is less than an expected value. Uses PowerShell's -gt oper
 $Error.Count | Should BeLessThan 1
 ```
 
+###BeLike
+Asserts that the actual value matches a wildcard pattern using PowerShell's -like operator.  This comparison is not case-sensitive.
+
+```posh
+$actual="Actual value"
+$actual | Should BeLike "actual *" # Test will pass
+$actual | Should BeLike "not actual *" # Test will fail
+```
+
+###BeLikeExactly
+Asserts that the actual value matches a wildcard pattern using PowerShell's -like operator.  This comparison is case-sensitive.
+
+```posh
+$actual="Actual value"
+$actual | Should BeLikeExactly "Actual *" # Test will pass
+$actual | Should BeLikeExactly "actual *" # Test will fail
+```
+
+###BeOfType
+Asserts that the actual value should be an object of a specified type (or a subclass of the specified type) using PowerShell's -is operator:
+
+```posh
+$actual = Get-Item $env:SystemRoot
+$actual | Should BeOfType System.IO.DirectoryInfo   # Test will pass; object is a DirectoryInfo
+$actual | Should BeOfType System.IO.FileSystemInfo  # Test will pass; DirectoryInfo base class is FileSystemInfo
+
+$actual | Should BeOfType System.IO.FileInfo        # Test will fail; FileInfo is not a base class of DirectoryInfo
+```
+
 ###Exist
 Does not perform any comparison but checks if the object calling Exist is present in a PS Provider. The object must have valid path syntax. It essentially must pass a Test-Path call.
 
