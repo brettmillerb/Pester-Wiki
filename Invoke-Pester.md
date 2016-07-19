@@ -23,23 +23,27 @@ parameter.
 
 PARAMETER 
 ----------
-###Path
-The path where Invoke-Pester begins to search for test files. The default is the current directory.
+###Script (Alias: _Path_, _relative_path_)
+Specifies the test files that Pester runs. As an example, the `Invoke-Pester -Script .\Util*` command runs all *.Tests.ps1 files in subdirectories with names that begin with 'Util' and their subdirectories.
 
-###TestName
+You can also use the `Script` parameter to pass parameter names and values to a script that contains Pester tests. The value of the Script parameter can be a string, a hash table, or a collection of hash tables and strings. Wildcard characters are supported. The `Path` key is then required. (for details on why to do this see [issue 271](https://github.com/pester/Pester/issues/271)).
+
+A more detailed example can be found in the online help of `help Invoke-Pester -examples` (*EXAMPLE 3*):
+
+``` powershell
+C:\PS>Invoke-Pester -Script @{ Path = './tests/Utils*'; Parameters = @{ NamedParameter = 'Passed By Name' }; Arguments = @('Passed by position') }
+```
+
+Executes a test, but will run them with the equivalent of the following command line:  & $testScriptPath -NamedParameter 'Passed By Name' 'Passed by position'
+
+###TestName (Alias: _Name_)
 Informs Invoke-Pester to only run Describe blocks that match this name.  This value may contain wildcards.
-
-###Tag
-Another way of filtering the Describe blocks that should be executed, this time based on the values that are passed to the Tag parameter of the Describe statement.  This value may not contain wildcards.
 
 ###EnableExit
 Will cause Invoke-Pester to exit with a exit code equal to the number of failed tests once all tests have been run. Use this to "fail" a build when any tests fail.
 
-###OutputFile
-The path where Invoke-Pester will save formatted test results log file. If this path is not provided, no log will be generated.
-
-###OutputFormat
-The format of output, i.e. `NUnitXml`
+###Tag (Alias: _Tags_)
+Another way of filtering the Describe blocks that should be executed, this time based on the values that are passed to the Tag parameter of the Describe statement.  This value may not contain wildcards.
 
 ###PassThru
 Causes Invoke-Pester to produce an output object which can be analyzed by its caller, instead of only sending output to the console.  This can be used as part of a Continuous Integration written in PowerShell, as opposed to relying on a program to read the NUnit xml files produced when the `-OutputFormat` parameter is used.
@@ -59,19 +63,14 @@ The object produced by Invoke-Pester when the PassThru switch is used contains t
 ###CodeCoverage
 Causes Pester to produce a report of code coverage metrics while the tests are executing.  For more details, refer to the [[Code Coverage]] section of this wiki.
 
-###Script
-A hashtable used to pass parameters into your tests among other options. For example, to pass a $ComputerName parameter using named parameters into your scripts you could do: `Invoke-Pester -Script @{'Parameters' = @{'ComputerName' = $ComputerName }}`. Then, in your test you could simply reference `$ComputerName`.
-
-In addition to passing `Parameters` or `Arguments` you also have to specify a `Path` key (for details on why to do this see [issue 271](https://github.com/pester/Pester/issues/271)). An more detailed example can be found in the online help of `help Invoke-Pester -examples` (*EXAMPLE 3*):
-
-``` powershell
-C:\PS>Invoke-Pester -Script @{ Path = './tests/Utils*'; Parameters = @{ NamedParameter = 'Passed By Name' }; Arguments = @('Passed by position') }
-```
-
-Executes a test, but will run them with the equivalent of the following command line:  & $testScriptPath -NamedParameter 'Passed By Name' 'Passed by position'
-
 ###Strict
 Reduces the possible outcome of a test to Passed or Failed only. Any Pending or Skipped test will translate to Failed (see [[It]]). This is useful for running tests as a part of continuos integration, where you need to make sure that all tests passed, and no tests were skipped or pending.
+
+###OutputFile
+The path where Invoke-Pester will save formatted test results log file. If this path is not provided, no log will be generated.
+
+###OutputFormat
+The format of output, i.e. `NUnitXml`
 
 ###PesterOption
 Sets advanced options for the test execution.  Enter a PesterOption object, such as one that you create by using the New-PesterOption cmdlet, or a hash table in which the keys are option names and the values are option values.
