@@ -39,7 +39,7 @@ In Pester v2.1.0, you were required to use the `Invoke-Pester` command to execut
 
 ###Code Coverage analysis
 
-Pester how has a basic code coverage analysis capability.  When executing scripts, you can tell Pester to monitor certain files (or specific functions or ranges of lines within files).  It will tell which PowerShell commands in the monitored areas were not executed during the test run.  This analysis does have some limitations; it only tells you which lines of code were _executed_ during the tests.  It's not a guarantee that your test code was good enough to actually test all of the possible branches within that code.  However, for all of the commands that Pester reports did not execute, you can be sure that those lines are not being fully tested.
+Pester now has a basic code coverage analysis capability.  When executing scripts, you can tell Pester to monitor certain files (or specific functions or ranges of lines within files).  It will tell which PowerShell commands in the monitored areas were not executed during the test run.  This analysis does have some limitations; it only tells you which lines of code were _executed_ during the tests.  It's not a guarantee that your test code was good enough to actually test all of the possible branches within that code.  However, for all of the commands that Pester reports did not execute, you can be sure that those lines are not being fully tested.
 
 For details on how this feature is used, see the [[Code Coverage]] wiki page.
 
