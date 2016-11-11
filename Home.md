@@ -7,6 +7,7 @@ Concepts
 * [[Unit Testing within Modules]]
 * [[Showing Test Results in CI (TeamCity, AppVeyor)]]
 * [[Generating Code Coverage metrics with Pester|Code Coverage]]
+* [[Contributing to Pester|Contributing to Pester]]
 
 Command Reference
 ------------------
