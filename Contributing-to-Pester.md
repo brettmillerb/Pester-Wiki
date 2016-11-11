@@ -14,9 +14,9 @@ In order to propose a new function to be added to Pester, we ask that you:
 3. Create a Pester test file in the form of $FunctionName.Tests.ps1 in the Functions directory.
    - Do not dot source the function script in your tests. The function will already be included as part of the module.
    - Run the Pester test suite by running Invoke-Pester with no parameters and correct all problems.
-      ```
-      Get-Module Pester | Remove-Module 
-      Import-Module .\Pester.psd1
-      Invoke-Pester -Path (Get-Module Pester).ModuleBase
-      ```
+
+    Get-Module Pester | Remove-Module 
+    Import-Module .\Pester.psd1
+    Invoke-Pester -Path (Get-Module Pester).ModuleBase
+
 6. Ensure your code works on PowerShell versions 2-5.
