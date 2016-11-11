@@ -19,7 +19,7 @@ In order to propose a new function to be added to Pester, we ask that you:
 ````
     Get-Module Pester | Remove-Module 
     Import-Module .\Pester.psd1
-    Invoke-Pester -Path (Get-Module Pester).ModuleBase
+    Invoke-Pester -Path 'C:\Program Files\WindowsPowerShell\Modules\Pester\Functions'
 ````
 6. Commit the change.
 7. Submit a pull request.
