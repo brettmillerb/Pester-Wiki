@@ -28,13 +28,14 @@ The best way to report the reproduction steps is in a form of a Pester test. But
 ### Proposing a new feature
 To propose a new feature, please create a new issue and share as much information as you see fit. Especially what the proposed feature is, why it is useful, and what dependencies (if any) it has. It would also be great if you added one or two examples of real world usage, if you have any. 
 
+When we discuss new features we look at how useful it is to the majority of users, how difficult it would be to implement, if breaking changes to the API must be introduced to have it, and if it's too specialized or too general to put in the codebase. But again, don't let that scare you away.
+
 ### Got anything else to say?
 You don't have to report a bug or propose a feature to contact us. You can ask any Pester related questions by creating a new issue, or contacting us on [gitter](https://gitter.im/pester/Pester). There is also a whole range of solved issues, that might answer your question right away, the best way to find information is through the "This repository" search field on the top of any GitHub page. On the search result page you can switch (on the left) between Code, Issues and Wikis. (Pull requests are just a sub-type of an issue.)
 
-When we discuss new features we look at how useful it is to the majority of users, how difficult it would be to implement, if breaking changes to the API must be introduced to have it, and if it's too specialized or too general to put in the codebase. But again, don't let that scare you away.
+## Implementing a PR
 
-
-## Proposing a new Function
+### Proposing a new Function
 
 In order to propose a new function to be added to Pester, we ask that you:
 
