@@ -34,6 +34,128 @@ When we discuss new features we look at how useful it is to the majority of user
 You don't have to report a bug or propose a feature to contact us. You can ask any Pester related questions by creating a new issue, or contacting us on [gitter](https://gitter.im/pester/Pester). There is also a whole range of solved issues, that might answer your question right away, the best way to find information is through the "This repository" search field on the top of any GitHub page. On the search result page you can switch (on the left) between Code, Issues and Wikis. (Pull requests are just a sub-type of an issue.)
 
 ## Implementing a PR
+So now we talked about your proposed change in the issue and it's time for you to implement the change and make it into a pull request (PR).
+
+### Step 1 - forking the main repository
+You cannot add code directly to our repository, you need to first get your own copy "a fork". GitHub makes this really simple, all you need to do is log in with your GitHub account, navigate to [Pester repository](https://github.com/pester/Pester) and click the "Fork" button on the upper right. There is a helpful wizard to walk you through the process of forking and cloning the repository. At the end you should have a local copy of Pester on your computer.
+
+If you don't have much experience with git, I suggest you download the [GitHub desktop client](https://desktop.github.com/) that will make reviewing your changes really simple. I will be describing all the steps in commands that you need to put in command line. You can get to it by clicking the cog wheel in the application and selecting "Open in Git shell".
+
+### Step 2 - syncing your clone with the main repository
+__If you just forked and cloned as described in the Step 1 you can skip directly to step 3. Your code is already up-to-date.__
+
+Otherwise you should make sure that your fork and your local copy (clone) is up to date. We will be updating the master branch, because that is where you should always start when creating a new PR.
+
+First you need to tell your repository where to find the official Pester repository by setting an upstream remote, you can find how to do that [in this official guide.](https://help.github.com/articles/configuring-a-remote-for-a-fork/)
+
+Then you need to get the latest code from the main Pester repository (upstream) and merge it to your repository, [here is another official guide on how to do that.](https://help.github.com/articles/syncing-a-fork/). Finally you push the changes to your fork on the server (origin), by running `git push` in the command line. You should repeat these steps every time you are starting a new PR, to make sure your code is up-to-date.
+
+Here is the whole process from cloning the repository from an out-dated fork, till pushing the changes to the server:
+
+```powershell
+# cloning my fork of Pester from the server, 
+# (notice the /nohwnd/pester.git in the URL, unlike /pester/pester.git of the official repository)
+C:\Users\nohwnd\Documents\GitHub> git clone https://github.com/nohwnd/pester.git
+Cloning into 'Pester'...
+remote: Counting objects: 4858, done.
+remote: Total 4858 (delta 0), reused 0 (delta 0), pack-reused 4858R
+Receiving objects: 100% (4858/4858), 9.14 MiB | 1.58 MiB/s, done.
+Resolving deltas: 100% (3236/3236), done.
+Checking connectivity... done.
+
+# navigating to the repository folder
+C:\Users\nohwnd\Documents\GitHub> cd .\Pester\
+
+# listing the remotes to see what is there 
+# (notice that the URL is the same as the cloning URL and that it's called origin)
+C:\Users\nohwnd\Documents\GitHub\Pester [master ≡]> git remote -v
+origin  https://github.com/nohwnd/Pester.git (fetch)
+origin  https://github.com/nohwnd/Pester.git (push)
+
+# adding one more remote to tell git where the official Pester repository is 
+# (notice this one is called upstream, and has /pester/pester.git in the URL, unlike the fork)
+C:\Users\nohwnd\Documents\GitHub\Pester [master ≡]> git remote add upstream https://github.com/pester/Pester.git
+
+# listing the remotes again to confirm the configuration is correct
+C:\Users\nohwnd\Documents\GitHub\Pester [master ≡]> git remote -v
+origin  https://github.com/nohwnd/Pester.git (fetch)
+origin  https://github.com/nohwnd/Pester.git (push)
+upstream        https://github.com/pester/Pester.git (fetch)
+upstream        https://github.com/pester/Pester.git (push)
+
+### --- The previous steps are one-time. You can start from here on successive updates. ---
+
+# downloading (fetching) data from the official repository
+# (you can see there are some new branches and tags)
+C:\Users\nohwnd\Documents\GitHub\Pester [master ≡]> git fetch upstream
+remote: Counting objects: 40, done.
+remote: Compressing objects: 100% (20/20), done.
+remote: Total 40 (delta 23), reused 15 (delta 15), pack-reused 5
+Unpacking objects: 100% (40/40), done.
+From https://github.com/pester/Pester
+ * [new branch]      DevelopmentV4 -> upstream/DevelopmentV4
+ * [new branch]      RunOnNanoServer -> upstream/RunOnNanoServer
+ * [new branch]      master     -> upstream/master
+ * [new tag]         3.3.12     -> 3.3.12
+ * [new tag]         3.3.13     -> 3.3.13
+ * [new tag]         3.3.14     -> 3.3.14
+ * [new tag]         3.4.0      -> 3.4.0
+ * [new tag]         3.4.1      -> 3.4.1
+ * [new tag]         3.4.2      -> 3.4.2
+ * [new tag]         3.4.3      -> 3.4.3
+ 
+# moving to the master branch (I already was there so this step was not necessary.)
+# the message says I am up-to-date with origin/master - the master branch in my fork on the server.
+# you can call "git pull" to make sure everything is up to date
+C:\Users\nohwnd\Documents\GitHub\Pester [master ≡]> git checkout master
+Already on 'master'
+Your branch is up-to-date with 'origin/master'.
+
+# here I am merging the offical repository master branch to my fork master branch
+# you can see there were some changes to merge
+C:\Users\nohwnd\Documents\GitHub\Pester [master ≡]> git merge upstream/master
+Updating 6680807..dc550d2
+Fast-forward
+ CHANGELOG.md                       |  3 +++
+ Functions/Assertions/Should.ps1    |  7 +++++++
+ Functions/New-MockObject.Tests.ps1 |  7 +++++++
+ Functions/New-MockObject.ps1       | 24 ++++++++++++++++++++++++
+ Pester.psd1                        |  5 +++--
+ Pester.psm1                        |  1 +
+ README.md                          |  1 +
+ 7 files changed, 46 insertions(+), 2 deletions(-)
+ create mode 100644 Functions/New-MockObject.Tests.ps1
+ create mode 100644 Functions/New-MockObject.ps1
+ 
+# pushing the merged changes to my fork on the server (origin)
+C:\Users\nohwnd\Documents\GitHub\Pester [master ↑]> git push
+Counting objects: 15, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (15/15), 2.23 KiB | 0 bytes/s, done.
+Total 15 (delta 9), reused 0 (delta 0)
+remote: Resolving deltas: 100% (9/9), completed with 7 local objects.
+To https://github.com/nohwnd/Pester.git
+   6680807..dc550d2  master -> master
+```
+
+### Step 3 - create a feature branch
+Switch to your master branch and create a new so-called feature branch from it. This branch will hold all changes for the PR you are implementing. You could put your changes directly into the master branch, but that's not recommended. 
+```
+git checkout -b "FixHelpForShould"
+```
+This command will create a new branch based on the current branch (master) and will switch directly to it. 
+
+```powershell
+C:\Users\nohwnd\Documents\GitHub\Pester [master ≡]> git checkout master
+Already on 'master'
+Your branch is up-to-date with 'origin/master'.
+C:\Users\nohwnd\Documents\GitHub\Pester [master ≡]> git checkout -b "FixHelpForShould"
+Switched to a new branch 'FixHelpForShould'
+C:\Users\nohwnd\Documents\GitHub\Pester [FixHelpForShould]>
+```
+
+Now you can start implementing your changes. Make sure that your changes are focused,
 
 ### Proposing a new Function
 
