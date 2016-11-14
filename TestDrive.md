@@ -45,3 +45,26 @@ $pathOne = Join-Path $TestDrive 'somefile.txt'
 
 $pathTwo = 'TestDrive:\somefile.txt'
 ```
+
+Working with .NET Objects
+---------
+When working directly with .NET objects, it's not possible to use TestDrive. This is because .NET does not understand PS Drives (which TestDrive is). If using .NET methods directly, you will need to temporarily use the file system and clean up manually afterward. Here's an example of this technique:
+
+```posh
+describe 'Foo' {
+
+    ## Create a temporary file on the file system
+    $fileContent = 'abcxyz'
+    $script:tempFilePath = 'C:\TempFile.txt'
+    Add-Content -Path $script:tempFilePath -Value $fileContent
+
+    AfterAll {
+        ## Clean up the temporary file created earlier after all It blocks are done
+        Remove-Item -Path $script:tempFilePath
+    }
+
+    it 'reads a file' {
+        ## some test code that reads $script:tempFilePath here
+    }
+}
+````
