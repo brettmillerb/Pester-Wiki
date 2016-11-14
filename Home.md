@@ -19,6 +19,7 @@ Command Reference
 * [[AfterEach|BeforeEach and AfterEach]]
 * [[In]]
 * [[New-Fixture]]
+* [[New-MockObject]]
 * [[Invoke-Pester]]
 * [[New-PesterOption]]
 * [[Mock]]
