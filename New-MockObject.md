@@ -1,4 +1,4 @@
-New-MockObject is a Pester function that allows you to create "fake" objects of just about any type to run inside of Pester mocks. This then allows your mocks to return the exact same type as the function it was mocking in order to pass the result to entities that are strongly typed.
+New-MockObject is a Pester function that allows you to create "fake" objects of just about any type to run inside of Pester mocks. This then allows your mocks to return the same type as the function it was mocking to pass the result to entities that are strongly typed.
 
 To explain the problem that `New-MockObject` solves, let's dive into the problem itself and show how this scenario cannot be solved without it. To demonstrate this, I'm working with a script and two functions inside of that script.
 
@@ -26,7 +26,7 @@ Do-Thing.ps1
 
 This script retrieves a thing based on a string `ThingLabel` parameter using `Get-Thing` and then uses the output of that command to use as a parameter Thing in the `Set-Thing` command.
 
-Now, I want to create some Pester tests for this scenario and ensure it executes properly. An example Pester test might look something like this:
+Now, I want to create some Pester tests for this scenario and ensure it executes correctly. An example Pester test might look something like this:
 
     describe 'Set the thing' {
     
@@ -51,13 +51,13 @@ Now, I want to create some Pester tests for this scenario and ensure it executes
 
 Your assertion will never even get called because `Set-Thing`'s `Thing` parameter must be of type `Thing.Type`. This means that `Get-Thing` must output that type. As-is, my mock of `Get-Thing` is just returning an object of `[System.Management.Automation.PSCustomObject]`. Since the `Thing` parameter on `Set-Thing` is strongly typed, this will never work and will fail at this step.
 
-The solution is to change the `Get-Thing` mock to return an object with type of `Thing.Type`. But, this is sometimes easier said than done. We would typically do this with the `New-Object` command but this relies on the classes having public constructors. Even if the class does have public constructors, the arguments themselves might be objects themselves that either have no public constructors or might require narrowing down how to instantiate one.
+The solution is to change the `Get-Thing` mock to return an object with the type of `Thing.Type`. But, this is sometimes easier said than done. We would typically do this with the `New-Object` command, but this relies on the classes having public constructors. Even if the class does have public constructors, the arguments themselves might be objects themselves that either have no public constructors or might require narrowing down how to instantiate one.
 
-Even if the object you originally set out to mock and all of the arguments have public constructors and you manage to create this object, not all objects have public constructors. Some only have private constructors that are not even possible to create with `New-Object`! There's got to be a better way. Lucky for us, there is now with `New-MockObject`.
+Even if the object you initially set out to mock and all of the arguments have public constructors and you manage to create this object, not all objects have public constructors. Some only have private constructors that are not even possible to create with `New-Object`! There's got to be a better way. Lucky for us, there is now with `New-MockObject`.
 
-`New-MockObject` does not rely on constructors. It instead creates "fake" objects that look just like the original that use constructors. Once created, these "fake" objects can be passed to anything that requires a specific object type and it will never know the difference. This means that it's now possible to create Pester tests for this scenario using `New-MockObject`.
+`New-MockObject` does not rely on constructors. It instead creates "fake" objects that look just like the original that use constructors. Once created, these "fake" objects can be passed to anything that requires a particular object type, and it will never know the difference. This means that it's now possible to create Pester tests for this scenario using `New-MockObject`.
 
-The only part that would need to be changed is the mock to `Get-Thing`. Now, depending on if the required .NET assembly is available, you can simply mock `Get-Thing` to output whatever type of object you want regardless of the circumstances.
+The only part that would need to be changed is the mock to `Get-Thing`. Now, depending on if the required .NET assembly is available; you can simply mock `Get-Thing` to output whatever type of object you want regardless of the circumstances.
 
     mock 'Get-Thing' {
         New-MockObject -Type Thing.Type
