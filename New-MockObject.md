@@ -49,9 +49,9 @@ Now, I want to test this script to ensure that it returns the correct result. An
         }
     }
 
-Your assertion will never even get called because `Set-Thing`'s `Thing` parameter must be of type `Thing.Type`. This means that `Get-Thing` must output that type. As-is, my mock of `Get-Thing` is just returning an object of `[System.Management.Automation.PSCustomObject]`. Since the `Thing` parameter on `Set-Thing` is strongly typed, this will never work and will fail at this step.
+The assertion (Assert-MockCalled on Set-Thing) fails because the `Thing` parameter of `Set-Thing` must be of type `Thing.Type` and `Get-Thing` must return that type. Instead, the mock of `Get-Thing` returns a custom object (`[System.Management.Automation.PSCustomObject]`).
 
-The solution is to change the `Get-Thing` mock to return an object with the type of `Thing.Type`. But, this is sometimes easier said than done. We would typically do this with the `New-Object` command, but this relies on the classes having public constructors. Even if the class does have public constructors, the arguments themselves might be objects themselves that either have no public constructors or might require narrowing down how to instantiate one.
+The solution is to change the `Get-Thing` mock to return a `Thing.Type` object. But, this is sometimes easier said than done. We would typically do this with the `New-Object` command, but this relies on the classes having public constructors. Even if the class does have public constructors, the arguments themselves might be objects themselves that either have no public constructors or might require narrowing down how to instantiate one.
 
 Even if the object you initially set out to mock and all of the arguments have public constructors and you manage to create this object, not all objects have public constructors. Some only have private constructors that are not even possible to create with `New-Object`! There's got to be a better way. Lucky for us, there is now with `New-MockObject`.
 
