@@ -24,9 +24,9 @@ Do-Thing.ps1
     Set-Thing -Thing $thing ## Requires $thing to be of type Thing.Type
 ======================
 
-This script retrieves a thing based on a string `ThingLabel` parameter using `Get-Thing` and then uses the output of that command to use as a parameter Thing in the `Set-Thing` command.
+This script gets and then changes a thing based on a `ThingLabel` string parameter. It uses `Get-Thing` and the parameter value to get a particular thing. Then, it uses its `Set-Thing` function to change the thing. Most importantly, it's using the [Thing.Type] class, including a call to its 'Get' static method.
 
-Now, I want to create some Pester tests for this scenario and ensure it executes correctly. An example Pester test might look something like this:
+Now, I want to test this script to ensure that it returns the correct result. An sample Pester test might look something like this:
 
     describe 'Set the thing' {
     
@@ -39,13 +39,13 @@ Now, I want to create some Pester tests for this scenario and ensure it executes
         .\Do-Thing.ps1    
 
         it 'sets the right thing' {
-            $assMParams = @{
+            $assertMockParams = @{
                 'CommandName' = 'Set-Thing'
                 'Times' = 1
                 'Exactly' = $true
                 'ParameterFilter' = {$Thing -eq '????' }
             }
-            Assert-MockCalled @assMParams 
+            Assert-MockCalled @assertMockParams 
         }
     }
 
