@@ -24,9 +24,9 @@ Do-Thing.ps1
     Set-Thing -Thing $thing ## Requires $thing to be of type Thing.Type
 ======================
 
-This script gets and then changes a thing based on a `ThingLabel` string parameter. It uses `Get-Thing` and the parameter value to get a particular thing. Then, it uses its `Set-Thing` function to change the thing. Most importantly, it's using the [Thing.Type] class, including a call to its 'Get' static method.
+This script gets and sets a thing based on a `ThingLabel` string parameter. It uses the `Get-Thing` function and the parameter value to get a particular thing. Then, it uses its `Set-Thing` function to change the thing. Most importantly, Get-Thing returns a [Thing.Type] object that Set-Thing requires as input.
 
-Now, I want to test this script to ensure that it returns the correct result. An sample Pester test might look something like this:
+A sample Pester test for the script might look something like this. To isolate the Set-Thing function, we mock the output of the Get-Thing function. Then, we assert that Set-Thing is called once.
 
     describe 'Set the thing' {
     
@@ -49,9 +49,9 @@ Now, I want to test this script to ensure that it returns the correct result. An
         }
     }
 
-The assertion (Assert-MockCalled on Set-Thing) fails because the `Thing` parameter of `Set-Thing` must be of type `Thing.Type` and `Get-Thing` must return that type. Instead, the mock of `Get-Thing` returns a custom object (`[System.Management.Automation.PSCustomObject]`).
+The assertion (Assert-MockCalled on Set-Thing) fails because the `Thing` parameter of `Set-Thing` must be of type `Thing.Type` and `Get-Thing` must return that type. But, instead, the mock of `Get-Thing` returns a custom object (`[System.Management.Automation.PSCustomObject]`).
 
-The solution is to change the `Get-Thing` mock to return a `Thing.Type` object. But, this is sometimes easier said than done. We would typically do this with the `New-Object` command, but this relies on the classes having public constructors. Even if the class does have public constructors, the arguments themselves might be objects themselves that either have no public constructors or might require narrowing down how to instantiate one.
+The solution is to change the `Get-Thing` mock to return a `Thing.Type` object. But, this can be very difficult. The `New-Object` cmdlet works only when the class has public constructors (methods for creating a new object of this type). Even if the class has public constructors, the arguments they require might be objects that don't have public constructors or they might be very complex to create.
 
 Even if the object you initially set out to mock and all of the arguments have public constructors and you manage to create this object, not all objects have public constructors. Some only have private constructors that are not even possible to create with `New-Object`! There's got to be a better way. Lucky for us, there is now with `New-MockObject`.
 
