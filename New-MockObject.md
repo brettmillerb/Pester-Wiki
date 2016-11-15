@@ -51,9 +51,9 @@ A sample Pester test for the script might look something like this. To isolate t
 
 The assertion (Assert-MockCalled on Set-Thing) fails because the `Thing` parameter of `Set-Thing` must be of type `Thing.Type` and `Get-Thing` must return that type. But, instead, the mock of `Get-Thing` returns a custom object (`[System.Management.Automation.PSCustomObject]`).
 
-The solution is to change the `Get-Thing` mock to return a `Thing.Type` object. But, this can be very difficult. The `New-Object` cmdlet works only when the class has public constructors (methods for creating a new object of this type). Even if the class has public constructors, the arguments they require might be objects that don't have public constructors or they might be very complex to create.
+The solution is to change the `Get-Thing` mock to return a `Thing.Type` object. But, this can be very difficult. The `New-Object` cmdlet works only when the class has public constructors (methods for creating a new object of this type). Even when the class has public constructors, the arguments that the constructors require might be objects that don't have public constructors or they might be very complex to create.
 
-Even if the object you initially set out to mock and all of the arguments have public constructors and you manage to create this object, not all objects have public constructors. Some only have private constructors that are not even possible to create with `New-Object`! There's got to be a better way. Lucky for us, there is now with `New-MockObject`.
+Even when the object you initially set out to mock and all of the arguments have public constructors and you manage to create this object, not all objects have public constructors. Some only have private constructors that are not even possible to create with `New-Object`! There's got to be a better way. Lucky for us, there is now with `New-MockObject`.
 
 `New-MockObject` does not rely on constructors. It instead creates "fake" objects that look just like the original that use constructors. Once created, these "fake" objects can be passed to anything that requires a particular object type, and it will never know the difference. This means that it's now possible to create Pester tests for this scenario using `New-MockObject`.
 
