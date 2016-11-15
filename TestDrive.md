@@ -48,4 +48,4 @@ $pathTwo = 'TestDrive:\somefile.txt'
 
 Working with .NET Objects
 ---------
-When working directly with .NET objects, it's not possible to use the TestDrive PS drive. If using .NET methods directly, you will need to use the alternative $TestDrive variable which points to the temporary path that TestDrive creates on the local file system. So, instead of using TestDrive:\Data instead, use $TestDrive\Data as the pointer to your file/folder.
+When working directly with .NET objects, it's not possible to use the convenient `TestDrive:\` PSDrive. Instead you need to use the `$TestDrive` variable which holds the actual path in a format that .NET understands. For example instead of using `TestDrive:\somefile.txt` use `$TestDrive\somefile.txt` instead.
