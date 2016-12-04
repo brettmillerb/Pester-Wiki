@@ -37,7 +37,7 @@ Optional array of hashtable (or any IDictionary) objects.  If this parameter is 
 Pester will call the test script block once for each table in the TestCases array,
 splatting the dictionary to the test script block as input.  If you want the name of
 the test to appear differently for each test case, you can embed tokens into the Name
-parameter with the syntax 'Adds numbers <A> and <B>' (assuming you have keys named A and B
+parameter with the syntax "Adds numbers \<A\> and \<B\>" (assuming you have keys named A and B
 in your TestCases hashtables.)
 
 ###Skip
