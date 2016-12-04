@@ -70,7 +70,14 @@ Reduces the possible outcome of a test to Passed or Failed only. Any Pending or 
 The path where Invoke-Pester will save formatted test results log file. If this path is not provided, no log will be generated.
 
 ###OutputFormat
-The format of output, i.e. `NUnitXml`
+The format of output. Two formats of output are supported: NUnitXML and LegacyNUnitXML.
+
+###OutputXml
+The parameter OutputXml is deprecated, please use OutputFile and OutputFormat 
+instead.
+    
+The path where Invoke-Pester will save a NUnit formatted test results log file. 
+If this path is not provided, no log will be generated.
 
 ###PesterOption
 Sets advanced options for the test execution.  Enter a PesterOption object, such as one that you create by using the New-PesterOption cmdlet, or a hash table in which the keys are option names and the values are option values.
