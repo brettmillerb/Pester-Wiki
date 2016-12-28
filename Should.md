@@ -38,7 +38,7 @@ $Error.Count | Should BeGreaterThan 0
 ```
 
 ###BeLessThan
-Asserts that a number is less than an expected value. Uses PowerShell's -gt operator to compare the two values.
+Asserts that a number is less than an expected value. Uses PowerShell's -lt operator to compare the two values.
 
 ```posh
 $Error.Count | Should BeLessThan 1
