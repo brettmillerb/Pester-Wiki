@@ -2,4 +2,4 @@
 
 The quote from Adam's Bertram article [Working with infrastructure dependencies in Pester](https://4sysops.com/archives/working-with-infrastructure-dependencies-in-pester).
 
-Set-TestInconclusive was introduced as the respond for [the issue 395](https://github.com/pester/Pester/issues/395)
+Set-TestInconclusive was introduced as the respond for [the issue 395](https://github.com/pester/Pester/issues/395), [the pull request](https://github.com/pester/Pester/pull/421).
