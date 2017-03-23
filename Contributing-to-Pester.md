@@ -154,8 +154,12 @@ C:\Users\nohwnd\Documents\GitHub\Pester [master ≡]> git checkout -b "FixHelpFo
 Switched to a new branch 'FixHelpForShould'
 C:\Users\nohwnd\Documents\GitHub\Pester [FixHelpForShould]>
 ```
+### Step 4 - implement your changes
+Now you can start implementing your changes. Make sure that your changes are relevant to the feature that you are implementing/the bug you are fixing. Avoid changing formatting and style of code that is not relevant to your changes.
 
-Now you can start implementing your changes. Make sure that your changes are focused,
+### Step 5 - comitting your changes
+Once you are done with you changes you need to commit them to your branch
+
 
 ### Proposing a new Function
 
