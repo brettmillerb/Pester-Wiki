@@ -13,13 +13,13 @@ With the set of Mocking functions that Pester exposes, one can:
 
 MOCKING FUNCTIONS
 -------------------
-###Mock
+### Mock
 Mocks the behavior of an existing command with an alternate implementation.
 
-###Assert-VerifiableMocks
+### Assert-VerifiableMocks
 Checks if any Verifiable Mock has not been invoked. If so, this will throw an exception.
 
-###Assert-MockCalled
+### Assert-MockCalled
 Checks if a Mocked command has been called a certain number of times and throws an exception if it has not.
 
 EXAMPLE
