@@ -47,17 +47,17 @@ These will be injected automatically based on the signature of the command
 being mocked, and the `MockWith` script block can contain references to the
 mocked commands parameter variables.
 
-###Verifiable
+### Verifiable
 When this is set, the mock will be checked when `Assert-VerifiableMocks` is called.
 
-###ParameterFilter
+### ParameterFilter
 An optional filter to limit mocking behavior only to usages of 
 CommandName where the values of the parameters passed to the command 
 pass the filter.
 
 This ScriptBlock must return a boolean value. See examples for usage.
 
-###ModuleName
+### ModuleName
 Optional string specifying the name of the module where this command
 is to be mocked.  This should be a module that _calls_ the mocked
 command; it doesn't necessarily have to be the same module which
