@@ -12,7 +12,7 @@ $true | Should Not Be $false
 
 SHOULD OPERATORS
 --------------
-###Be
+### Be
 Compares one object with another for equality and throws if the two objects are not the same.  This comparison is not case sensitive.
 
 ```posh
@@ -21,7 +21,7 @@ $actual | Should Be "actual value" # Test will pass
 $actual | Should Be "not actual value"  # Test will fail
 ```
 
-###BeExactly
+### BeExactly
 Compares one object with another for equality and throws if the two objects are not the same.  This comparison is case sensitive.
 
 ```posh
@@ -30,21 +30,21 @@ $actual | Should BeExactly "Actual value" # Test will pass
 $actual | Should BeExactly "actual value" # Test will fail
 ```
 
-###BeGreaterThan
+### BeGreaterThan
 Asserts that a number is greater than an expected value. Uses PowerShell's -gt operator to compare the two values.
 
 ```posh
 $Error.Count | Should BeGreaterThan 0
 ```
 
-###BeLessThan
+### BeLessThan
 Asserts that a number is less than an expected value. Uses PowerShell's -lt operator to compare the two values.
 
 ```posh
 $Error.Count | Should BeLessThan 1
 ```
 
-###BeLike
+### BeLike
 Asserts that the actual value matches a wildcard pattern using PowerShell's -like operator.  This comparison is not case-sensitive.
 
 ```posh
@@ -53,7 +53,7 @@ $actual | Should BeLike "actual *" # Test will pass
 $actual | Should BeLike "not actual *" # Test will fail
 ```
 
-###BeLikeExactly
+### BeLikeExactly
 Asserts that the actual value matches a wildcard pattern using PowerShell's -like operator.  This comparison is case-sensitive.
 
 ```posh
@@ -62,7 +62,7 @@ $actual | Should BeLikeExactly "Actual *" # Test will pass
 $actual | Should BeLikeExactly "actual *" # Test will fail
 ```
 
-###BeOfType
+### BeOfType
 Asserts that the actual value should be an object of a specified type (or a subclass of the specified type) using PowerShell's -is operator:
 
 ```posh
@@ -73,7 +73,7 @@ $actual | Should BeOfType System.IO.FileSystemInfo  # Test will pass; DirectoryI
 $actual | Should BeOfType System.IO.FileInfo        # Test will fail; FileInfo is not a base class of DirectoryInfo
 ```
 
-###Exist
+### Exist
 Does not perform any comparison but checks if the object calling Exist is present in a PS Provider. The object must have valid path syntax. It essentially must pass a Test-Path call.
 
 ```posh
@@ -85,7 +85,7 @@ $actual | Should Exist # Test will fail
 To test path containing `[ ]` wildcards, escape each bracket with two back-ticks as such ````"TestDrive:\``[test``].txt"```` or use `Test-Path -LiteralPath $something | Should Be $true`.
 
 
-###Contain
+### Contain
 Checks to see if a file contains the specified text.  This search is not case sensitive and uses regular expressions. 
 
 ```posh
@@ -112,7 +112,7 @@ c:\file.txt |  Should Contain something # Will throw an error
 'c:\file.txt' |  Should Contain something # Will evaluate correctly
 ```
 
-###ContainExactly
+### ContainExactly
 Checks to see if a file contains the specified text.  This search is case sensitive and uses regular expressions to match the text.
 
 ```posh
@@ -121,7 +121,7 @@ Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
 'TestDrive:\file.txt' | Should ContainExactly 'I Am' # Test will fail
 ```
 
-###Match
+### Match
 Uses a regular expression to compare two objects.  This comparison is not case sensitive.
 
 ```posh
@@ -134,7 +134,7 @@ Uses a regular expression to compare two objects.  This comparison is not case s
 "Greg" | Should Match ([regex]::Escape(".reg")) # Test will fail
 ```
 
-###MatchExactly
+### MatchExactly
 Uses a regular expression to compare two objects.  This comparison is case sensitive.
 
 ```posh
@@ -142,7 +142,7 @@ Uses a regular expression to compare two objects.  This comparison is case sensi
 "I am a value" | Should MatchExactly "I Am" # Test will fail
 ```
 
-###Throw
+### Throw
 Checks if an exception was thrown in the input ScriptBlock. Takes an optional argument to indicate the expected exception message.
 
 ```posh
@@ -164,7 +164,7 @@ Note: The exception message match is a substring match, so the following asserti
 Get-Process -Name "process" -ErrorAction Stop  | Should Throw # Should pass but fails the test
 ```
 
-###BeNullOrEmpty
+### BeNullOrEmpty
 Checks values for null or empty (strings). The static [String]::IsNullOrEmpty() method is used to do the comparison.
 
 ```posh
