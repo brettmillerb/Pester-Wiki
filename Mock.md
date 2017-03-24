@@ -36,10 +36,10 @@ Each module's mock maintains a separate call history and verified status.
 
 PARAMETERS
 ----------
-###CommandName
+### CommandName
 The name of the command to be mocked.
 
-###MockWith
+### MockWith
 A ScriptBlock specifying the behavior that will be used to mock CommandName. The default is an empty ScriptBlock.
 
 NOTE: Do not specify `param` or `dynamicparam` blocks in this script block.
