@@ -3,10 +3,10 @@ also only apply to tests within that `Context`.
 
 PARAMETERS
 -----------
-###Name
+### Name
 The name of the Context. This is a phrase describing a set of tests within a describe.
 
-###Fixture
+### Fixture
 Script that is executed. This may include setup specific to the context and one or more It blocks that validate the expected outcomes.
 
 EXAMPLE
