@@ -8,13 +8,13 @@ The `BeforeEach` and `AfterEach` commands allow you to define setup and teardown
 The script blocks assigned to `BeforeEach` and `AfterEach` are dot-sourced in the `Context` or `Describe` which contains the current `It` statement, so you don't have to worry about the scope of variable assignments.  Any variables that are assigned values within a `BeforeEach` block can be used inside the body of the `It` block.
 
 ---
-###Note about syntax and placement
+### Note about syntax and placement
 
 Unlike most of the commands in a Pester script, `BeforeEach` and `AfterEach` blocks apply to the entire `Describe` or `Context` scope in which they are defined, regardless of the order of commands inside the `Describe` or `Context`.  In other words, even if an `It` block appears before `BeforeEach` or `AfterEach` in the tests file, the `BeforeEach` and `AfterEach` will still be executed.
 
 ---
 
-###Example
+### Example
 
 ```posh
 Describe 'Testing BeforeEach and AfterEach' {
