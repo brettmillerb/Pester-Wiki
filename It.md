@@ -23,16 +23,16 @@ Possible results of a test are:
 
 PARAMETERS
 -----------
-###Name
+### Name
 An expressive phrase describing the expected test outcome.
 
-###Test
+### Test
 The script block that should throw an exception if the 
 expectation of the test is not met.  If you are following the 
 AAA pattern (Arrange-Act-Assert), this typically holds the 
 Assert. 
 
-###TestCases
+### TestCases
 Optional array of hashtable (or any IDictionary) objects.  If this parameter is used,
 Pester will call the test script block once for each table in the TestCases array,
 splatting the dictionary to the test script block as input.  If you want the name of
@@ -40,10 +40,10 @@ the test to appear differently for each test case, you can embed tokens into the
 parameter with the syntax "Adds numbers \<A\> and \<B\>" (assuming you have keys named A and B
 in your TestCases hashtables.)
 
-###Skip
+### Skip
 Use this parameter to explicitly mark test to be skipped. This is preferable to temporarily commenting out a test, because the test remains listed in the output. Use the [Strict](https://github.com/pester/Pester/wiki/Invoke-Pester#strict) parameter of [[Invoke-Pester]] to force all skipped tests to fail.
 
-###Pending
+### Pending
 Use this parameter to explicitly mark unfinished tests as pending. This might be useful to distinguish a test that is work-in-progress from tests that fail as a result of a changes being made to the code base. 
 
 A test that is empty, contains only comments, or the combination of both will become Pending by default. Use the [Strict](https://github.com/pester/Pester/wiki/Invoke-Pester#strict) parameter of [[Invoke-Pester]] to force all pending tests to fail.
