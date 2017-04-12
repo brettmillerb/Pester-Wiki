@@ -3,16 +3,16 @@ block may contain any number of `Context` and `It` blocks.
 
 PARAMETERS
 -------------
-###Name
+### Name
 The name of the test group. This is often an expressive phrase describing the scenario being tested.
 
-###Fixture
+### Fixture
 The actual test script. If you are following the AAA pattern (Arrange-Act-Assert), this 
 typically holds the arrange and act sections. The Asserts will also lie in this block but are 
 typically nested each in its own `It` block.  Assertions are typically performed by the `Should`
 command within the `It` blocks.
 
-###Tags
+### Tags
 Optional parameter containing an array of strings.  When calling `Invoke-Pester`, it is possible to specify a `-Tag` parameter which will only execute `Describe` blocks containing the same Tag. In addition, if a `Describe` block has a tag, you can also use the `-ExcludeTag` when calling `Invoke-Pester` to exclude all `Describe` blocks with a certain tag.
 
 Tags Example
