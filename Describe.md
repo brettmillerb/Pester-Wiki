@@ -13,12 +13,12 @@ typically nested each in its own `It` block.  Assertions are typically performed
 command within the `It` blocks.
 
 ### Tags
-Optional parameter containing an array of strings.  When calling `Invoke-Pester`, it is possible to specify a `-Tag` parameter which will only execute `Describe` blocks containing the same Tag. In addition, if a `Describe` block has a tag, you can also use the `-ExcludeTag` when calling `Invoke-Pester` to exclude all `Describe` blocks with a certain tag.
+Optional parameter containing an array of strings.  When calling `Invoke-Pester`, it is possible to specify a `-Tag` parameter which will filter  `Describe` blocks containing the same Tag when the `-PassThru` parameter is enabled. In addition, if a `Describe` block has a tag, you can also use the `-ExcludeTag` when calling `Invoke-Pester` to exclude all `Describe` blocks with a certain tag.
 
 Tags Example
 ----------
 ```posh
-Invoke-Pester -ExcludeTag 'Disabled'
+$tests = Invoke-Pester -ExcludeTag 'Disabled' -PassThru
 
 Describe -Tag 'Disabled' "Add-Numbers" {
     It "adds positive numbers" {
