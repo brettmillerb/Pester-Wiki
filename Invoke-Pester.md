@@ -37,13 +37,13 @@ C:\PS>Invoke-Pester -Script @{ Path = './tests/Utils*'; Parameters = @{ NamedPar
 Executes a test, but will run them with the equivalent of the following command line:  & $testScriptPath -NamedParameter 'Passed By Name' 'Passed by position'
 
 ### TestName (Alias: _Name_)
-Informs Invoke-Pester to only run Describe blocks that match this name.  This value may contain wildcards.
+Informs Invoke-Pester to filter Describe blocks that match this name. This value may contain wildcards. Only Describes block that match the TestName will be included in the returned object. -PassThru switch must be enabled
 
 ### EnableExit
 Will cause Invoke-Pester to exit with a exit code equal to the number of failed tests once all tests have been run. Use this to "fail" a build when any tests fail.
 
 ### Tag (Alias: _Tags_)
-Another way of filtering the Describe blocks that should be executed, this time based on the values that are passed to the Tag parameter of the Describe statement.  This value may not contain wildcards.
+Another way of filtering the Describe blocks, this time based on the values that are passed to the Tag parameter of the Describe statement.  This value may not contain wildcards. Only Describes block that match the Tag Name will be included in the returned object. -PassThru switch must be enabled
 
 ### PassThru
 Causes Invoke-Pester to produce an output object which can be analyzed by its caller, instead of only sending output to the console.  This can be used as part of a Continuous Integration written in PowerShell, as opposed to relying on a program to read the NUnit xml files produced when the `-OutputFormat` parameter is used.
