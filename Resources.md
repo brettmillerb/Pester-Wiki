@@ -1,1 +1,0 @@
-[VSCode snippets for Pester](https://powershell.org/forums/topic/vscode-snippets-for-pester/)
