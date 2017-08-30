@@ -9,7 +9,7 @@ Concepts
 * [[Generating Code Coverage metrics with Pester|Code Coverage]]
 * [[Contributing to Pester|Contributing to Pester]]
 
-* [[Articles and resources]]
+* [[Articles and other resources]]
 
 Command Reference
 ------------------
