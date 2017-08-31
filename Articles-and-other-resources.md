@@ -6,6 +6,7 @@
 
 | No. | Title | Author | Date | Url |
 |----:|:------|:-------|------|-----|
+|0  | Get started with Pester (PowerShell unit testing framework)| Jakub Jares |2014-03-12 | [http://www.powershellmagazine.com/2014/03/12/get-started-with-pester-powershell-unit-testing-framework/](http://www.powershellmagazine.com/2014/03/12/get-started-with-pester-powershell-unit-testing-framework/)
 | 1 | Configure and test windows infrastructure using Powershell technologies DSC and Pester running from Chef and Test-Kitchen | Matt Wrock | 2014-10-13|[http://www.hurryupandwait.io/blog/configure-and-test-windows-infrastructure-using-powershell-technologies-dsc-and-pester-running-from-chef-and-test-kitchen](http://www.hurryupandwait.io/blog/configure-and-test-windows-infrastructure-using-powershell-technologies-dsc-and-pester-running-from-chef-and-test-kitchen)|
 | 2 | Practical PowerShell Unit-Testing: Getting Started | Michael Sorens | 2014-11-03|[https://www.simple-talk.com/sysadmin/powershell/practical-powershell-unit-testing-getting-started](https://www.simple-talk.com/sysadmin/powershell/practical-powershell-unit-testing-getting-started) |
 | 3 | Practical PowerShell Unit-Testing: Mock Objects | Michael Sorens | 2014-11-04| [https://www.simple-talk.com/sysadmin/powershell/practical-powershell-unit-testing-mock-objects/](https://www.simple-talk.com/sysadmin/powershell/practical-powershell-unit-testing-mock-objects) |
