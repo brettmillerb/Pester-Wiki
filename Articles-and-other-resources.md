@@ -7,7 +7,10 @@
 
 | Title | Author | Date |
 |:------|:-------|------|
+| [Pester - PowerShell BDD Style Testing for the System Administrator](http://scottmuc.com/blog/development/pester-bdd-for-the-system-administrator/) | Scott Muc | 2011-03-11 |
+[PowerShell BDD Testing - Pester Screencast](http://scottmuc.com/blog/development/powershell-bdd-testing-pester-screencast/) | Scott Muc | 2011-08-25 |
 | [Get started with Pester (PowerShell unit testing framework)](http://www.powershellmagazine.com/2014/03/12/get-started-with-pester-powershell-unit-testing-framework/)| Jakub Jares |2014-03-12 |
+| [Growing an Open Source Project: The Pester Story](http://scottmuc.com/growing-an-open-source-project-the-pester-story/) | Scott Muc | 2014-08-07
 | [Configure and test windows infrastructure using Powershell technologies DSC and Pester running from Chef and Test-Kitchen](http://www.hurryupandwait.io/blog/configure-and-test-windows-infrastructure-using-powershell-technologies-dsc-and-pester-running-from-chef-and-test-kitchen) | Matt Wrock | 2014-10-13|
 | [Practical PowerShell Unit-Testing: Getting Started](https://www.simple-talk.com/sysadmin/powershell/practical-powershell-unit-testing-getting-started) | Michael Sorens | 2014-11-03|
 | [Practical PowerShell Unit-Testing: Mock Objects](https://www.simple-talk.com/sysadmin/powershell/practical-powershell-unit-testing-mock-objects)  | Michael Sorens| 2014-11-04|
@@ -102,6 +105,5 @@
 Waiting to be re-read and added
 - http://mikefrobbins.com/?s=pester
 - https://powershell.org
-
 
 
