@@ -1,5 +1,11 @@
 # List of resources
 
+## Books
+
+| Title | Author | Date |
+|:------|:-------|------|
+| [The Pester Book](http://www.leanpub.com/pesterbook) | Adam Bertram | 2017-08-01 |
+
 ## Articles
 
 ### Pester general
