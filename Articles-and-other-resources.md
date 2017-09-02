@@ -10,15 +10,22 @@
 | [Pester - PowerShell BDD Style Testing for the System Administrator](http://scottmuc.com/blog/development/pester-bdd-for-the-system-administrator/) | Scott Muc | 2011-03-11 |
 [PowerShell BDD Testing - Pester Screencast](http://scottmuc.com/blog/development/powershell-bdd-testing-pester-screencast/) | Scott Muc | 2011-08-25 |
 | [Get started with Pester (PowerShell unit testing framework)](http://www.powershellmagazine.com/2014/03/12/get-started-with-pester-powershell-unit-testing-framework/)| Jakub Jares |2014-03-12 |
-| [Growing an Open Source Project: The Pester Story](http://scottmuc.com/growing-an-open-source-project-the-pester-story/) | Scott Muc | 2014-08-07
+| [Testing your PowerShell scripts with Pester: Assertions and more](http://www.powershellmagazine.com/2014/03/27/testing-your-powershell-scripts-with-pester-assertions-and-more/) | Jakub Jares | 2014-03-27 | 
+| [Growing an Open Source Project: The Pester Story](http://scottmuc.com/growing-an-open-source-project-the-pester-story/) | Scott Muc | 2014-08-07 |
+| [Pester Mock and TestDrive](http://www.powershellmagazine.com/2014/09/30/pester-mock-and-testdrive/) | Jakub Jares | 2014-09-30 | 
 | [Configure and test windows infrastructure using Powershell technologies DSC and Pester running from Chef and Test-Kitchen](http://www.hurryupandwait.io/blog/configure-and-test-windows-infrastructure-using-powershell-technologies-dsc-and-pester-running-from-chef-and-test-kitchen) | Matt Wrock | 2014-10-13|
 | [Practical PowerShell Unit-Testing: Getting Started](https://www.simple-talk.com/sysadmin/powershell/practical-powershell-unit-testing-getting-started) | Michael Sorens | 2014-11-03|
 | [Practical PowerShell Unit-Testing: Mock Objects](https://www.simple-talk.com/sysadmin/powershell/practical-powershell-unit-testing-mock-objects)  | Michael Sorens| 2014-11-04|
-| [Practical PowerShell Unit-Testing: Checking program flow](https://www.simple-talk.com/sysadmin/powershell/practical-powershell-unit-testing-checking-program-flow) | Michael Sorens | 2014-11-05|
+| [Practical PowerShell Unit-Testing: Checking program flow](https://www.simple-talk.com/sysadmin/powershell/practical-powershell-unit-testing-checking-program-flow) | Michael Sorens | 2014-11-05 |
 | [Create your first Pester script to test a DSC resource](https://pwrshell.net/create-your-first-pester-script-to-test-a-dsc-resource/)  | Fabien Dibot | 2014-11-30 |
 | [Build your Azure lab with DSC and validate it using Pester – 1/3](https://pwrshell.net/build-your-azure-lab-with-dsc-and-validate-it-using-pester-13/) | Fabien Dibot | 2014-12-27 |
 | [Build your Azure lab with DSC and validate it using Pester – 2/3](https://pwrshell.net/build-your-azure-lab-with-dsc-and-validate-it-using-pester-23/) | Fabien Dibot | 2015-01-04 |
+| [Boost your productivity with Pester snippets](http://www.powershellmagazine.com/2015/01/13/boost-your-productivity-with-pester-snippets/) | Jakub Jares | 2015-01-13 | 
+| [Pester: Triangulation and reusing test cases](http://www.powershellmagazine.com/2015/06/04/pester-triangulation-and-reusing-test-cases/) | Jakub Jares | 2015-06-04 |
 | [Comparing Objects using JSON in PowerShell for Pester Tests](https://dscottraynsford.wordpress.com/2015/08/23/comparing-objects-using-json-in-powershell-for-pester-tests/) | Daniel Scott-Raynsford | 2015-08-23 |
+| [Pester Explained: Introduction and Assertions](http://www.powershellmagazine.com/2015/12/01/pester-explained-introduction-and-assertions/) | Jakub Jares | 2015-12-01 |
+| [Pester Explained: Should](http://www.powershellmagazine.com/2015/12/02/pester-explained-should/) | Jakub Jares | 2015-12-02 | 
+| [Pester Explained: Describe, Context, and It Blocks](http://www.powershellmagazine.com/2015/12/03/pester-explained-describe-context-and-it-blocks/) | Jakub Jares | 2015-12-03 |
 | [Testing Script Modules with Pester - series](https://blogs.technet.microsoft.com/heyscriptingguy/2015/12/14/what-is-pester-and-why-should-i-care)  | Dave Wyatt | 2015-12-14|
 | [Download Free Pester Cheat Sheet](https://kajbonfils.com/2016/05/download-free-pester-cheat-sheet) | Kaj Bonfils | 2016-05-18|
 | [Mocking SQL Results in Pester](https://nickhudacin.wordpress.com/2016/04/28/mocking-sql-results-in-pester/) | Nick Hudacin | 2016-04-28|
@@ -105,5 +112,4 @@
 Waiting to be re-read and added
 - http://mikefrobbins.com/?s=pester
 - https://powershell.org
-
 
