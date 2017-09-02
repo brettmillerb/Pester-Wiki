@@ -76,15 +76,16 @@
 
 | No. | Name | Author |
 |----:|:-----|:-------|
-|  3 | [Format-Pester](https://github.com/equelin/Format-Pester)  | Erwan Quelin |
-|  1 | [PesterHelpers](https://github.com/PowerShellModules/PesterHelpers) | Ryan Yates |
+|  1 | [Assert](https://github.com/nohwnd/Assert) | Jakub Jares |
+|  2 | [Format-Pester](https://github.com/equelin/Format-Pester)  | Erwan Quelin |
+|  3 | [PesterHelpers](https://github.com/PowerShellModules/PesterHelpers) | Ryan Yates |
 |  4 | [Pester-ExchangeServer](https://github.com/it-praktyk/Pester-ExchangeServer) | Wojciech Sciesinski |
-|  2 | [PesterOperationTest](https://github.com/torgro/PesterOperationTest) | Tore Groneng |
-|  5 | [PoshSpec](https://github.com/Ticketmaster/poshspec)  | Chris Hunt |
-|  6 | [PowerShell Pester Dashboard Kickstarter](https://github.com/doesitscript/PSPesterDashboardKickstarter/tree/develop) | Josh Castillo |
-|  7 | [PesterMatchArray](https://github.com/stuartleeks/PesterMatchArray)  | Stuart Leeks |
+|  5 | [PesterOperationTest](https://github.com/torgro/PesterOperationTest) | Tore Groneng |
+|  6 | [PoshSpec](https://github.com/Ticketmaster/poshspec)  | Chris Hunt |
+|  7 | [PowerShell Pester Dashboard Kickstarter](https://github.com/doesitscript/PSPesterDashboardKickstarter/tree/develop) | Josh Castillo |
+|  8 | [PesterMatchArray](https://github.com/stuartleeks/PesterMatchArray)  | Stuart Leeks |
 |  9 | [PesterMatchHashtable](https://github.com/stuartleeks/PesterMatchHashtable) | Stuart Leeks |
-|  8 | [Remotely](https://github.com/rchaganti/Remotely) | Ravikanth Chaganti |
+| 10 | [Remotely](https://github.com/rchaganti/Remotely) | Ravikanth Chaganti |
 | 10 | [Vester](https://github.com/WahlNetwork/Vester) | Chris Wahl |
 | 11 | [Watchmen](https://github.com/devblackops/watchmen) | Brandon Olin |
 
@@ -101,7 +102,6 @@
 Waiting to be re-read and added
 - http://mikefrobbins.com/?s=pester
 - https://powershell.org
-
 
 
 
