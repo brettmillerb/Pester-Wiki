@@ -1,10 +1,4 @@
-# List of resources
-
-## Books
-
-| Title | Author | Date |
-|:------|:-------|------|
-| [The Pester Book](http://www.leanpub.com/pesterbook) | Adam Bertram | 2017-08-01 |
+# Articles, Videos, Projects and other resources
 
 ## Articles
 
@@ -85,6 +79,7 @@
 | [Test-Driven Development with Pester](https://www.youtube.com/watch?v=gssAtCeMOoo) | June Blender | 2016-05-21 |
 | [Testing PowerShell with Pester](https://www.pluralsight.com/courses/powershell-testing-pester)  | Robert Cain | 2016-06-18 | [https://www.pluralsight.com/courses/powershell-testing-pester]|
 | [Pester the Tester PowerShell Bugs Beware](https://www.youtube.com/watch?v=o4ihc7atwYQ) | Robert Cain | 2016-06-14 |
+| [Introduction to testing with Pester](https://www.youtube.com/watch?v=F3oOk0BC9B4) | Jakub Jares | 2017-04-08 |
 
 
 ## Projects
@@ -113,9 +108,15 @@
 |:-----|:-------|:-----|
 |[VSCode snippets for Pester](https://powershell.org/forums/topic/vscode-snippets-for-pester/)|Adam Bertram|2017-03-07|
 
+# Paid resources
+## Books
+
+| Title | Author | Date |
+|:------|:-------|------|
+| [The Pester Book](http://www.leanpub.com/pesterbook) | Adam Bertram | 2017-08-01 |
+
 ## TBD
 
 Waiting to be re-read and added
 - http://mikefrobbins.com/?s=pester
 - https://powershell.org
-
