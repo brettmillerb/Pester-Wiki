@@ -60,5 +60,6 @@ Install PSGet ?
 ### Getting the sources directly
 
 
-
-
+### tbd 
+moved from readme: todo: add page with all the info for installation. most likely we will split it by versions of PowerShell, not by windows. But I am using compatibility with windows in here , how to install, update, why those steps are needed, and how to remove the old Pester version from windows.
+Do not use the `-Scope User` parameter.
