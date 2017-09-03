@@ -1,5 +1,3 @@
-# Articles, Videos, Projects and other resources
-
 ## Articles
 
 ### Pester general
