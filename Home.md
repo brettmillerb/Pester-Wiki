@@ -20,6 +20,8 @@ Contributing to Pester
 
 Command Reference
 ------------------
+Command reference section is not updated automatically yet - please check the help for functions too `Get-Help CommandName -Full`.
+
 * [[Describe]]
 * [[Context]]
 * [[It]]
