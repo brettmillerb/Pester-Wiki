@@ -8,8 +8,15 @@ Concepts
 * [[Showing Test Results in CI (TeamCity, AppVeyor)]]
 * [[Generating Code Coverage metrics with Pester|Code Coverage]]
 * [[Contributing to Pester|Contributing to Pester]]
-
 * [[Articles and other resources]]
+
+Contributing to Pester
+----------------------
+* [[Opening issues]]
+* [[Bug related issues]]
+* [[Feature requests]]
+* [[Contributing to project]]
+* [[Developement rules - technical]]
 
 Command Reference
 ------------------
