@@ -47,6 +47,7 @@
 | [Unit tests versus integration tests in Pester](https://4sysops.com/archives/unit-tests-versus-integration-tests-in-pester/#integration-tests) | Adam Bertram | 2016-07-21|
 | [Functional / Non-Functional Pester Tests and why I think you really should have a form of both.](http://blog.kilasuit.org/2016/07/21/functional-non-functional-pester-tests-and-why-i-think-you-really-should-have-a-form-of-both/) | Ryan Yates | 2016-07-21|
 |[Writing Pester Tests](https://github.com/PowerShell/PowerShell/blob/master/docs/testing-guidelines/WritingPesterTests.md)| PowerShell Community | 2016-11-07|
+|[Unit Testing with Pester : Storing complex Mock objects in a JSON file](https://mathieubuisson.github.io/storing-mock-objects-in-json/) | Mathieu Buisson | 2017-02-14|
 
 ### Test your module with Pester
 (Sort order - date of publication)
@@ -64,8 +65,7 @@
 | [Testing Your Module Manifest With Pester - Revisited](http://mattmcnabb.github.io/Pester-For-PowerShell-Gallery) | Matt McNabb | 2016-05-18 |
 | [How To Test PowerShell Modules with Pester](http://mattmcnabb.github.io/Pester-For-PowerShell-Gallery)| Adam Bertram | 2016-05-19 |
 | [Creating a set of simple Pester Tests for existing or old PowerShell Modules & making them easier to update in future.](http://blog.kilasuit.org/2016/05/24/creating-a-set-of-simple-pester-tests-for-existing-or-old-powershell-modules-making-them-easier-to-update-in-future)| Ryan Yates | 2016-05-24 | []
-| [A Boilerplate for Unit testing DSC resources with Pester](http://theshellnut.com/unit-testing-dsc-resources/)  | Mathieu Buisson | 2016-07-12|
-
+| [A Boilerplate for Unit testing DSC resources with Pester](https://mathieubuisson.github.io/unit-testing-dsc-resources/)  | Mathieu Buisson | 2016-07-12|
 
 ## Videos
 (Sort order - date of publication)
