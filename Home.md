@@ -10,6 +10,10 @@ Concepts
 * [[Contributing to Pester|Contributing to Pester]]
 * [[Articles and other resources]]
 
+Installation and usage
+----------------------
+* [[ Installation and update]]
+
 Contributing to Pester
 ----------------------
 * [[Opening issues]]
