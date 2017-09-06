@@ -22,6 +22,8 @@ For any subsequent update it is enough to run:
 Update-Module -Name Pester
 ```
 
+If you would like understand (in details) consequences of using `SkipPublisherCheck` please read the article ['The Effect of SkipPublisherCheck'](https://info.sapien.com/index.php/scripting/scripting-modules/effect-of-skippublishercheck) wrote by [June Blender](@juneb) published at the [SAPIEN](https://www.sapien.com/) Information Center page.
+
 
 ## Installing and updating on earlier versions of Windows
 
