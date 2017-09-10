@@ -35,7 +35,7 @@ The way you can install a new module differs based on the version of PowerShell 
 ```
 
 # PowerShell 5 or newer
-In version 5 or later you can use the built-in `Install-Module` and Update-Module` cmdlets coming from [PowerShellGet](https://github.com/PowerShell/PowerShellGet).
+In version 5 or later you can use the built-in `Install-Module` and `Update-Module` cmdlets coming from [PowerShellGet](https://github.com/PowerShell/PowerShellGet).
 
 From _administrator_ PowerShell command line run:
 ```powershell
