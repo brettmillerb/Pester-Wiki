@@ -12,7 +12,8 @@ Concepts
 
 Installation and usage
 ----------------------
-* [[ Installation and update]]
+* [[Installation and update]]
+* [[Migrating from Pester 3 to Pester 4]]
 
 Contributing to Pester
 ----------------------
