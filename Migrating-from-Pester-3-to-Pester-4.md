@@ -1,4 +1,4 @@
-To migrate from Pester 3 to Pester 4, you need to:
+## Update functions to new names:
 1. rename all occurences of any `Contain` assertion for `FileContentMatch`.
 1. rename all occurentces of `Assert-VerifiableMocks` to `Assert-VerifiableMock`
 1. rename all occurentces of `Get-MockDynamicParameters` to `Get-MockDynamicParameter`
@@ -46,5 +46,7 @@ foreach ($file in $testFiles)
     $content | Set-Content -Path $file -Encoding $encoding
 }
 ```
-
-mock differences: https://github.com/pester/Pester/issues/812
+## Mock related changes
+We are not 100 % sure what implications changing from functions to aliases had on mocking. There are no immediate changes that you need to do, but here are two articles that should help you start figuring out issues if you have any:
+- [Get-Command of mocked function is less complete](https://github.com/pester/Pester/issues/810)
+- [Summary of mock scope changes](https://github.com/pester/Pester/issues/812)
