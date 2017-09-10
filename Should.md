@@ -3,7 +3,7 @@
 NEGATIVE ASSERTIONS
 --------------
 
-When reviewing the operators listed below, keep in mind that all of them can be negated by putting the word "Not" between "Should" and the operator.  For example:
+When reviewing the operators listed below, keep in mind that all of them can be negated by putting the word "Not" between "Should" and the operator. For example:
 
 ```posh
 $true | Should Be $true
@@ -13,7 +13,7 @@ $true | Should Not Be $false
 SHOULD OPERATORS
 --------------
 ### Be
-Compares one object with another for equality and throws if the two objects are not the same.  This comparison is not case sensitive.
+Compares one object with another for equality and throws if the two objects are not the same. This comparison is not case sensitive.
 
 ```posh
 $actual="Actual value"
@@ -22,7 +22,7 @@ $actual | Should Be "not actual value"  # Test will fail
 ```
 
 ### BeExactly
-Compares one object with another for equality and throws if the two objects are not the same.  This comparison is case sensitive.
+Compares one object with another for equality and throws if the two objects are not the same. This comparison is case sensitive.
 
 ```posh
 $actual="Actual value"
@@ -45,7 +45,7 @@ $Error.Count | Should BeLessThan 1
 ```
 
 ### BeLike
-Asserts that the actual value matches a wildcard pattern using PowerShell's -like operator.  This comparison is not case-sensitive.
+Asserts that the actual value matches a wildcard pattern using PowerShell's -like operator. This comparison is not case-sensitive.
 
 ```posh
 $actual="Actual value"
@@ -54,7 +54,7 @@ $actual | Should BeLike "not actual *" # Test will fail
 ```
 
 ### BeLikeExactly
-Asserts that the actual value matches a wildcard pattern using PowerShell's -like operator.  This comparison is case-sensitive.
+Asserts that the actual value matches a wildcard pattern using PowerShell's -like operator. This comparison is case-sensitive.
 
 ```posh
 $actual="Actual value"
@@ -85,44 +85,44 @@ $actual | Should Exist # Test will fail
 To test path containing `[ ]` wildcards, escape each bracket with two back-ticks as such ````"TestDrive:\``[test``].txt"```` or use `Test-Path -LiteralPath $something | Should Be $true`.
 
 
-### Contain
-Checks to see if a file contains the specified text.  This search is not case sensitive and uses regular expressions. 
+### FileContentMatch
+Checks to see if a file contains the specified text. This search is not case sensitive and uses regular expressions. 
 
 ```posh
 Set-Content -Path TestDrive:\file.txt -Value 'I am a file'
-'TestDrive:\file.txt' | Should Contain 'I Am' # Test will pass
-'TestDrive:\file.txt' | Should Contain '^I.*file$' # Test will pass
+'TestDrive:\file.txt' | Should FileContentMatch 'I Am' # Test will pass
+'TestDrive:\file.txt' | Should FileContentMatch '^I.*file$' # Test will pass
 
-'TestDrive:\file.txt' | Should Contain 'I Am Not' # Test will fail
+'TestDrive:\file.txt' | Should FileContentMatch 'I Am Not' # Test will fail
 ```
 
 **Tip:** Use ```[regex]::Escape("pattern")``` to match the exact text.
 
 ```posh
 Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
-'TestDrive:\file.txt' | Should Contain 'I.am.a.file' # Test will pass
-'TestDrive:\file.txt' | Should Contain ([regex]::Escape('I.am.a.file')) # Test will fail
+'TestDrive:\file.txt' | Should FileContentMatch 'I.am.a.file' # Test will pass
+'TestDrive:\file.txt' | Should FileContentMatch ([regex]::Escape('I.am.a.file')) # Test will fail
 ```
 
 **Warning:** Make sure the input is either a quoted string or and Item object. Otherwise PowerShell will try to invoke the 
 path, likely throwing an error ```Cannot run a document in the middle of a pipeline```.
 
 ```posh
-c:\file.txt |  Should Contain something # Will throw an error
-'c:\file.txt' |  Should Contain something # Will evaluate correctly
+c:\file.txt |  Should FileContentMatch something # Will throw an error
+'c:\file.txt' |  Should FileContentMatch something # Will evaluate correctly
 ```
 
-### ContainExactly
-Checks to see if a file contains the specified text.  This search is case sensitive and uses regular expressions to match the text.
+### FileContentMatchExactly
+Checks to see if a file contains the specified text. This search is case sensitive and uses regular expressions to match the text.
 
 ```posh
 Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
-'TestDrive:\file.txt' | Should ContainExactly 'I am' # Test will pass
-'TestDrive:\file.txt' | Should ContainExactly 'I Am' # Test will fail
+'TestDrive:\file.txt' | Should FileContentMatchExactly 'I am' # Test will pass
+'TestDrive:\file.txt' | Should FileContentMatchExactly 'I Am' # Test will fail
 ```
 
 ### Match
-Uses a regular expression to compare two objects.  This comparison is not case sensitive.
+Uses a regular expression to compare two objects. This comparison is not case sensitive.
 
 ```posh
 "I am a value" | Should Match "I Am" # Test will pass
@@ -135,7 +135,7 @@ Uses a regular expression to compare two objects.  This comparison is not case s
 ```
 
 ### MatchExactly
-Uses a regular expression to compare two objects.  This comparison is case sensitive.
+Uses a regular expression to compare two objects. This comparison is case sensitive.
 
 ```posh
 "I am a value" | Should MatchExactly "I am" # Test will pass
