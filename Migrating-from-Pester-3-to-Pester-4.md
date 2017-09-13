@@ -6,8 +6,6 @@ We recommend performing string replacement on tests written for Pester 3 and ear
 
 1. replace all occurrences of any `Contain` assertion with `FileContentMatch`.
 1. rename all occurrences of `Assert-VerifiableMocks` to `Assert-VerifiableMock`
-1. rename all occurrences of `Get-MockDynamicParameters` to `Get-MockDynamicParameter`
-1. rename all occurrences of `Set-DynamicParameterVariables` to `Set-DynamicParameterVariable`
 
 You can use this simple script that can migrate test files in UTF8 and ASCII encoding:
 
@@ -46,8 +44,6 @@ foreach ($file in $testFiles)
     $content = $content -replace 'Should\s+\-?Contain', 'Should -FileContentMatch'
     $content = $content -replace 'Should\s+\-?Not\s*-?Contain', 'Should -Not -FileContentMatch'
     $content = $content -replace 'Assert-VerifiableMocks', 'Assert-VerifiableMock'
-    $content = $content -replace 'Get-MockDynamicParameters', 'Get-MockDynamicParameter'
-    $content = $content -replace 'Set-DynamicParameterVariables', 'Set-DynamicParameterVariable'
     $content | Set-Content -Path $file -Encoding $encoding
 }
 ```
