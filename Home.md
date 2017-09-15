@@ -15,7 +15,7 @@ Installation and usage
 * [[Installation and update]]
 * [[Migrating from Pester 3 to Pester 4]]
 
-Contributing to Pester
+Feedback and contributing to Pester
 ----------------------
 * [[Opening issues]]
 * [[Bug related issues]]
