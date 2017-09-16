@@ -54,8 +54,7 @@ Update-Module -Name Pester
 ```
 
 ### PowerShell 2
-On PowerShell 2 you can use an alternative to PowerShellGet called PSGet. See installation [instructions here](http://psget.net/).
-
+On PowerShell 2 you can use an alternative to PowerShellGet called PSGet. See installation [instructions here](http://psget.net/). When you have the package manager installed, please start a new _administrator_ PowerShell window and use:
 ```powershell
 Install-Module -Module Pester
 ```
@@ -78,7 +77,9 @@ Chocolatey (or choco) is the easiest way to [get Pester running on AppVeyor](htt
 
 ```
 choco install Pester
-# or
+```
+Or to update:
+```powershell
 choco install Pester --prerelease
 ```
 
