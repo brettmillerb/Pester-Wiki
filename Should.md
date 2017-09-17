@@ -1,3 +1,5 @@
+:warning: Almost all information on this page is relevant to Pester v. 3.x. A syntax for Pester v. 4.0 will be provided soon.
+
 `Should` is a command that provides assertion convenience methods for comparing objects and throwing test failures when test expectations fail. `Should` is used inside `It` blocks of a Pester test script.
 
 NEGATIVE ASSERTIONS
