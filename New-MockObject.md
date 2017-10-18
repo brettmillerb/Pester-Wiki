@@ -1,6 +1,6 @@
 New-MockObject is a Pester function (introduced in Pester 3.4.4) that allows you to create "fake" objects of almost any type to run in Pester mocks. These "fake objects" allow your mocks to return the same type as the function it was mocking to pass the result to entities that are strongly typed.
 
-To explain the problem that `New-MockObject` solves, we'll describe a scenario cannot be solved without it. I'm working with a script that contains two functions.
+To explain the problem that `New-MockObject` solves, we'll describe a scenario that cannot be solved without it. I'm working with a script that contains two functions.
 
 Do-Thing.ps1
 ================
