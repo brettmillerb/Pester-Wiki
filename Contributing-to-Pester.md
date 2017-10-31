@@ -25,7 +25,7 @@ OS version         : Microsoft Windows NT 10.0.14393.0
 
 The best way to report the reproduction steps is in a form of a Pester test. But it's not always easy to do, especially if you are reporting a bug in some internal part of the framework. So feel free to provide just a list of steps that need to be taken to reproduce the bug.
 
-### Proposing a new feature
+### Proposing a New Feature
 To propose a new feature, please create a new issue and share as much information as you see fit. Especially what the proposed feature is, why it is useful, and what dependencies (if any) it has. It would also be great if you added one or two examples of real world usage, if you have any. 
 
 When we discuss new features we look at how useful it is to the majority of users, how difficult it would be to implement, if breaking changes to the API must be introduced to have it, and if it's too specialized or too general to put in the codebase. But again, don't let that scare you away.
@@ -36,12 +36,12 @@ You don't have to report a bug or propose a feature to contact us. You can ask a
 ## Implementing a PR
 So now we talked about your proposed change in the issue and it's time for you to implement the change and make it into a pull request (PR).
 
-### Step 1 - forking the main repository
+### Step 1 - Forking the Main Repository
 You cannot add code directly to our repository, you need to first get your own copy "a fork". GitHub makes this really simple, all you need to do is log in with your GitHub account, navigate to [Pester repository](https://github.com/pester/Pester) and click the "Fork" button on the upper right. There is a helpful wizard to walk you through the process of forking and cloning the repository. At the end you should have a local copy of Pester on your computer.
 
 If you don't have much experience with git, I suggest you download the [GitHub desktop client](https://desktop.github.com/) that will make reviewing your changes really simple. I will be describing all the steps in commands that you need to put in command line. You can get to it by clicking the cog wheel in the application and selecting "Open in Git shell".
 
-### Step 2 - syncing your clone with the main repository
+### Step 2 - Syncing Your Clone with the Main Repository
 __If you just forked and cloned as described in the Step 1 you can skip directly to step 3. Your code is already up-to-date.__
 
 Otherwise you should make sure that your fork and your local copy (clone) is up to date. We will be updating the master branch, because that is where you should always start when creating a new PR.
@@ -139,7 +139,7 @@ To https://github.com/nohwnd/Pester.git
    6680807..dc550d2  master -> master
 ```
 
-### Step 3 - create a feature branch
+### Step 3 - Create a Feature Branch
 Switch to your master branch and create a new so-called feature branch from it. This branch will hold all changes for the PR you are implementing. You could put your changes directly into the master branch, but that's not recommended. 
 ```
 git checkout -b "FixHelpForShould"
@@ -154,10 +154,10 @@ C:\Users\nohwnd\Documents\GitHub\Pester [master ≡]> git checkout -b "FixHelpFo
 Switched to a new branch 'FixHelpForShould'
 C:\Users\nohwnd\Documents\GitHub\Pester [FixHelpForShould]>
 ```
-### Step 4 - implement your changes
+### Step 4 - Implement Your Changes
 Now you can start implementing your changes. Make sure that your changes are relevant to the feature that you are implementing/the bug you are fixing. Avoid changing formatting and style of code that is not relevant to your changes.
 
-### Step 5 - comitting your changes
+### Step 5 - Commit Your Changes
 Once you are done with you changes you need to commit them to your branch
 
 
