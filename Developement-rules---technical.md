@@ -1,4 +1,19 @@
-Due that PowerShell is now available for operating system different than Windows, please
-- use [System.Environment]::NewLine instead `` `n`` or `\n`
+## General rules
+- any new feature requires tests for itself
+- any new publicly exposed (exported) function need to have comment based help fullfiled
+- any file need to end with an empty line
+- no trailing space in any lines
+- for indentation please use spaces not tabs
 
-If you share your local repository folder between Windows and Linux (e.g. by mounting/sharing it to a virtual machine) please set in the repository settings ```filemode = false``` - it needs to be done in the file .git\config.
+## PowerShell Core compatibility rules
+
+Due that Pester is now supported (since v. 4.0.9) also on PowerShell Core 6.x is now available for operating system different than Windows, please
+- use ```[System.Environment]::NewLine``` instead of `` `n``, `\n`, `` `r``, `\r` or combination of them
+- remember that the EOL (end of line) chars in files added to the Pester repository will be converted to Windows style automatically by git - it's configured by attributes set in [.gitattributes](https://git-scm.com/docs/gitattributes)
+- remember that if you would like to add any binary file e.g. graphic file to the Pester repository you need to align settings in the .gitatributes file
+- use ```Join-Path``` or String constructors containing ```[System.IO.Path]::DirectorySeparatorChar``` instead of direct use of ```\```
+- remember that in some cases references in the code are case sensitive e.g. in paths PowerShell on Linux and macOS (?)
+
+## Working on non-Windows systems - remarks
+
+If you share your local repository folder between Windows and Linux (e.g. by mounting/sharing it to a virtual machine) please set in the repository settings ```filemode = false``` - it needs to be done in the file .git\config. If you don't do it permissions on files will be changed what cause that files will be recognized by Git as modified.
