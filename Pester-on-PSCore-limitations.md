@@ -2,7 +2,7 @@ Since version 4.0.9 Pester is compatible with [PowerShell Core 6.x](https://gith
 
 - Gherkin tests are not supported - for all operation systems
 - Some tests take very long time on macOS - [GH-827](https://github.com/pester/Pester/issues/827)
-- Pester unit tests for test a code coverage of DSC resources can't be executed - DSC is not supported on MacOSX, support on Linux [requires additional software to be installed](https://docs.microsoft.com/en-us/powershell/dsc/lnxgettingstarted) - please read also (DSC Future Direction Update)[https://blogs.msdn.microsoft.com/powershell/2017/09/12/dsc-future-direction-update/] on the PowerShell Team Blog
+- Pester unit tests for test a code coverage of DSC resources can't be executed - DSC is not supported on MacOSX, support on Linux [requires additional software to be installed](https://docs.microsoft.com/en-us/powershell/dsc/lnxgettingstarted). Please read also [DSC Future Direction Update](https://blogs.msdn.microsoft.com/powershell/2017/09/12/dsc-future-direction-update/) on the PowerShell Team Blog
 - An error ```call depth overflow``` on macOS - [please check](https://github.com/PowerShell/PowerShell/issues/4268) - the one failing test (in the file Functions/Assertions/Be.Tests.ps1) in Pester is disabled due that bug
 
-Please remember that not only Pester need to be aligned to work on PowerShell Core 6.x. Also your test need to be aligned - please check the reference [[Development-rules--technical]] to read more.
+Please remember that not only Pester need to be aligned to work on PowerShell Core 6.x. Also your test need to be aligned - please check the reference [[Developement rules - technical]] to read more.
