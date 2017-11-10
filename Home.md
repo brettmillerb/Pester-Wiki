@@ -8,6 +8,7 @@ Concepts
 * [[Showing Test Results in CI (TeamCity, AppVeyor)]]
 * [[Generating Code Coverage metrics with Pester|Code Coverage]]
 * [[Contributing to Pester|Contributing to Pester]]
+* [[Pester on PowerShell Core - limitations|Pester on PSCore limitations]]
 * [[Articles and other resources]]
 
 Installation and usage
