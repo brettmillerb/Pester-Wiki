@@ -1,6 +1,6 @@
-:warning: All information on this page are relevant to Pester v. 4.x. You can read older version of this page - relevant to Pester v. 3.x [[here|Should-v3]].
+:warning: All information on this page are relevant to Pester v. 4.x. You can read older version of this page - relevant to Pester v. 3.x - [[here|Should-v3]].
 
-##Not covered on the page - please update if you can
+## Not covered on the page - please update if you can
 - BeIn
 - FileContentMatchMultiline
 
@@ -13,7 +13,7 @@ When reviewing the operators listed below, keep in mind that all of them can be 
 
 ```powershell
 $true | Should -Be $true
-$true | Should Not -Be $false
+$true | Should -Not -Be $false
 ```
 
 SHOULD OPERATORS
