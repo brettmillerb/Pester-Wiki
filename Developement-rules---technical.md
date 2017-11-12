@@ -9,10 +9,19 @@
 
 Due that Pester is now supported (since v. 4.0.9) also on PowerShell Core 6.x is now available for operating system different than Windows, please
 - use ```[System.Environment]::NewLine``` instead of `` `n``, `\n`, `` `r``, `\r` or combination of them
-- remember that the EOL (end of line) chars in files added to the Pester repository will be converted to Windows style automatically by git - it's configured by attributes set in [.gitattributes](https://git-scm.com/docs/gitattributes)
+- remember that the EOL (end of line) chars in files added to the Pester repository will be converted to Windows style automatically by git - it's configured by attributes set in [.gitattributes](https://git-scm.com/docs/gitattributes) so you can see something like
+
+```
+PS <FOLDER_PATH>/Pester> git add .
+warning: LF will be replaced by CRLF in Examples/Calculator/Add-Numbers.Tests.ps1.
+The file will have its original line endings in your working directory.
+```
+
 - remember that if you would like to add any binary file e.g. graphic file to the Pester repository you need to align settings in the .gitatributes file
 - use ```Join-Path``` or String constructors containing ```[System.IO.Path]::DirectorySeparatorChar``` instead of direct use of ```\```
 - remember that in some cases references in the code are case sensitive e.g. in paths PowerShell on Linux and macOS (?)
+- use Pester v4 notation for assertions e.g. ```1 | Should -Be 1``` not ```1 | Should Be 1```
+- avoid using aliases - specially ```?```,```%``` and other "one letters"
 
 ## Working on non-Windows systems - remarks
 
