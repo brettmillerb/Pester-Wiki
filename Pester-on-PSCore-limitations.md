@@ -1,4 +1,4 @@
-Since version 4.0.9 Pester is compatible with [PowerShell Core 6.x](https://github.com/powershell/powershell) with some limitations listed below
+Since version 4.1.0 Pester is compatible with [PowerShell Core 6.x](https://github.com/powershell/powershell) with some limitations listed below
 
 - Gherkin tests are not supported - for all operation systems
 - Some tests take very long time on macOS - [GH-827](https://github.com/pester/Pester/issues/827)
