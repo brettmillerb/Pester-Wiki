@@ -90,7 +90,6 @@
 | [Assert](https://github.com/nohwnd/Assert) | Jakub Jares |
 | [Format-Pester](https://github.com/equelin/Format-Pester)  | Erwan Quelin |
 | [PesterHelpers](https://github.com/PowerShellModules/PesterHelpers) | Ryan Yates |
-| [Pester-ExchangeServer](https://github.com/it-praktyk/Pester-ExchangeServer) | Wojciech Sciesinski |
 | [PowerShellGuard](https://github.com/smurawski/PowerShellGuard)| Steven Murawski |
 | [PesterOperationTest](https://github.com/torgro/PesterOperationTest) | Tore Groneng |
 | [PoshSpec](https://github.com/Ticketmaster/poshspec)  | Chris Hunt |
