@@ -89,7 +89,7 @@ Describe "Executing test code inside a dynamic module" {
 ### Manifest Modules
 Commands that are exported from a manifest module can be tested with Pester, but the Mock and InModuleScope features cannot be used with Manifest modules.
 
-There **is**, however, a simple workaround, which is to add an empty script module with a *.psm1 extension into the RootModule (or ModulesToProcess) attribute of the manifest *.psd1 file. This basically converts the Manifest module into a Script module instead.
+There **is**, however, a simple workaround, which is to add an empty script module with a *.psm1 extension into the RootModule (or ModuleToProcess) attribute of the manifest *.psd1 file. This basically converts the Manifest module into a Script module instead.
 
 For example, save the script below as "MyModule.psd1" to create a PowerShell **Manifest** module.
 
