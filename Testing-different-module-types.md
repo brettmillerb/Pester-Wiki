@@ -1,9 +1,7 @@
-Placeholder for page explaining what different module types are there, and how to test each of them with Pester.
----
-# Overview
+## Overview
 This page describes Pester's support for various types of PowerShell modules, and workarounds for limitations in the [Mock](Mock.md) and [InModuleScope](InModuleScope.md) features for some module types.
 
-# Types of Modules
+## Types of Modules
 PowerShell modules are a way of grouping related scripts and resources together to make it easier to use them. There are a number of different types of modules, each of which have slightly different characteristics:
 
 * Script modules
@@ -11,11 +9,22 @@ PowerShell modules are a way of grouping related scripts and resources together 
 * Manifest modules
 * Dynamic modules
 
-You can determine what type a specific modules is by using ```Import-Module``` to import it, and then using ```Get-Module``` to show its details. The ```ModuleType``` property will be one of the above values.
+To determine the type of a module you can use the `Get-Module` cmdlet.
 
-Note that these types are described more fully in the [Understanding a Windows PowerShell Module](https://technet.microsoft.com/en-us/library/dd878324(v=vs.85).aspx) page on the Microsoft TechNet website.
+```
+ModuleType Version    Name        
+---------- -------    ----
+Script     4.1.0      Pester
+Script     4.0.8      Pester
+```
 
-# Pester Support
+The `ModuleType` property will be one of the above values. 
+
+> To inspect your modules you might need to use `-ListAvailable` or load the module first, using `Import-Module` and then inspect it.
+
+Note that module types are described more fully in the [Understanding a Windows PowerShell Module](https://technet.microsoft.com/en-us/library/dd878324(v=vs.85).aspx) page on the Microsoft TechNet website.
+
+## Pester Support
 Pester can be used to test the behavior of commands that are exported from all types of modules. For example the following test will call the ```Invoke-PublicMethod``` command regardless of whether it is defined in a Script, Binary, Manifest or Dynamic module:
 
 ```
@@ -30,15 +39,16 @@ Describe "Invoke-PublicMethod" {
 However, the [Mock](Mock.md) and [InModuleScope](InModuleScope.md) features can only be used for commands in **Script** modules due to limitations in the way that other module types are implemented in PowerShell. As a result, you may see error message when trying to use Mock or InModuleScope with non-Script modules:
 
 ```
-Module 'MyManifestModule' is not a Script module.  Detected modules of the following types: 'Manifest'
+Module 'MyManifestModule' is not a Script module. Detected modules of the following types: 'Manifest'
 ```
 
+## Usage and workarounds
 The following sections describe Pester's support for the Mock and InModuleScope features for each type of module, and workarounds for the error above, if available.
 
-## Script Modules
+### Script Modules
 Pester fully supports Script modules, so the Mock and InModuleScope features can be used without any workarounds.
 
-## Dynamic Modules
+### Dynamic Modules
 The Mock and InModuleScope features can be used with Dynamic modules if the module is first imported using ```Import-Module```. For example:
 
 ```
@@ -70,7 +80,7 @@ Describe "Executing test code inside a dynamic module" {
     }
 }
 ```
-## Manifest Modules
+### Manifest Modules
 Commands that are exported from a manifest module can be tested with Pester, but the Mock and InModuleScope features cannot be used with Manifest modules.
 
 There **is**, however, a simple workaround, which is to add an empty script module with a *.psm1 extension into the RootModule (or ModulesToProcess) attribute of the manifest *.psd1 file. This basically converts the Manifest module into a Script module instead.
@@ -90,7 +100,9 @@ Then, to convert it into a Script module, create a new blank file called "MyModu
 ```
 @{
 ModuleVersion     = '1.0'
+
 RootModule       = "MyModule.psm1" # <-- add this line to convert a Manifest module into a Script module
+
 NestedModules     = @( "Invoke-PrivateManifestMethod.ps1", "Invoke-PublicManifestMethod.ps1" )
 FunctionsToExport = @( "Invoke-PublicManifestMethod" )
 }
@@ -98,8 +110,8 @@ FunctionsToExport = @( "Invoke-PublicManifestMethod" )
 
 PowerShell will then load the module as a Script module instead, and Pester's Mock and InModuleScope features will work as per normal.
 
-## Binary Modules
-Commands that are exported from a Binary module can be tested with Pester, but the Mock and InModuleScope features cannot be used with Binary modules, and there are unfortunately no workarounds at present.
+### Binary Modules
+Commands that are exported from a Binary module can be tested with Pester, but the Mock and InModuleScope features cannot be used with Binary modules, and there are currently no workarounds.
 
 
 
