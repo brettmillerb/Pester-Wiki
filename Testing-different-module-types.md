@@ -27,7 +27,7 @@ Note that module types are described more fully in the [Understanding a Windows 
 ## Pester Support
 Pester can be used to test the behavior of commands that are exported from all types of modules. For example the following test will call the ```Invoke-PublicMethod``` command regardless of whether it is defined in a Script, Binary, Manifest or Dynamic module:
 
-```
+```powershell
 Describe "Invoke-PublicMethod" {
     It "returns a value" {
         $result = Invoke-PublicMethod
@@ -36,7 +36,7 @@ Describe "Invoke-PublicMethod" {
 }
 ```
 
-However, the [Mock](Mock.md) and [InModuleScope](InModuleScope.md) features can only be used for commands in **Script** modules due to limitations in the way that other module types are implemented in PowerShell. As a result, you may see error message when trying to use Mock or InModuleScope with non-Script modules:
+However, the [Mock](Mock.md) and [InModuleScope](InModuleScope.md) features can only be used for commands in **Script** modules due to limitations in the way that other module types are implemented in PowerShell. As a result, you may see an error message when trying to use Mock or InModuleScope with non-Script modules:
 
 ```
 Module 'MyManifestModule' is not a Script module. Detected modules of the following types: 'Manifest'
@@ -51,12 +51,12 @@ Pester fully supports Script modules, so the Mock and InModuleScope features can
 ### Dynamic Modules
 The Mock and InModuleScope features can be used with Dynamic modules if the module is first imported using ```Import-Module```. For example:
 
-```
+```powershell
 # create a dynamic module
 $myDynamicModule = New-Module -Name MyDynamicModule {
-    function InternalFunction { 'I am the internal function' }
-    function PublicFunction   { InternalFunction }
-    Export-ModuleMember -Function PublicFunction
+    function Invoke-PrivateFunction { 'I am the internal function' }
+    function Invoke-PublicFunction  { Invoke-PrivateFunction }
+    Export-ModuleMember -Function Invoke-PublicFunction
 }
 
 # import the dynamic module
@@ -64,22 +64,28 @@ $myDynamicModule | Import-Module -Force
 
 # use InModuleScope and Mock for commands inside the dynamic module
 Describe "Executing test code inside a dynamic module" {
-   It "Can mock functions inside the module when using Mock -ModuleName" {
-        Mock InternalFunction MyDynamicModule { 'I am the mock function.' }
-        PublicFunction | Should -Be 'I am the mock function.'
-        AssertMock InternalFunction MyDynamicModule
+
+    Context "Using the Mock command" {
+        It "Can mock functions inside the module when using Mock -ModuleName" {
+            Mock Invoke-PrivateFunction { 'I am the mock function.' } -ModuleName MyDynamicModule
+            Invoke-PublicFunction | Should -Be 'I am the mock function.'
+            Assert-MockCalled Invoke-PrivateFunction -ModuleName MyDynamicModule
+        }
     }
+
     InModuleScope MyDynamicModule {
         It "Can call module internal functions using InModuleScope" {
-            InternalFunction | Should -Be 'I am the internal function'
+            Invoke-PrivateFunction | Should -Be 'I am the internal function'
         }
         It "Can mock functions inside the module without using Mock -ModuleName" {
-            Mock InternalFunction { 'I am the mock function.' }
-            InternalFunction | Should -Be 'I am the mock function.'
+            Mock Invoke-PrivateFunction { 'I am the mock function.' }
+            Invoke-PrivateFunction | Should -Be 'I am the mock function.'
         }
     }
+
 }
 ```
+
 ### Manifest Modules
 Commands that are exported from a manifest module can be tested with Pester, but the Mock and InModuleScope features cannot be used with Manifest modules.
 
@@ -87,7 +93,7 @@ There **is**, however, a simple workaround, which is to add an empty script modu
 
 For example, save the script below as "MyModule.psd1" to create a PowerShell **Manifest** module.
 
-```
+```powershell
 @{
 ModuleVersion     = '1.0'
 NestedModules     = @( "Invoke-PrivateManifestMethod.ps1", "Invoke-PublicManifestMethod.ps1" )
@@ -95,13 +101,13 @@ FunctionsToExport = @( "Invoke-PublicManifestMethod" )
 }
 ```
 
-Then, to convert it into a Script module, create a new blank file called "MyModule.psm1" and modify the MyModule.pasd1 as follows:
+Then, to convert it into a Script module, create a new blank file called "MyModule.psm1" and modify the MyModule.psd1 as follows:
 
-```
+```powershell
 @{
 ModuleVersion     = '1.0'
 
-RootModule       = "MyModule.psm1" # <-- add this line to convert a Manifest module into a Script module
+RootModule        = "MyModule.psm1" # <-- add this line to convert a Manifest module into a Script module
 
 NestedModules     = @( "Invoke-PrivateManifestMethod.ps1", "Invoke-PublicManifestMethod.ps1" )
 FunctionsToExport = @( "Invoke-PublicManifestMethod" )
