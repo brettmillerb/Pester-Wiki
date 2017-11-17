@@ -92,6 +92,7 @@
 | [PesterHelpers](https://github.com/PowerShellModules/PesterHelpers) | Ryan Yates |
 | [PowerShellGuard](https://github.com/smurawski/PowerShellGuard)| Steven Murawski |
 | [PesterOperationTest](https://github.com/torgro/PesterOperationTest) | Tore Groneng |
+| [PestWatch](https://github.com/GOEddie/PestWatch) | Ed Elliott |
 | [PoshSpec](https://github.com/Ticketmaster/poshspec)  | Chris Hunt |
 | [PowerShell Pester Dashboard Kickstarter](https://github.com/doesitscript/PSPesterDashboardKickstarter/tree/develop) | Josh Castillo |
 | [PesterMatchArray](https://github.com/stuartleeks/PesterMatchArray)  | Stuart Leeks |
