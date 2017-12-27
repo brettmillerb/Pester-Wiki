@@ -22,7 +22,7 @@ warning: LF will be replaced by CRLF in Examples/Calculator/Add-Numbers.Tests.ps
 The file will have its original line endings in your working directory.
 ```
 
-- remember that if you would like to add any binary file e.g. graphic file to the Pester repository you need to align settings in the .gitatributes file
+- remember that if you would like to add any binary file e.g. graphics file to the Pester repository you need to align settings in the .gitattributes file
 - use ```Join-Path``` or String constructors containing ```[System.IO.Path]::DirectorySeparatorChar``` instead of direct use of ```\```
 - remember that in some cases references in the code are case sensitive e.g. in paths PowerShell on Linux and macOS (?)
 
