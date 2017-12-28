@@ -1,4 +1,5 @@
 ## General rules
+
 - any new feature requires tests for itself
 - any new publicly exposed (exported) function need to have comment based help fulfilled
 - any file needs to end with an empty line
@@ -25,6 +26,8 @@ The file will have its original line endings in your working directory.
 - remember that if you would like to add any binary file e.g. graphics file to the Pester repository you need to align settings in the .gitattributes file
 - use ```Join-Path``` or String constructors containing ```[System.IO.Path]::DirectorySeparatorChar``` instead of direct use of ```\```
 - remember that in some cases references in the code are case sensitive e.g. in paths PowerShell on Linux and macOS (?)
+
+Please read also [[Pester on PSCore -limitations|Pester-on-PSCore-limitations.md]].
 
 ## Working on non-Windows systems - remarks
 
