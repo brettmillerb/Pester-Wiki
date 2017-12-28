@@ -49,7 +49,10 @@
 |[Writing Pester Tests](https://github.com/PowerShell/PowerShell/blob/master/docs/testing-guidelines/WritingPesterTests.md)| PowerShell Community | 2016-11-07|
 |[Unit Testing with Pester : Storing complex Mock objects in a JSON file](https://mathieubuisson.github.io/storing-mock-objects-in-json/) | Mathieu Buisson | 2017-02-14|
 |[Mocking New-Object in Pester with PowerShell classes](https://bentaylor.work/2017/01/mocking-new-object-in-pester-with-powershell-classes/) | Ben Taylor | 2017-01-10|
+|[Getting Started with Pester](http://duffney.io/GettingStartedWithPester)| Josh Duffney | 2017-08-23 |
 |[Writing and Using Custom Assertions for Pester Tests](https://mathieubuisson.github.io/pester-custom-assertions/) | Mathieu Buisson | 2017-10-31|
+|[Building An Infrastructure Pipeline Part 2 - Testing]](https://samcogan.com/building-an-infrastructure-pipeline-part-2/) | Sam Cogan | 2017-11-27|
+|[Azure Security Audits With Pester](https://samcogan.com/azure-security-audits-with-pester)| Sam Cogan | 2017-12-20|
 
 ### Test your module with Pester
 (Sort order - date of publication)
