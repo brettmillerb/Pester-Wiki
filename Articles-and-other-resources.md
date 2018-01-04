@@ -95,6 +95,7 @@
 |:-----|:-------|
 | [Assert](https://github.com/nohwnd/Assert) | Jakub Jares |
 | [Format-Pester](https://github.com/equelin/Format-Pester)  | Erwan Quelin |
+| [Pester Test Runner Build Task](https://marketplace.visualstudio.com/items?itemName=richardfennellBM.BM-VSTS-PesterRunner-Task) for VSTS | Richard Fennell |
 | [PesterHelpers](https://github.com/PowerShellModules/PesterHelpers) | Ryan Yates |
 | [PowerShellGuard](https://github.com/smurawski/PowerShellGuard)| Steven Murawski |
 | [PesterOperationTest](https://github.com/torgro/PesterOperationTest) | Tore Groneng |
