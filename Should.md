@@ -1,7 +1,6 @@
 :warning: All information on this page are relevant to Pester v. 4.x. You can read older version of this page - relevant to Pester v. 3.x - [[here|Should-v3]].
 
 ## Not covered on the page - please update if you can
-- BeIn
 - FileContentMatchMultiline
 
 `Should` is a command that provides assertion convenience methods for comparing objects and throwing test failures when test expectations fail. `Should` is used inside `It` blocks of a Pester test script.
@@ -41,6 +40,14 @@ Asserts that a number is greater than an expected value. Uses PowerShell's -gt o
 
 ```powershell
 $Error.Count | Should -BeGreaterThan 0
+```
+
+### BeIn
+Asserts that the actual value is contained by the array/collection
+
+```powershell
+'b' | Should -BeIn @('a','b','c')
+27 | Should -BeIn 1..100
 ```
 
 ### BeLessThan
