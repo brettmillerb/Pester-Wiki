@@ -79,9 +79,13 @@ If you need to mock calls to commands which are made from inside a Script Module
 
 ### MOCKING A FUNCTION THAT IS CALLED BY A METHOD IN A POWERSHELL CLASS
 
-Author of an explanation: Dave Wyatt
+In PowerShell 6, functions called by classes can be mocked as above, with no known problems.
 
-> PowerShll 5.x is caching class definitions in such a way that the first module to load the class would be the active one, even if you removed the module or changed the class. This totally screws with Pester's Mock command, as it can't find the proper scope to inject the mock. My recommendation at the time was to run your Pester tests in a fresh session every time; this is simple to do with Start-Job. I have this proxy function in my PowerShell profile to help with that:
+However previous versions of PowerShell, including **all** versions of Windows PowerShell up to 5.1 cache class definitions in such a way that they are never redefined, even if you remove the module and re-import, or modify the class. This breaks Pester's Mock command, as the scope where the mock must be injected cannot be found. 
+
+Dave Wyatt has provided this workaround:
+
+> Simply run your Pester tests in a fresh session every time; this is simple to do with Start-Job. I have this proxy function in my PowerShell profile to help with that:
 
 ```
 function Invoke-PesterJob
@@ -144,7 +148,5 @@ function Invoke-PesterJob
 Set-Alias ipj Invoke-PesterJob
 
 ```
-
-The described issue is probably resolved in PowerShell 6.x.
 
 [Source](https://github.com/pester/Pester/issues/797#issuecomment-314495326)
