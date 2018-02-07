@@ -3,27 +3,29 @@ and also to verify behavior. Using these mocking functions can allow you to
 "shim" a data layer or mock other complex functions that already have their 
 own tests.
 
-DESCRIPTION
-------------
+## DESCRIPTION
+
 With the set of Mocking functions that Pester exposes, one can:
 
 * Mock the behavior of ANY powershell command.
 * Verify that specific commands were (or were not) called.
 * Verify the number of times a command was called with a set of specified parameters.
 
-MOCKING FUNCTIONS
--------------------
+## MOCKING FUNCTIONS
+
 ### Mock
+
 Mocks the behavior of an existing command with an alternate implementation.
 
 ### Assert-VerifiableMocks
+
 Checks if any Verifiable Mock has not been invoked. If so, this will throw an exception.
 
 ### Assert-MockCalled
+
 Checks if a Mocked command has been called a certain number of times and throws an exception if it has not.
 
-EXAMPLE
---------
+## EXAMPLE
 
 ```posh
 function Build ($version) {
@@ -75,7 +77,7 @@ If you need to mock calls to commands which are made from inside a Script Module
 
 ---
 
-MOCKING A FUNCTION THAT IS CALL BY A METHOD IN A POWERSHELL CLASS
+### MOCKING A FUNCTION THAT IS CALLED BY A METHOD IN A POWERSHELL CLASS
 
 Author of an explanation: Dave Wyatt
 
