@@ -47,7 +47,7 @@ Asserts that the actual value is contained by the array/collection
 
 ```powershell
 'b' | Should -BeIn @('a','b','c')
-27 | Should -BeIn 1..100
+27 | Should -BeIn (1..100)
 ```
 
 ### BeLessThan
@@ -84,6 +84,14 @@ $actual | Should -BeOfType System.IO.DirectoryInfo   # Test will pass; object is
 $actual | Should -BeOfType System.IO.FileSystemInfo  # Test will pass; DirectoryInfo base class is FileSystemInfo
 
 $actual | Should -BeOfType System.IO.FileInfo        # Test will fail; FileInfo is not a base class of DirectoryInfo
+```
+
+### Contains
+Asserts that the collection contains value specified using PowerShell's -contains operator.
+
+```powershell
+'a','b','c' | Should -Contain b
+1..10 | Should -Contain 42
 ```
 
 ### Exist
