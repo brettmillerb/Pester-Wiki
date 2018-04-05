@@ -86,7 +86,7 @@ $actual | Should -BeOfType System.IO.FileSystemInfo  # Test will pass; Directory
 $actual | Should -BeOfType System.IO.FileInfo        # Test will fail; FileInfo is not a base class of DirectoryInfo
 ```
 
-### Contains
+### Contain
 Asserts that the collection contains value specified using PowerShell's -contains operator.
 
 ```powershell
