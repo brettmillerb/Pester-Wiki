@@ -91,7 +91,7 @@ Asserts that the collection contains value specified using PowerShell's -contain
 
 ```powershell
 'a','b','c' | Should -Contain b
-1..10 | Should -Contain 42
+1..100 | Should -Contain 42
 ```
 
 ### Exist
