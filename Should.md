@@ -125,7 +125,7 @@ Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
 'TestDrive:\file.txt' | Should -FileContentMatch ([regex]::Escape('I.am.a.file')) # Test will fail
 ```
 
-**Warning:** Make sure the input is either a quoted string or and Item object. Otherwise PowerShell will try to invoke the
+**Warning:** Make sure the input is either a quoted string or an Item object. Otherwise PowerShell will try to invoke the
 path, likely throwing an error ```Cannot run a document in the middle of a pipeline```.
 
 ```powershell
