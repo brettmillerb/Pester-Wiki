@@ -142,6 +142,24 @@ Set-Content -Path TestDrive:\file.txt -Value 'I am a file.'
 'TestDrive:\file.txt' | Should -FileContentMatchExactly 'I Am' # Test will fail
 ```
 
+### FileContentMatchMultiline
+As opposed to FileContentMatch and FileContentMatchExactly operators, FileContentMatchMultiline presents content of the file being tested as one string object, so that the expression you are comparing it to can consist of several lines.
+
+```powershell
+$Content = "I am the first line.`nI am the second line."
+Set-Content -Path TestDrive:\file.txt -Value $Content -NoNewline
+'TestDrive:\file.txt' | Should -FileContentMatchMultiline 'first line\.\r?\nI am' # Test will pass
+'TestDrive:\file.txt' | Should -FileContentMatchMultiline '^I am the first.*\n.*second line\.$' # Test will pass.
+```
+
+When using FileContentMatchMultiline operator, `^` and `$` represent the beginning and end of the whole file, instead of the beginning and end of a line.
+
+```powershell
+$Content = "I am the first line.`nI am the second line."
+Set-Content -Path TestDrive:\file.txt -Value $Content -NoNewline
+'TestDrive:\file.txt' | Should -FileContentMatchMultiline '^I am the first line\.$' # Test will fail.
+```
+
 ### Match
 Uses a regular expression to compare two objects. This comparison is not case sensitive.
 
