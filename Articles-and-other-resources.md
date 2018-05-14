@@ -18,11 +18,11 @@
 | [Create your first Pester script to test a DSC resource](https://pwrshell.net/create-your-first-pester-script-to-test-a-dsc-resource/)  | Fabien Dibot | 2014-11-30 |
 | [Build your Azure lab with DSC and validate it using Pester – 1/3](https://pwrshell.net/build-your-azure-lab-with-dsc-and-validate-it-using-pester-13/) | Fabien Dibot | 2014-12-27 |
 | [Build your Azure lab with DSC and validate it using Pester – 2/3](https://pwrshell.net/build-your-azure-lab-with-dsc-and-validate-it-using-pester-23/) | Fabien Dibot | 2015-01-04 |
-| [Boost your productivity with Pester snippets](http://www.powershellmagazine.com/2015/01/13/boost-your-productivity-with-pester-snippets/) | Jakub Jares | 2015-01-13 | 
+| [Boost your productivity with Pester snippets](http://www.powershellmagazine.com/2015/01/13/boost-your-productivity-with-pester-snippets/) | Jakub Jares | 2015-01-13 |
 | [Pester: Triangulation and reusing test cases](http://www.powershellmagazine.com/2015/06/04/pester-triangulation-and-reusing-test-cases/) | Jakub Jares | 2015-06-04 |
 | [Comparing Objects using JSON in PowerShell for Pester Tests](https://dscottraynsford.wordpress.com/2015/08/23/comparing-objects-using-json-in-powershell-for-pester-tests/) | Daniel Scott-Raynsford | 2015-08-23 |
 | [Pester Explained: Introduction and Assertions](http://www.powershellmagazine.com/2015/12/01/pester-explained-introduction-and-assertions/) | Jakub Jares | 2015-12-01 |
-| [Pester Explained: Should](http://www.powershellmagazine.com/2015/12/02/pester-explained-should/) | Jakub Jares | 2015-12-02 | 
+| [Pester Explained: Should](http://www.powershellmagazine.com/2015/12/02/pester-explained-should/) | Jakub Jares | 2015-12-02 |
 | [Pester Explained: Describe, Context, and It Blocks](http://www.powershellmagazine.com/2015/12/03/pester-explained-describe-context-and-it-blocks/) | Jakub Jares | 2015-12-03 |
 | [Testing Script Modules with Pester - series](https://blogs.technet.microsoft.com/heyscriptingguy/2015/12/14/what-is-pester-and-why-should-i-care)  | Dave Wyatt | 2015-12-14|
 | [Download Free Pester Cheat Sheet](https://kajbonfils.com/2016/05/download-free-pester-cheat-sheet) | Kaj Bonfils | 2016-05-18|
@@ -56,6 +56,7 @@
 |[2 Ways to Loop through collections in Pester](https://sqldbawithabeard.com/2017/11/28/2-ways-to-loop-through-collections-in-pester/)| Rob Sewell | 2017-11-28|
 |[Handling Missing Instances when Looping with Pester](https://sqldbawithabeard.com/2017/11/30/handling-missing-instances-when-looping-with-pester/)| Rob Sewell | 2017-11-30|
 |[Azure Security Audits With Pester](https://samcogan.com/azure-security-audits-with-pester)| Sam Cogan | 2017-12-20|
+|[Adding a code coverage badge to a PowerShell project](http://wragg.io/add-a-code-coverage-badge-to-your-powershell-deployment-pipeline/)| Mark Wragg | 2018-05-14|
 
 ### Test your module with Pester
 (Sort order - date of publication)
