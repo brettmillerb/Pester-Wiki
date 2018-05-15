@@ -39,6 +39,14 @@ Asserts that a number is greater than an expected value. Uses PowerShell's -gt o
 $Error.Count | Should -BeGreaterThan 0
 ```
 
+### BeGreaterOrEqual
+Asserts that a number (or other comparable value) is greater than or equal to an expected value. Uses PowerShell's -ge operator to compare the two values.
+
+```powershell
+2 | Should -BeGreaterOrEqual 0
+2 | Should -BeGreaterOrEqual 2
+```
+
 ### BeIn
 Asserts that the actual value is contained by the array/collection
 
@@ -53,6 +61,15 @@ Asserts that a number is less than an expected value. Uses PowerShell's -lt oper
 ```powershell
 $Error.Count | Should -BeLessThan 1
 ```
+
+### BeLessOrEqual
+Asserts that a number (or other comparable value) is lower than, or equal to an expected value. Uses PowerShell's -le operator to compare the two values.
+
+```powershell
+1 | Should -BeLessOrEqual 10
+10 | Should -BeLessOrEqual 10
+```    
+
 
 ### BeLike
 Asserts that the actual value matches a wildcard pattern using PowerShell's -like operator. This comparison is not case-sensitive.
@@ -81,6 +98,31 @@ $actual | Should -BeOfType System.IO.DirectoryInfo   # Test will pass; object is
 $actual | Should -BeOfType System.IO.FileSystemInfo  # Test will pass; DirectoryInfo base class is FileSystemInfo
 
 $actual | Should -BeOfType System.IO.FileInfo        # Test will fail; FileInfo is not a base class of DirectoryInfo
+```
+
+### BeTrue
+Asserts that the value is true, or truthy.
+
+```powershell
+$true | Should -BeTrue
+1 | Should -BeTrue
+1,2,3 | Should -BeTrue
+```
+
+### BeFalse
+Asserts that the value is false of falsy.
+
+```powershell
+$false | Should -BeFalse
+0 | Should -BeFalse
+$null | Should -BeFalse
+```
+
+### HaveCount
+Asserts that a collection has the expected amount of items.
+
+```powershell
+1,2,3 | Should -HaveCount 3
 ```
 
 ### Contain
