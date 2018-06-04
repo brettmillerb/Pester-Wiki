@@ -104,7 +104,7 @@ function Update-PesterTest {
 
     .EXAMPLE
 
-    Update-PesterTest -Path .\Pester3-Tests .\Pester4-Tests
+    Update-PesterTest -Path .\Pester3-Tests\Dumy.Tests.ps1 .\Pester4-Tests\Dumy.Tests.ps1
 
     .NOTES
     Original author
