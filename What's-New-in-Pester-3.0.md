@@ -2,7 +2,7 @@ What's New in Pester 3.0?
 -------
 
 ### Scope Isolation
-    
+
 Tests.ps1 scripts are now executed in a separate scope than Pester's internal code, preventing some types of bugs that would occur when a test script happened to define a function or variable name that matched something Pester uses internally (or mock calls to a function that Pester needs internally.)
 
 Note:  This may be a breaking change for any test scripts which were calling internal Pester functions directly, instead of accessing what was intended to be the public API.  Test scripts should now limit themselves to the following Pester commands:  `Describe`, `Context`, `It`, `Should`, `Mock`, `Assert-MockCalled`, `Assert-VerifiableMocks`, `In`, `Setup`, `Get-TestDriveItem`, `BeforeEach`, `AfterEach`, and `InModuleScope`.  Outside of test scripts, the commands `Invoke-Pester` and `New-Fixture` are available.
