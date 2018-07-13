@@ -267,7 +267,7 @@ Describe "Add-Numbers" {
 	    $sum | should -Be 3
 	}
 
-    It "ensures that that 2 + 2 does not equal 5" {
+    It "ensures that 2 + 2 does not equal 5" {
 	    $sum = Add-Numbers 2 2
 	    $sum | should -Not -Be 5
 	}
