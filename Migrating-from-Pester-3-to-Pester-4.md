@@ -48,6 +48,7 @@ function Get-FileEncoding {
     else
     { Write-Output 'ASCII' }
 }
+```
 
 ## Update to the new assertions syntax
 
@@ -69,7 +70,7 @@ Now assertions can be provided as parameters to Should, that allows richer asser
 ``` powershell
 
     It 'Check something' {
-        10 | Should Be 10
+        10 | Should -Be 10
     }
 
 ```
