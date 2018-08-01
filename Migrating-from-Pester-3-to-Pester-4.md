@@ -146,6 +146,7 @@ function Update-PesterTest {
 
     begin {
         $shouldParams = [String[]](Get-Command Should).Parameters.Keys
+        $destIsEmpty = [String]::IsNullOrEmpty($Destination)
     }
 
     process {
@@ -190,7 +191,7 @@ function Update-PesterTest {
                 }
             }
 
-        if ( [String]::IsNullOrEmpty($Destination)) { $Destination = $Path }
+        if ( $destIsEmpty) { $Destination = $Path }
 
         Set-Content -Path $Destination -Value $script -NoNewline -Encoding $encoding
     }
