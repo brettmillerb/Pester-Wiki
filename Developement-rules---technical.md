@@ -9,7 +9,7 @@
 - avoid using aliases - specially ```?```,```%``` and other "one letters"
 - before push code to the Pester GitHub repository run tests for Pester code
 - all tests need to be run with ```Set-StrictMode -Version Latest```
-- supported versions of Windows PowerShell 2.0 - 5.x and PowerShell Core 6.x, please make you're code compatible with them
+- supported versions of Windows PowerShell 2.0 - 5.x and PowerShell Core 6.x, please make your code compatible with them
 
 ## PowerShell Core compatibility rules
 
