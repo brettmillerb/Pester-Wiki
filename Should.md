@@ -110,7 +110,7 @@ $true | Should -BeTrue
 ```
 
 ### BeFalse
-Asserts that the value is false of falsy.
+Asserts that the value is false, or falsy.
 
 ```powershell
 $false | Should -BeFalse
