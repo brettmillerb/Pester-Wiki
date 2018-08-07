@@ -37,6 +37,8 @@ Asserts that a number is greater than an expected value. Uses PowerShell's -gt o
 
 ```powershell
 $Error.Count | Should -BeGreaterThan 0
+[version]'2.3.4.5' | Should -BeGreaterThan ([version]'1.0.0.1')
+(Get-Date).AddMinutes(5) | Should -BeGreaterThan (Get-Date)
 ```
 
 ### BeGreaterOrEqual
