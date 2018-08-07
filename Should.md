@@ -83,7 +83,7 @@ $actual | Should -BeLike "not actual *" # Test will fail
 ```
 
 ### BeLikeExactly
-Asserts that the actual value matches a wildcard pattern using PowerShell's -like operator. This comparison is case-sensitive.
+Asserts that the actual value matches a wildcard pattern using PowerShell's -clike operator. This comparison is case-sensitive.
 
 ```powershell
 $actual="Actual value"
