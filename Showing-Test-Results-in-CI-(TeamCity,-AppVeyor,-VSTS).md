@@ -62,3 +62,23 @@ test_script:
 Be careful!
 
 **That's it! May all your tests be green!**
+
+[VSTS](https://visualstudio.microsoft.com/team-services/)
+------------
+
+With VSTS the concept is very similar again, you run pester then publish the results back to VSTS. This can be done through a YAML configruation or through tasks run on the agent in the build pipeline.
+
+An example of a PowerShell script to run against a single pester test file.
+
+```
+# This updates pester not always necessary but worth noting
+Install-Module -Name Pester -Force -SkipPublisherCheck
+
+Import-Module Pester
+
+Invoke-Pester -Script $(System.DefaultWorkingDirectory)\MyFirstModule.test.ps1 -OutputFile $(System.DefaultWorkingDirectory)\Test-Pester.XML -OutputFormat NUnitXML
+```
+
+Then add a Publish Test Results task, it is important to change the Test Result format to NUnit to allow VSTS to ingest the output file.
+
+**Note** Using the Azure PowerShell task doesn't require you to enable the control option of "Continue on error" before the publish test results. If you use one of the Pester Marketplace tools your mileage may vary.
