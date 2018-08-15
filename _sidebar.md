@@ -1,15 +1,17 @@
 Concepts
 ----------
+
 * [[What is Pester?|Pester]]
 * [[Isolating File Operations using the TestDrive|TestDrive]]
 * [[Performing Assertions with Should|Should]]
 * [[Mocking Commands with Pester|Mocking with Pester]]
 * [[Unit Testing within Modules]]
-* [[Showing Test Results in CI (TeamCity, AppVeyor)]]
+* [[Showing Test Results in CI (TeamCity, AppVeyor, VSTS)]]
 * [[Generating Code Coverage metrics|Code Coverage]]
 
 Command Reference
 ------------------
+
 * [[Describe]]
 * [[Context]]
 * [[It]]

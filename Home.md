@@ -1,11 +1,12 @@
 Concepts
 ----------
+
 * [[What is Pester?|Pester]]
 * [[Isolating File Operations using the TestDrive|TestDrive]]
 * [[Performing Assertions with Should|Should]]
 * [[Mocking Commands with Pester|Mocking with Pester]]
 * [[Unit Testing within Modules]]
-* [[Showing Test Results in CI (TeamCity, AppVeyor)]]
+* [[Showing Test Results in CI (TeamCity, AppVeyor, VSTS)]]
 * [[Generating Code Coverage metrics with Pester|Code Coverage]]
 * [[Contributing to Pester|Contributing to Pester]]
 * [[Pester on PowerShell Core - limitations|Pester on PSCore limitations]]
@@ -13,11 +14,13 @@ Concepts
 
 Installation and usage
 ----------------------
+
 * [[Installation and update]]
 * [[Migrating from Pester 3 to Pester 4]]
 
 Feedback and contributing to Pester
 ----------------------
+
 * [[Opening issues]]
 * [[Bug related issues]]
 * [[Feature requests]]
