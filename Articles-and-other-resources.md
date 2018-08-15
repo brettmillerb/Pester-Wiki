@@ -1,6 +1,7 @@
 ## Articles
 
 ### Pester general
+
 (Sort order - date of publication)
 
 | Title | Author | Date |
@@ -59,6 +60,7 @@
 |[Adding a code coverage badge to a PowerShell project](http://wragg.io/add-a-code-coverage-badge-to-your-powershell-deployment-pipeline/)| Mark Wragg | 2018-05-14|
 
 ### Test your module with Pester
+
 (Sort order - date of publication)
 
 | Title | Author | Date |
@@ -88,8 +90,16 @@
 | [Pester the Tester PowerShell Bugs Beware](https://www.youtube.com/watch?v=o4ihc7atwYQ) | Robert Cain | 2016-06-14 |
 | [Introduction to testing with Pester](https://www.youtube.com/watch?v=F3oOk0BC9B4) | Jakub Jares | 2017-04-08 |
 
+## Courses
+
+(Sort order - ?)
+
+| Name | Author |
+|:-----|:-------|
+| [Testing PowerShell with Pester](https://mva.microsoft.com/en-US/training-courses/17650?l=mg8oBM9vD_8811787177) | Ashley McGlone, Adam Bertram |
 
 ## Projects
+
 (Sort order - name of project)
 
 | Name | Author |
@@ -110,8 +120,8 @@
 | [Watchmen](https://github.com/devblackops/watchmen) | Brandon Olin |
 
 ## Integrations
-(Sort order - ?)
 
+(Sort order - ?)
 
 | Name | Author | Date |
 |:-----|:-------|:-----|
