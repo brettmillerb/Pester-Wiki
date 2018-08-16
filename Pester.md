@@ -1,4 +1,4 @@
-Pester is a BDD based test runner for PowerShell.
+Pester is a Behavior-Driven Development (BDD) based test runner for PowerShell.
 
 Pester provides a framework for running Unit Tests to execute and validate 
 PowerShell commands. Pester follows a file naming convention for naming 
