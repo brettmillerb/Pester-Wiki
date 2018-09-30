@@ -43,7 +43,7 @@ Update-Module -Name Pester
 ```
 
 ### PowerShell 3 and 4
-On PowerShell 3 and 4, there is no default package manager installed, but luckily PowerShellGet is available for installation. See detailed [instructions here](https://docs.microsoft.com/en-us/powershell/gallery/psget/get_psget_module). When you have the package manager installed, please start a new _administrator_ PowerShell window and use:
+On PowerShell 3 and 4, there is no default package manager installed, but luckily PowerShellGet is available for installation. See detailed [instructions here](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget#get-powershellget-module-for-powershell-versions-30-and-40). When you have the package manager installed, please start a new _administrator_ PowerShell window and use:
 
 ```powershell
 Install-Module -Name Pester
