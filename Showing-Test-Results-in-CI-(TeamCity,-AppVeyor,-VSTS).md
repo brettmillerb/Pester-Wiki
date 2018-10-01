@@ -66,7 +66,7 @@ Be careful!
 [VSTS](https://visualstudio.microsoft.com/team-services/)
 ------------
 
-With VSTS the concept is very similar again, you run pester then publish the results back to VSTS. This can be done through a YAML configruation or through tasks run on the agent in the build pipeline.
+With VSTS the concept is very similar again, you run pester then publish the results back to VSTS. This can be done through a YAML configuration or through tasks run on the agent in the build pipeline.
 
 An example of a PowerShell script to run against a single pester test file.
 
