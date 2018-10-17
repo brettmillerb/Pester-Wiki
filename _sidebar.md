@@ -6,7 +6,7 @@ Concepts
 * [[Performing Assertions with Should|Should]]
 * [[Mocking Commands with Pester|Mocking with Pester]]
 * [[Unit Testing within Modules]]
-* [[Showing Test Results in CI (TeamCity, AppVeyor, VSTS)]]
+* [[Showing Test Results in CI (TeamCity, AppVeyor, Azure DevOps)]]
 * [[Generating Code Coverage metrics|Code Coverage]]
 
 Command Reference
