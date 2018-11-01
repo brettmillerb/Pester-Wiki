@@ -97,6 +97,7 @@
 | Name | Author |
 |:-----|:-------|
 | [Testing PowerShell with Pester](https://mva.microsoft.com/en-US/training-courses/17650?l=mg8oBM9vD_8811787177) | Ashley McGlone, Adam Bertram |
+| [PSKoans - A simple, fun, and interactive way to learn the PowerShell language through Pester unit testing.](https://github.com/vexx32/PSKoans) | Joel Sallow and a Community |
 
 ## Projects
 
