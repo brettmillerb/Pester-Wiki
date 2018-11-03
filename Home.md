@@ -24,7 +24,7 @@ Feedback and contributing to Pester
 * [[Opening issues]]
 * [[Bug related issues]]
 * [[Feature requests]]
-* [[Contributing to project]]
+* [[Contributing to Pester]]
 * [[Developement rules - technical]]
 
 Command Reference
