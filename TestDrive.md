@@ -4,7 +4,7 @@ A test may need to work with file operations and validate certain types of file 
 
 Scoping
 -------
-A basic scoping rules are implemented for the TestDrive. A clean TestDrive is created for every Describe and all the files created are available in the whole Describe scope. If the Context keyword is also used the state of the TestDrive is recorded before moving into the Context block. Inside the Context block the files from the Describe scope are available for reading and modification. You can move them around and create new ones as well.
+Basic scoping rules are implemented for the TestDrive. A clean TestDrive is created for every Describe and all the files created are available in the whole Describe scope. If the Context keyword is also used the state of the TestDrive is recorded before moving into the Context block. Inside the Context block the files from the Describe scope are available for reading and modification. You can move them around and create new ones as well.
 
 Once the Context block is finished all the files created inside that block are deleted, leaving only the files created in the Describe block. When the Describe block is finished all contents of the TestDrive are discarded.
 
