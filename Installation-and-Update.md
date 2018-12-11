@@ -8,13 +8,23 @@ Windows 10 and Windows Server 2016 make installing and updating PowerShell modul
 
 Pester version 3.4.0 ships as part of Windows 10 and Windows server 2016, and that distribution conflicts with the standard module update mechanism. It is not possible to update the built-in Pester to newer version, using the `Update-Module` cmdlet. 
 
-Instead you need to perform a new side-by-side installation of Pester. You are also required to [skip publisher check](https://info.sapien.com/index.php/scripting/scripting-modules/effect-of-skippublishercheck), and force the installation, because `Install-Module` detects the current installation of Pester is signed with a different signature than the one you are installing.
+Instead you need to perform a new side-by-side installation of Pester, because `Install-Module` detects the current installation of Pester is signed with a different signature than the one you are installing.
 
 Here's the command you need to run _as administrator_ in order to get the latest version of Pester:
 
 ```powershell
-Install-Module -Name Pester -Force -SkipPublisherCheck
+Install-Module -Name Pester -Force
 ```
+
+Installing the module may result in this message:
+
+```
+WARNING: Module 'Pester' version '3.4.0' published by 
+'CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US' 
+will be superceded by version '4.4.3' published by 'CN=Jakub Jareš, O=Jakub Jareš, 
+L=Praha, C=CZ'. If you do not trust the new publisher, uninstall the module.
+```
+This is because the module is signed by a different certificate than the version that Microsoft shipped with Windows. 
 
 For any subsequent update it is enough to run: 
 
