@@ -31,7 +31,7 @@ To propose a new feature, please create a new issue and share as much informatio
 When we discuss new features we look at how useful it is to the majority of users, how difficult it would be to implement, if breaking changes to the API must be introduced to have it, and if it's too specialized or too general to put in the codebase. But again, don't let that scare you away.
 
 ### Got anything else to say?
-You don't have to report a bug or propose a feature to contact us. You can ask any Pester related questions by creating a new issue, or contacting us on [gitter](https://gitter.im/pester/Pester). There is also a whole range of solved issues, that might answer your question right away, the best way to find information is through the "This repository" search field on the top of any GitHub page. On the search result page you can switch (on the left) between Code, Issues and Wikis. (Pull requests are just a sub-type of an issue.)
+You don't have to report a bug or propose a feature to contact us. You can ask any Pester related questions by creating a new issue, or contacting us on [PowerShell Slack #testing channel](https://powershell.slack.com/messages/C03QKTUCS/). There is also a whole range of solved issues, that might answer your question right away, the best way to find information is through the "This repository" search field on the top of any GitHub page. On the search result page you can switch (on the left) between Code, Issues and Wikis. (Pull requests are just a sub-type of an issue.)
 
 ## Implementing a PR
 So now we talked about your proposed change in the issue and it's time for you to implement the change and make it into a pull request (PR).
