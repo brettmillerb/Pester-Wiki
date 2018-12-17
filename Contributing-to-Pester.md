@@ -30,6 +30,9 @@ To propose a new feature, please create a new issue and share as much informatio
 
 When we discuss new features we look at how useful it is to the majority of users, how difficult it would be to implement, if breaking changes to the API must be introduced to have it, and if it's too specialized or too general to put in the codebase. But again, don't let that scare you away.
 
+### Picking up issue marked as help wanted
+Some of the issues are marked as [help wanted](https://github.com/pester/Pester/labels/help%20wanted). Those issues are looking for contributors to research them or implement them. When you decided to implement the issue, please comment in the issue thread so others don't waste time implementing the same thing as you.
+
 ### Got anything else to say?
 You don't have to report a bug or propose a feature to contact us. You can ask any Pester related questions by creating a new issue, or contacting us on [PowerShell Slack #testing channel](https://powershell.slack.com/messages/C03QKTUCS/). There is also a whole range of solved issues, that might answer your question right away, the best way to find information is through the "This repository" search field on the top of any GitHub page. On the search result page you can switch (on the left) between Code, Issues and Wikis. (Pull requests are just a sub-type of an issue.)
 
