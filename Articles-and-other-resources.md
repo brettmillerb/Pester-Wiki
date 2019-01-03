@@ -89,6 +89,7 @@
 | [Testing PowerShell with Pester](https://www.pluralsight.com/courses/powershell-testing-pester)  | Robert Cain | 2016-06-18 | [https://www.pluralsight.com/courses/powershell-testing-pester]|
 | [Pester the Tester PowerShell Bugs Beware](https://www.youtube.com/watch?v=o4ihc7atwYQ) | Robert Cain | 2016-06-14 |
 | [Introduction to testing with Pester](https://www.youtube.com/watch?v=F3oOk0BC9B4) | Jakub Jares | 2017-04-08 |
+| [Mastering PowerShell testing with Pester](https://www.youtube.com/watch?v=BbOiQCgDDR8) | Mark Wragg | 2018-10-10 |
 
 ## Courses
 
