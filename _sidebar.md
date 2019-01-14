@@ -27,4 +27,5 @@ Command Reference
 * [[Assert-VerifiableMocks]]
 * [[Assert-MockCalled]]
 * [[InModuleScope]]
+* [[Set‐ItResult]]
 * [[Set‐TestInconclusive]]
