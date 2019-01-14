@@ -1,6 +1,6 @@
 This command can be used inside an `It` block to explicitly set the test result to be 'Inconclusive'.
 
-- :warning: **As of Pester 4.5.0 the `Set-TestInconclusive` cmdlet is deprecated. You should now use the more flexible `Set-ItResult` cmdlet instead that is described [here](Set-ItResult)**.
+- :warning: **As of Pester 4.5.0 the `Set-TestInconclusive` cmdlet is deprecated. You should now use the more flexible `Set-ItResult` cmdlet instead that is described [here](Set‐ItResult)**.
 
 ## DESCRIPTION
 
