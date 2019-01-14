@@ -46,5 +46,5 @@ Command reference section is not updated automatically yet - please check the he
 * [[Assert-VerifiableMocks]]
 * [[Assert-MockCalled]]
 * [[InModuleScope]]
-* [[Set%E2%80%90ItResult]]
+* [Set-ItResult](https://github.com/pester/Pester/wiki/Set%E2%80%90ItResult)
 * [[Set‐TestInconclusive]]
