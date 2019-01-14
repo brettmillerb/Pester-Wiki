@@ -266,14 +266,12 @@ Describe "Add-Numbers" {
 
 	It "adds positive numbers" {
 	    $sum = Add-Numbers 2 3
-	    $sum | should -Be 3
+	    $sum | should -Be 3 # Test will fail
 	}
 
     It "ensures that 2 + 2 does not equal 5" {
 	    $sum = Add-Numbers 2 2
-	    $sum | should -Not -Be 5
+	    $sum | should -Not -Be 5 # Test will pass
 	}
 }
 ```
-
-This test will fail since 3 will not be equal to the sum of 2 and 3.
