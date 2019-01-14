@@ -1,6 +1,6 @@
 This command can be used inside an `It` block to explicitly set the test result to either 'Inconclusive', 'Pending' or 'Skipped' along with an optional explanatory message. 
 
-- :information_source: **As of Pester 4.5.0 this command replaces the now deprecated `Set-TestInconclusive` cmdlet that is described [here](Set-TestInconclusive).**
+- :information_source: **As of Pester 4.5.0 this command replaces the now deprecated `Set-TestInconclusive` cmdlet that is described [here](https://github.com/pester/Pester/wiki/Set%E2%80%90TestInconclusive).**
 
 ## DESCRIPTION
 
