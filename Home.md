@@ -46,4 +46,5 @@ Command reference section is not updated automatically yet - please check the he
 * [[Assert-VerifiableMocks]]
 * [[Assert-MockCalled]]
 * [[InModuleScope]]
+* [[Set-ItResult]]
 * [[Set‐TestInconclusive]]
