@@ -79,6 +79,20 @@ instead.
 The path where Invoke-Pester will save a NUnit formatted test results log file. 
 If this path is not provided, no log will be generated.
 
+### Show
+The parameter takes flags of a new type [Pester.OutputTypes] with the following options: Default, Passed, Failed, Pending,
+Skipped, Inconclusive, Describe, Context, Summary.
+
+And three special options: None, All and Fails. The All option is the default and prints all the output. The None option is replacement for the -Quiet parameter (still present and not deprecated). The Fails option shows everything except Passed.
+
+The options can be arbitrarily mixed, for example to provide a very verbose output that includes only failed tests and summary use:
+`Invoke-Pester -Show Summary, Failed`
+
+The Summary, Failed option is deliberately not chosen as the Fails option because it is assumed that the Describe and Context information are valuable for the general user, and it's much harder to spell out the definition of Fails than the definition of Summary, Failed.
+
+The Summary, Failed option can be added to the OutputTypes as a special case but it currently doesn't have a good name.
+
+
 ### PesterOption
 Sets advanced options for the test execution.  Enter a PesterOption object, such as one that you create by using the New-PesterOption cmdlet, or a hash table in which the keys are option names and the values are option values.
 
@@ -117,3 +131,10 @@ Example 5
     $result = Invoke-Pester -PassThru
 
 This saves an object containing the results of the tests to the $result variable.  This can be analyzed as part of a Continuous Integration solution developed in PowerShell.
+
+Example 6
+------------
+
+    Invoke-Pester -Show Failed, Summary
+
+This runs all tests, but only outputs information about the failed tests _and_ the summary.
