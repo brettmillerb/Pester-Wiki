@@ -1,27 +1,20 @@
 Creates an object that contains advanced options for Invoke-Pester.
 
-INCLUDEVSCODEMARKER
+PARAMETERS
 ----------
+### IncludeVSCodeMarker
 When this switch is set, an extra line of output will be written to the console for test failures, making it easier for VSCode's parser to provide highlighting / tooltips on the line where the error occurred.
 
-INCLUDEVSCODEMARKER
-----------
-When this switch is set, an extra line of output will be written to the console for test failures, making it easier
-for VSCode's parser to provide highlighting / tooltips on the line where the error occurred.
-
-TESTSUITENAME
-----------
+### TestSuiteName
 When generating NUnit XML output, this controls the name assigned to the root "test-suite" element.  Defaults to "Pester".
 
-EXPERIMENTAL
-----------
+### Experimental
 Enables experimental features of Pester to be enabled.
 
-SHOWSCOPEHINTS
-----------
+### ShowScopeHints
 EXPERMINETAL: Enables debugging output for debugging tranisition among scopes. (Experimental flag needs to be used to enable this.)
 
-Example 1
+Example
 ---------
     $Options = New-PesterOption -TestSuiteName "Tests - Set A"
 
