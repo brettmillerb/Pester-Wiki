@@ -1,5 +1,6 @@
-Creates a logical group of tests.  All Mocks and TestDrive contents defined within a `Describe` block are scoped to that `Describe`; they will no longer be present when the `Describe` block exits.  A `Describe`
-block may contain any number of `Context` and `It` blocks.
+Creates a logical group of tests.  All Mocks and TestDrive contents defined within a `Describe` block are scoped to that `Describe`; they will no longer be present when the `Describe` block exits.
+
+A block may contain any number of `Context` and `It` blocks.
 
 PARAMETERS
 -------------
