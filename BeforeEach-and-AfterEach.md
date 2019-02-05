@@ -7,10 +7,25 @@ The `BeforeEach` and `AfterEach` commands allow you to define setup and teardown
 
 The script blocks assigned to `BeforeEach` and `AfterEach` are dot-sourced in the `Context` or `Describe` which contains the current `It` statement, so you don't have to worry about the scope of variable assignments.  Any variables that are assigned values within a `BeforeEach` block can be used inside the body of the `It` block.
 
+`BeforeAll` and `AfterAll` are used the same way as `BeforeEach` and `AfterEach`, except that they are executed at the beginning and end of their containing `Describe` or `Context` block. This is essentially syntactic sugar for the following arrangement of code:
+
+```posh
+Describe 'Something' {
+    try {
+        <BeforeAll Code Here>
+
+        <Describe Body>
+    }
+    finally {
+        <AfterAll Code Here>
+    }
+}
+```
+
 ---
 ### Note about syntax and placement
 
-Unlike most of the commands in a Pester script, `BeforeEach` and `AfterEach` blocks apply to the entire `Describe` or `Context` scope in which they are defined, regardless of the order of commands inside the `Describe` or `Context`.  In other words, even if an `It` block appears before `BeforeEach` or `AfterEach` in the tests file, the `BeforeEach` and `AfterEach` will still be executed.
+Unlike most of the commands in a Pester script, `BeforeEach` and `AfterEach` blocks apply to the entire `Describe` or `Context` scope in which they are defined, regardless of the order of commands inside the `Describe` or `Context`.  In other words, even if an `It` block appears before `BeforeEach` or `AfterEach` in the tests file, the `BeforeEach` and `AfterEach` will still be executed. Likewise, `BeforeAll` code will be executed at the beginning of a `Context` or `Describe` block regardless of where it is found, and `AfterAll` code will execute at the end of the `Context` or `Describe`.
 
 ---
 
@@ -21,12 +36,13 @@ Describe 'Testing BeforeEach and AfterEach' {
     $afterEachVariable = 'AfterEach has not been executed yet'
 
     It 'Demonstrates that BeforeEach may be defined after the It command' {
-        $beforeEachVariable | Should Be 'Set in a describe-scoped BeforeEach'
-        $afterEachVariable | Should Be 'AfterEach has not been executed yet'
+        $beforeEachVariable | Should -Be 'Set in a describe-scoped BeforeEach'
+        $afterEachVariable  | Should -Be 'AfterEach has not been executed yet'
+        $beforeAllVariable  | Should -Be 'BeforeAll has been executed'
     }
 
     It 'Demonstrates that AfterEach has executed after the end of the first test' {
-        $afterEachVariable | Should Be 'AfterEach has been executed'
+        $afterEachVariable | Should -Be 'AfterEach has been executed'
     }
 
     BeforeEach {
@@ -35,6 +51,10 @@ Describe 'Testing BeforeEach and AfterEach' {
 
     AfterEach {
         $afterEachVariable = 'AfterEach has been executed'
+    }
+
+    BeforeAll {
+        $beforeAllVariable = 'BeforeAll has been executed'
     }
 }
 ```
